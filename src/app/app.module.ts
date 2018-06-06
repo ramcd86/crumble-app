@@ -11,10 +11,19 @@ import {HomeModule} from './home/home.module';
 // Routes
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {DietLogComponent} from './diet-log/diet-log.component';
+import {DietStatisticsComponent} from './diet-statistics/diet-statistics.component';
+import {SystemAdministrationComponent} from './system-administration/system-administration.component';
+import {UserAdministrationComponent} from './user-administration/user-administration.component';
 const crumbsRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '/home', component: HomeComponent, data: {title: 'Crumble Home'}}
+  {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
+  {path: 'dashboard', component: DashboardComponent, data: {title: 'Crumbs Dashboard'}},
+  {path: 'diet-log', component: DietLogComponent, data: {title: 'Crumbs Diet Log'}},
+  {path: 'diet-statistics', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
+  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, data: {title: 'Crumbs System Administration'}},
+  {path: 'user-account', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
 ];
 
 @NgModule({
