@@ -1,17 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container-fluid">
   <div class="row col-md-10 col-md-offset-1">
-    <nav><h3>
-      <a routerLink="/home">Home</a> -
-      <a routerLink="/dashboard">Dashboard</a> -
-      <a routerLink="/diet-log">Diet Log</a> -
-      <a routerLink="/diet-statistics">Diet Stats</a> -
-      |
-      <a routerLink="/user-account">Manage Account</a> -
-      <a routerLink="/crumble-system-administrator-login">Admin Login</a></h3>
-    </nav>
+    <span class="header-style-font">crumbs</span>
   </div>
-  <div class="row col-md-10 col-md-offset-1">
-    <router-outlet></router-outlet>
+  <div class="big-cell col-md-10 col-md-offset-1">
+    <div class="row col-md-12">
+      <nav><h3>
+        <a routerLink="/home">Home</a> -
+        <a routerLink="/dashboard">Dashboard</a> -
+        <a routerLink="/diet-log">Diet Log</a> -
+        <a routerLink="/diet-statistics">Diet Stats</a> -
+        |
+        <a routerLink="/user-account">Manage Account</a> -
+        <a routerLink="/crumble-system-administrator-login">Admin Login</a></h3>
+      </nav>
+    </div>
+    <div class="row col-md-12">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
