@@ -16,14 +16,24 @@ body {
   color: #fff;
 }
 
-.header-div {
-  /*background-image: image(crumbs_logo.svg);*/
-  background-image: url("/assets/images/crumbs_logo.png");
-  background-position: center center;
-  background-size: 50% auto;
-  background-repeat: no-repeat;
-  height: 20vh;
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
 }
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/*.header-div {*/
+  /*!*background-image: image(crumbs_logo.svg);*!*/
+  /*background-image: url("/assets/images/crumbs_logo.png");*/
+  /*background-position: center center;*/
+  /*background-size: 50% auto;*/
+  /*background-repeat: no-repeat;*/
+  /*height: 20vh;*/
+/*}*/
 
 .background-gradient {
   min-height: 100vh;
