@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   public calculatorFunc() {
     const calCap = this.totalSyns - this.userSyns;
     const Totes = (calCap * 100) / this.totalSyns;
-    return Totes;
+    return Totes - 100;
     // return Math.floor(this.totalSyns / this.userSyns) * 100;
     // return Math.floor(this.userSyns / this.totalSyns);
   }

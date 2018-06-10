@@ -40,9 +40,12 @@ body {
   min-width: 100vw;
   background: linear-gradient(
     to bottom right,
-    #EB3349,
-    #F45C43
-  );
+    /*#EB3349,*/
+    /*#F45C43*/
+    /*#c6ffdd,*/
+    /*#FF4E50,*/
+    #FF4E50,
+    #F9D423  );
 }
 
 .big-cell {

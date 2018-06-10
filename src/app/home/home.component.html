@@ -1,17 +1,23 @@
 
-<div class="col-md-4 col-sm-12 center-block text-center"><circle-progress
-  [percent]="85"
-  [radius]="110"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'#78C000'"
-  [innerStrokeColor]="'#C7E596'"
-  [animation]="true"
-  [animationDuration]="1000"
-></circle-progress></div>
+<div class="col-md-4 col-sm-12 center-block text-center">
+  <!--<circle-progress-->
+    <!--[percent]="calculatorFunc()"-->
+    <!--[radius]="100"-->
+    <!--[outerStrokeWidth]="16"-->
+    <!--[innerStrokeWidth]="8"-->
+    <!--[outerStrokeColor]="'#EB3349'"-->
+    <!--[innerStrokeColor]="'#F45C43'"-->
+    <!--[animation]="true"-->
+    <!--[units]="totalSyns + ' / ' + userSyns"-->
+    <!--[showUnits]="true"-->
+    <!--[animationDuration]="1000"-->
+    <!--[responsive]="true"-->
+    <!--[toFixed]="0"-->
+    <!--[title]="dietDeficitType"-->
+<!--&gt;</circle-progress>-->
+</div>
 <div class="col-md-4 col-sm-12 center-block text-center">
   <input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">
-  <input type="text" disabled [value]="calculatorFunc()">
   <circle-progress
   [percent]="calculatorFunc()"
   [radius]="100"
@@ -26,15 +32,23 @@
   [responsive]="true"
   [toFixed]="0"
   [title]="dietDeficitType"
+  [showBackground]="false"
 ></circle-progress></div>
-<div class="col-md-4 col-sm-12 center-block text-center"><circle-progress
-  [percent]="85"
-  [radius]="110"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'#78C000'"
-  [innerStrokeColor]="'#C7E596'"
-  [animation]="true"
-  [animationDuration]="1000"
-></circle-progress></div>
+<div class="col-md-4 col-sm-12 center-block text-center">
+  <!--<circle-progress-->
+  <!--[percent]="calculatorFunc()"-->
+  <!--[radius]="100"-->
+  <!--[outerStrokeWidth]="16"-->
+  <!--[innerStrokeWidth]="8"-->
+  <!--[outerStrokeColor]="'#EB3349'"-->
+  <!--[innerStrokeColor]="'#F45C43'"-->
+  <!--[animation]="true"-->
+  <!--[units]="totalSyns + ' / ' + userSyns"-->
+  <!--[showUnits]="true"-->
+  <!--[animationDuration]="1000"-->
+  <!--[responsive]="true"-->
+  <!--[toFixed]="0"-->
+  <!--[title]="dietDeficitType"-->
+<!--&gt;</circle-progress>-->
+</div>
 
