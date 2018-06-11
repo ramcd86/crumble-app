@@ -25,13 +25,17 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userSyns = 0;
-    document.getElementById('littleCrumb').style.paddingTop = this.paddApplier() + 'px';
+    document.getElementById('littleCrumb1').style.paddingTop = this.paddApplier() + 'px';
+    document.getElementById('littleCrumb2').style.paddingTop = this.paddApplier() + 'px';
     // this.paddApplier();
     // this.binder();
+    console.log(this.paddApplier());
   }
 
   public paddApplier() {
-    return (document.getElementById('outerDashContainer').clientHeight - document.getElementById('littleCrumb').clientHeight);
+    const OD = document.getElementById('outerDashContainer').clientWidth;
+    const ID = document.getElementById('littleCrumb1').clientWidth;
+    return OD - ID;
   }
 
   public binder() {

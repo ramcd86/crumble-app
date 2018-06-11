@@ -4,7 +4,6 @@
     <nav>
       <div class="col-md-10 col-md-offset-1"><h4 class="pull-left">
         <a routerLink="/home"><span class="glyphicon glyphicon-home"></span> Home</a> -
-        <a routerLink="/dashboard"><span class="glyphicon glyphicon-tasks"></span> Dashboard</a> -
         <a routerLink="/diet-log"><span class="glyphicon glyphicon-book"></span> Diet Log</a> -
         <a routerLink="/diet-statistics"><span class="glyphicon glyphicon-stats"></span> Diet Stats</a>
       </h4>
@@ -26,7 +25,6 @@
       <div *ngIf="navStatus">
       <div class="col-md-10 col-md-offset-1"><h3 class="pull-left">
         <a routerLink="/home"><span class="glyphicon glyphicon-home"></span> Home</a> <br>
-        <a routerLink="/dashboard"><span class="glyphicon glyphicon-tasks"></span> Dashboard</a> <br>
         <a routerLink="/diet-log"><span class="glyphicon glyphicon-book"></span> Diet Log</a> <br>
         <a routerLink="/diet-statistics"><span class="glyphicon glyphicon-stats"></span> Diet Stats</a><br><br>
           <a routerLink="/user-account"><span class="glyphicon glyphicon-user"></span> Manage Account</a> <br>
@@ -60,19 +58,6 @@
   <app-dashboard></app-dashboard>
   <div
     class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
-    <div class="row no-gutters">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <nav><h3 class="pull-right">
-          <a routerLink="/home">Home</a> -
-          <a routerLink="/dashboard">Dashboard</a> -
-          <a routerLink="/diet-log">Diet Log</a> -
-          <a routerLink="/diet-statistics">Diet Stats</a>
-          |||
-          <a routerLink="/user-account">Manage Account</a> -
-          <a routerLink="/crumble-system-administrator-login">Admin Login</a></h3>
-        </nav>
-      </div>
-    </div>
     <div class="row no-gutters">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <router-outlet></router-outlet>

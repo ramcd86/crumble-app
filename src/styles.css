@@ -9,6 +9,10 @@ body {
   font-size: 1.8rem;
 }
 
+.white-text {
+  color: #FFF;
+}
+
 a:link, a:visited {
   color: #654ea3;
   text-decoration: #654ea3;
