@@ -1,7 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid background-gradient">
-  <div class="col-md-12 col-xs-12 col-sm-12 text-center" style="padding: 2rem;">
-    <img src="../assets/images/crumbs_logo.png" class="img-responsive center-block" style="max-width: 50vw;">
+<div class="navbar navbar-fixed-top nav-style">      <nav><h4 class="pull-right">
+  <a routerLink="/home"><span class="glyphicon glyphicon-home"></span> Home</a> -
+  <a routerLink="/dashboard"><span class="glyphicon glyphicon-tasks"></span> Dashboard</a> -
+  <a routerLink="/diet-log">Diet Log</a> -
+  <a routerLink="/diet-statistics"><span class="glyphicon glyphicon-stats"></span>Diet Stats</a>
+  |||
+  <a routerLink="/user-account">Manage Account</a> -
+  <a routerLink="/crumble-system-administrator-login">Admin Login</a></h4>
+</nav></div>
+<div class="container-fluid background-gradient" style="padding-top: 60px;">
+
+  <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-12 text-center" style="padding: 2rem;">
+    <img src="../assets/images/crumbs_logo.png" class="img-responsive center-block">
   </div>
   <app-dashboard></app-dashboard>
   <div class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">

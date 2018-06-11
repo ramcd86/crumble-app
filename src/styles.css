@@ -52,8 +52,14 @@ body {
   min-width: 100%;
   background: linear-gradient(
     to bottom right,
-      /*#EB3349,*/ /*#F45C43*/ /*#c6ffdd,*/ /*#FF4E50,*/ #8E2DE2,
-    #4A00E0);
+      /*#EB3349,*/ /*#F45C43*/ /*#c6ffdd,*/ /*#FF4E50,*/ #654ea3,
+    #eaafc8);
+}
+
+.nav-style {
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .big-cell {
