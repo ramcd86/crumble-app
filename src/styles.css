@@ -49,11 +49,11 @@ body {
 
 .background-gradient {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   background: linear-gradient(
     to bottom right,
-      /*#EB3349,*/ /*#F45C43*/ /*#c6ffdd,*/ /*#FF4E50,*/ #FF4E50,
-    #F9D423);
+      /*#EB3349,*/ /*#F45C43*/ /*#c6ffdd,*/ /*#FF4E50,*/ #8E2DE2,
+    #4A00E0);
 }
 
 .big-cell {

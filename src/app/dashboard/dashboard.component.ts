@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
 
   public totalSyns = 25;
   public userSyns: number;
-  public dietDeficitType = 'Syns';
+  public dietDeficitType = 'Points';
 
 
   constructor() {

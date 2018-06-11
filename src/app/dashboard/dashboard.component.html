@@ -24,7 +24,7 @@
       [outerStrokeWidth]="9"
       [innerStrokeWidth]="3"
       [outerStrokeColor]="'#ffffff'"
-      [innerStrokeColor]="'#F9D423'"
+      [innerStrokeColor]="'#8E2DE2'"
       [animation]="true"
       [units]="totalSyns + ' / ' + userSyns"
       [showUnits]="true"
@@ -33,6 +33,10 @@
       [toFixed]="0"
       [title]="dietDeficitType"
       [showBackground]="false"
+      [unitsColor]="'#FFFFFF'"
+      [titleColor]="'#FFFFFF'"
+      [animateTitle]="true"
+      [animateSubtitle]="true"
     ></circle-progress>
     <input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">
   </div>
