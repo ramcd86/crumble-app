@@ -9,6 +9,17 @@ body {
   font-size: 1.8rem;
 }
 
+a:link, a:visited {
+  color: #654ea3;
+  text-decoration: #654ea3;
+  text-decoration-line: none;
+}
+
+a:hover, a:active {
+  color: #eaafc8;
+  text-decoration-line: none;
+}
+
 .header-style-font {
   font-family: 'Indie Flower', Serif !important;
   font-size: 10rem;
@@ -71,4 +82,20 @@ body {
   display: block;
   overflow: visible;
   /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
+}
+
+.mobmenu {
+  display: none;
+}
+.deskmenu {
+  display: block;
+}
+
+@media (max-width: 999px) {
+  .mobmenu {
+    display: block;
+  }
+  .deskmenu {
+    display: none;
+  }
 }
