@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  public totalSyns = 25;
+  public userSyns: number;
+  public dietDeficitType = 'Syns';
 
-  ngOnInit() {
+
+  constructor() {
   }
 
+  ngOnInit() {
+    this.userSyns = 0;
+  }
+
+
+  public calculatorFunc() {
+    const calCap = this.totalSyns - this.userSyns;
+    const Totes = (calCap * 100) / this.totalSyns;
+    return Totes - 100;
+
+  }
 }

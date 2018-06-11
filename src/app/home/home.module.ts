@@ -1,21 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import {NgCircleProgressModule} from 'ng-circle-progress';
-import {FormsModule} from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HomeComponent} from './home.component';
+// import {DashboardModule} from '../dashboard/dashboard.module';
+// import {DashboardComponent} from '../dashboard/dashboard.component';
+// import {DashboardComponent} from '../dashboard/dashboard.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    NgCircleProgressModule.forRoot({
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: '#000000',
-      innerStrokeColor: '#FFFFFF',
-      animationDuration: 300
-    }),
-    FormsModule
+    // DashboardModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent,
+    // DashboardComponent
+  ]
 })
-export class HomeModule { }
+export class HomeModule {
+}

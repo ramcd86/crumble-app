@@ -20,19 +20,31 @@ body {
   margin-right: 0;
   margin-left: 0;
 }
+
 .row.no-gutters > [class^="col-"],
 .row.no-gutters > [class*=" col-"] {
   padding-right: 0;
   padding-left: 0;
 }
 
+.ringroad {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
 /*.header-div {*/
-  /*!*background-image: image(crumbs_logo.svg);*!*/
-  /*background-image: url("/assets/images/crumbs_logo.png");*/
-  /*background-position: center center;*/
-  /*background-size: 50% auto;*/
-  /*background-repeat: no-repeat;*/
-  /*height: 20vh;*/
+/*!*background-image: image(crumbs_logo.svg);*!*/
+/*background-image: url("/assets/images/crumbs_logo.png");*/
+/*background-position: center center;*/
+/*background-size: 50% auto;*/
+/*background-repeat: no-repeat;*/
+/*height: 20vh;*/
 /*}*/
 
 .background-gradient {
@@ -40,18 +52,17 @@ body {
   min-width: 100vw;
   background: linear-gradient(
     to bottom right,
-    /*#EB3349,*/
-    /*#F45C43*/
-    /*#c6ffdd,*/
-    /*#FF4E50,*/
-    #FF4E50,
-    #F9D423  );
+      /*#EB3349,*/ /*#F45C43*/ /*#c6ffdd,*/ /*#FF4E50,*/ #FF4E50,
+    #F9D423);
 }
 
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
-  /*border-radius: 10px;*/
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px;
   display: block;
   overflow: visible;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
 }

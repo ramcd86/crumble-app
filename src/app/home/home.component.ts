@@ -8,9 +8,6 @@ import {Title} from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  public totalSyns = 25;
-  public userSyns: number;
-  public dietDeficitType = 'Syns';
 
   constructor(
     private titleService: Title
@@ -19,16 +16,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Crumbs - Home');
-    this.userSyns = 0;
+
   }
 
-  public calculatorFunc() {
-    const calCap = this.totalSyns - this.userSyns;
-    const Totes = (calCap * 100) / this.totalSyns;
-    return Totes - 100;
-    // return Math.floor(this.totalSyns / this.userSyns) * 100;
-    // return Math.floor(this.userSyns / this.totalSyns);
-  }
 
 
 }

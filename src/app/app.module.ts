@@ -5,7 +5,8 @@ import {FormsModule} from '@angular/forms';
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
 import {UserAdministrationModule} from './user-administration/user-administration.module';
-import {DashboardModule} from './dashboard/dashboard.module';
+// import {DashboardModule} from './dashboard/dashboard.module';
+
 import {DietLogModule} from './diet-log/diet-log.module';
 import {DietStatisticsModule} from './diet-statistics/diet-statistics.module';
 import {HomeModule} from './home/home.module';
@@ -31,7 +32,8 @@ const crumbsRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -40,10 +42,18 @@ const crumbsRoutes: Routes = [
     BrowserModule,
     SystemAdministrationModule,
     UserAdministrationModule,
-    DashboardModule,
+    // DashboardModule,
     DietLogModule,
     DietStatisticsModule,
     HomeModule,
+    FormsModule,
+    NgCircleProgressModule.forRoot({
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: '#000000',
+      innerStrokeColor: '#FFFFFF',
+      animationDuration: 300
+    }),
     FormsModule
   ],
   providers: [],
