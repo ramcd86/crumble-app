@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-// import {HostListener} from '@angular/core';
 
-const LITTLE_CRUMBS = ['\'littleCrumb1\'', '\'littleCrumb2\'', '\'littleCrumb3\'', '\'littleCrumb4\'', '\'littleCrumb5\''];
 
 @Component({
   selector: 'app-dashboard',
@@ -58,6 +56,5 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     const calCap = this.totalSyns - this.userSyns;
     const Totes = (calCap * 100) / this.totalSyns;
     return Totes - 100;
-
   }
 }

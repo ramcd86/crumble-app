@@ -8,12 +8,18 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
 
   public navStatus: boolean;
+  public windowDesktop = false;
 
   constructor() {
   }
 
   ngOnInit() {
     this.navStatus = false;
+    if(window.innerWidth < 767) {
+      this.windowDesktop = true;
+    } else {
+      this.windowDesktop = false;
+    }
   }
 
   public toggleNav(): boolean {
