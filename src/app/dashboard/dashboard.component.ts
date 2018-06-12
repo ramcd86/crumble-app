@@ -1,25 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-import {HostListener} from '@angular/core';
+// import {HostListener} from '@angular/core';
+
+const LITTLE_CRUMBS = ['\'littleCrumb1\'', '\'littleCrumb2\'', '\'littleCrumb3\'', '\'littleCrumb4\'', '\'littleCrumb5\''];
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
-  // @HostListener('window:resize', ['$event'])
+  @ViewChild('littleCrumb') public littleCrumb: ElementRef;
+  @ViewChild('bigCrumb') public bigCrumb: ElementRef;
 
   public totalSyns = 25;
   public userSyns: number;
   public dietDeficitType = 'Points';
-  // public paddingSetter: any;
-  // public window = window.innerWidth;
-  public isWindowMobile: boolean;
-
-  // public padding: number;
-
+  public windowDesktop = true;
 
   constructor(
     private sanitizer: DomSanitizer
@@ -29,36 +27,31 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userSyns = 0;
-    document.getElementById('littleCrumb1').style.paddingTop = this.paddApplier() + 'px';
-    document.getElementById('littleCrumb2').style.paddingTop = this.paddApplier() + 'px';
-    this.isWindowMobile = false;
-    console.log(this.paddApplier());
   }
-
-  //NOT WORKING
-  public getBigCrumbHeight(event) {
-    const bigCrumb = event.target.innerHeight;
-    console.log('bigCrumb :', bigCrumb);
+  ngAfterViewInit() {
+    if (window.innerWidth > 999) {
+      this.windowDesktop = true;
+      document.getElementById('littleCrumb1').style.paddingTop = (
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+      document.getElementById('littleCrumb2').style.paddingTop = (
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+    } else {
+      this.windowDesktop = false;
+    }
   }
-  public getLittleCrumbHeight(event) {
-    const littleCrumb = event.target.innerHeight;
-    console.log('littleCrumb :', littleCrumb);
-  }
-
   public resizerCheck(event) {
     const windowSize = event.target.innerWidth;
     if (windowSize > 999) {
-      this.isWindowMobile = true;
+      this.windowDesktop = true;
+      document.getElementById('littleCrumb1').style.paddingTop = (
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+      document.getElementById('littleCrumb2').style.paddingTop = (
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
     } else {
-      this.isWindowMobile = false;
-    }
-    console.log('windowsize', windowSize);
-  }
+      this.windowDesktop = false;
 
-  public paddApplier() {
-    const OD = document.getElementById('outerDashContainer').clientWidth;
-    const ID = document.getElementById('littleCrumb1').clientWidth;
-    return OD - ID;
+    }
+
   }
 
   public calculatorFunc() {

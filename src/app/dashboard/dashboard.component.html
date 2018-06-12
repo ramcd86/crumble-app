@@ -10,7 +10,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-md-1 col-sm-0"></div>
-        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1"  (window:resize)="getLittleCrumbHeight($event)">
+        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb>
           <circle-progress
             [percent]="calculatorFunc()"
             [radius]="100"
@@ -32,7 +32,7 @@
             [animateSubtitle]="true"
           ></circle-progress>
         </div>
-        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer"  (window:resize)="getBigCrumbHeight($event)">
+        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer" #bigCrumb>
 
           <circle-progress
             [percent]="calculatorFunc()"
@@ -81,7 +81,7 @@
     </div>
     <input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">
   </div>
-  <div *ngSwitchCase="false" >
+  <div *ngSwitchCase="false">
     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
     >
       false m8
