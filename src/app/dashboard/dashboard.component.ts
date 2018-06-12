@@ -1,18 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
 
+  // @HostListener('window:resize', ['$event'])
 
   public totalSyns = 25;
   public userSyns: number;
   public dietDeficitType = 'Points';
-  public paddingSetter: any;
+  // public paddingSetter: any;
+  // public window = window.innerWidth;
+  public isWindowMobile: boolean;
 
   // public padding: number;
 
@@ -27,19 +31,24 @@ export class DashboardComponent implements OnInit {
     this.userSyns = 0;
     document.getElementById('littleCrumb1').style.paddingTop = this.paddApplier() + 'px';
     document.getElementById('littleCrumb2').style.paddingTop = this.paddApplier() + 'px';
-    // this.paddApplier();
-    // this.binder();
+    this.isWindowMobile = false;
     console.log(this.paddApplier());
+  }
+
+  public resizerCheck(event) {
+    const windowSize = event.target.innerWidth;
+    if (windowSize > 999) {
+      this.isWindowMobile = true;
+    } else {
+      this.isWindowMobile = false;
+    }
+    console.log(windowSize);
   }
 
   public paddApplier() {
     const OD = document.getElementById('outerDashContainer').clientWidth;
     const ID = document.getElementById('littleCrumb1').clientWidth;
     return OD - ID;
-  }
-
-  public binder() {
-    document.getElementById('littleCrumb').style.paddingTop = this.paddingSetter;
   }
 
   public calculatorFunc() {

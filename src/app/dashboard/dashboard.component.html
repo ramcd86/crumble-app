@@ -1,81 +1,92 @@
-<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad">
-  <div class="row no-gutters">
-    <div class="col-md-1 col-sm-0"></div>
+<div [ngSwitch]="isWindowMobile" (window:resize)="resizerCheck($event)">
+  <div *ngSwitchDefault>
+    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
+    >
+      <div class="row no-gutters">
+        <div class="col-md-1 col-sm-0"></div>
+        <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
+        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center white-text"><h3>big Crumb</h3></div>
+        <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-1 col-sm-0"></div>
+        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1">
+          <circle-progress
+            [percent]="calculatorFunc()"
+            [radius]="100"
+            [outerStrokeWidth]="9"
+            [innerStrokeWidth]="3"
+            [outerStrokeColor]="'#ffffff'"
+            [innerStrokeColor]="'#eaafc8'"
+            [animation]="true"
+            [units]="totalSyns + ' / ' + userSyns"
+            [showUnits]="true"
+            [animationDuration]="500"
+            [responsive]="true"
+            [toFixed]="0"
+            [title]="dietDeficitType"
+            [showBackground]="false"
+            [unitsColor]="'#FFFFFF'"
+            [titleColor]="'#FFFFFF'"
+            [animateTitle]="true"
+            [animateSubtitle]="true"
+          ></circle-progress>
+        </div>
+        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer">
 
-    <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
-    <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center white-text"><h3>big Crumb</h3></div>
-    <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
-
+          <circle-progress
+            [percent]="calculatorFunc()"
+            [radius]="100"
+            [outerStrokeWidth]="9"
+            [innerStrokeWidth]="3"
+            [outerStrokeColor]="'#ffffff'"
+            [innerStrokeColor]="'#eaafc8'"
+            [animation]="true"
+            [units]="totalSyns + ' / ' + userSyns"
+            [showUnits]="true"
+            [animationDuration]="500"
+            [responsive]="true"
+            [toFixed]="0"
+            [title]="dietDeficitType"
+            [showBackground]="false"
+            [unitsColor]="'#FFFFFF'"
+            [titleColor]="'#FFFFFF'"
+            [animateTitle]="true"
+            [animateSubtitle]="true"
+          ></circle-progress>
+        </div>
+        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb2">
+          <circle-progress
+            [percent]="calculatorFunc()"
+            [radius]="100"
+            [outerStrokeWidth]="9"
+            [innerStrokeWidth]="3"
+            [outerStrokeColor]="'#ffffff'"
+            [innerStrokeColor]="'#eaafc8'"
+            [animation]="true"
+            [units]="totalSyns + ' / ' + userSyns"
+            [showUnits]="true"
+            [animationDuration]="500"
+            [responsive]="true"
+            [toFixed]="0"
+            [title]="dietDeficitType"
+            [showBackground]="false"
+            [unitsColor]="'#FFFFFF'"
+            [titleColor]="'#FFFFFF'"
+            [animateTitle]="true"
+            [animateSubtitle]="true"
+          ></circle-progress>
+        </div>
+      </div>
+    </div>
+    <input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">
   </div>
-  <div class="row no-gutters">
-    <div class="col-md-1 col-sm-0"></div>
-    <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1">
-      <circle-progress
-        [percent]="calculatorFunc()"
-        [radius]="100"
-        [outerStrokeWidth]="9"
-        [innerStrokeWidth]="3"
-        [outerStrokeColor]="'#ffffff'"
-        [innerStrokeColor]="'#eaafc8'"
-        [animation]="true"
-        [units]="totalSyns + ' / ' + userSyns"
-        [showUnits]="true"
-        [animationDuration]="500"
-        [responsive]="true"
-        [toFixed]="0"
-        [title]="dietDeficitType"
-        [showBackground]="false"
-        [unitsColor]="'#FFFFFF'"
-        [titleColor]="'#FFFFFF'"
-        [animateTitle]="true"
-        [animateSubtitle]="true"
-      ></circle-progress>
-    </div>
-
-    <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer">
-      <circle-progress
-        [percent]="calculatorFunc()"
-        [radius]="100"
-        [outerStrokeWidth]="9"
-        [innerStrokeWidth]="3"
-        [outerStrokeColor]="'#ffffff'"
-        [innerStrokeColor]="'#eaafc8'"
-        [animation]="true"
-        [units]="totalSyns + ' / ' + userSyns"
-        [showUnits]="true"
-        [animationDuration]="500"
-        [responsive]="true"
-        [toFixed]="0"
-        [title]="dietDeficitType"
-        [showBackground]="false"
-        [unitsColor]="'#FFFFFF'"
-        [titleColor]="'#FFFFFF'"
-        [animateTitle]="true"
-        [animateSubtitle]="true"
-      ></circle-progress>
-    </div>
-    <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb2">
-      <circle-progress
-        [percent]="calculatorFunc()"
-        [radius]="100"
-        [outerStrokeWidth]="9"
-        [innerStrokeWidth]="3"
-        [outerStrokeColor]="'#ffffff'"
-        [innerStrokeColor]="'#eaafc8'"
-        [animation]="true"
-        [units]="totalSyns + ' / ' + userSyns"
-        [showUnits]="true"
-        [animationDuration]="500"
-        [responsive]="true"
-        [toFixed]="0"
-        [title]="dietDeficitType"
-        [showBackground]="false"
-        [unitsColor]="'#FFFFFF'"
-        [titleColor]="'#FFFFFF'"
-        [animateTitle]="true"
-        [animateSubtitle]="true"
-      ></circle-progress>
+  <div *ngSwitchCase="false" >
+    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
+    >
+      false m8
     </div>
   </div>
+
+
 </div>
-<input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">
