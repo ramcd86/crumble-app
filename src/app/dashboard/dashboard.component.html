@@ -1,7 +1,18 @@
+<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
+     [hidden]="hideDash === false"
+>
+  <div class="row no-gutters">
+    <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span class="glyphicon glyphicon-download"></span> Show Dashboard</div>
+  </div>
+</div>
 <div [ngSwitch]="windowDesktop" (window:resize)="resizerCheck($event)">
   <div *ngSwitchDefault>
     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
+         [hidden]="hideDash === true"
     >
+      <div class="row no-gutters">
+        <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span class="glyphicon glyphicon-upload"></span> Hide Dashboard</div>
+      </div>
       <div class="row no-gutters">
         <div class="col-md-1 col-sm-0"></div>
         <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb>

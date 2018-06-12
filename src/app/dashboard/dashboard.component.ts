@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public userSyns: number;
   public dietDeficitType = 'Syns';
   public windowDesktop = true;
+  public hideDash = false;
 
   constructor(
     private sanitizer: DomSanitizer
@@ -56,5 +57,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     const calCap = this.totalSyns - this.userSyns;
     const Totes = (calCap * 100) / this.totalSyns;
     return Totes - 100;
+  }
+
+  public toggle() {
+    this.hideDash = !this.hideDash;
   }
 }
