@@ -4,12 +4,6 @@
     >
       <div class="row no-gutters">
         <div class="col-md-1 col-sm-0"></div>
-        <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
-        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center white-text"><h3>big Crumb</h3></div>
-        <div class="col-md-3 col-sm-12 center-block text-center white-text"><h3>little Crumb</h3></div>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-md-1 col-sm-0"></div>
         <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb>
           <circle-progress
             [percent]="calculatorFunc()"
@@ -76,6 +70,33 @@
             [animateTitle]="true"
             [animateSubtitle]="true"
           ></circle-progress>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-1 col-sm-0"></div>
+        <div class="col-md-3 col-sm-12 center-block text-center">
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-plus-sign"></span> Add
+            {{dietDeficitType}}
+          </button>
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-minus-sign"></span> Take
+            {{dietDeficitType}}
+          </button>
+        </div>
+        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center white-text">
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-plus-sign"></span> Add
+            {{dietDeficitType}}
+          </button>
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-minus-sign"></span> Take
+            {{dietDeficitType}}
+          </button>
+        </div>
+        <div class="col-md-3 col-sm-12 center-block text-center white-text">
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-plus-sign"></span> Add
+            {{dietDeficitType}}
+          </button>
+          <button class="btn btn-state" style="padding: 5px"><span class="glyphicon glyphicon-minus-sign"></span> Take
+            {{dietDeficitType}}
+          </button>
         </div>
       </div>
     </div>

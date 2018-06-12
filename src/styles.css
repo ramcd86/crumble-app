@@ -92,6 +92,13 @@ a:hover, a:active {
   /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
 }
 
+.btn-state {
+  background-color: #FFF;
+  font-weight: 900;
+  color: #654ea3;
+  font-size: 1.6rem;
+}
+
 .mobmenu {
   display: none;
 }

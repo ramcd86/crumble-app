@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   public totalSyns = 25;
   public userSyns: number;
-  public dietDeficitType = 'Points';
+  public dietDeficitType = 'Syns';
   public windowDesktop = true;
 
   constructor(
@@ -32,9 +32,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     if (window.innerWidth > 999) {
       this.windowDesktop = true;
       document.getElementById('littleCrumb1').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
       document.getElementById('littleCrumb2').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
     } else {
       this.windowDesktop = false;
     }
@@ -44,9 +44,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     if (windowSize > 999) {
       this.windowDesktop = true;
       document.getElementById('littleCrumb1').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
       document.getElementById('littleCrumb2').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth) / 2).toString() + 'px';
+        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
     } else {
       this.windowDesktop = false;
 
