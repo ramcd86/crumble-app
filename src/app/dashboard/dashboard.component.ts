@@ -35,6 +35,16 @@ export class DashboardComponent implements OnInit {
     console.log(this.paddApplier());
   }
 
+  //NOT WORKING
+  public getBigCrumbHeight(event) {
+    const bigCrumb = event.target.innerHeight;
+    console.log('bigCrumb :', bigCrumb);
+  }
+  public getLittleCrumbHeight(event) {
+    const littleCrumb = event.target.innerHeight;
+    console.log('littleCrumb :', littleCrumb);
+  }
+
   public resizerCheck(event) {
     const windowSize = event.target.innerWidth;
     if (windowSize > 999) {
@@ -42,7 +52,7 @@ export class DashboardComponent implements OnInit {
     } else {
       this.isWindowMobile = false;
     }
-    console.log(windowSize);
+    console.log('windowsize', windowSize);
   }
 
   public paddApplier() {
