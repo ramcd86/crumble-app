@@ -7,15 +7,23 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpServiceCore {
 
-  public endpoint = EnvironmentEndpoints.ENDPOINT;
+  public httpBase = EnvironmentEndpoints.ENDPOINT;
 
   constructor(
     private http: HttpClient) {
   }
 
-  public getMock(): Observable<any> {
-    return this.http.get(this.endpoint).map(
-      (res: Response) => res.json()
+  public getUserDetails(): Observable<any> {
+    const endPoint = 'userDetails/';
+    return this.http.get(this.httpBase + endPoint).map(
+      (res: Response) => res
+    );
+  }
+
+  public getUserDietData(): Observable<any> {
+    const endPoint = 'userDietData/';
+    return this.http.get(this.httpBase + endPoint).map(
+      (res: Response) => res
     );
   }
 

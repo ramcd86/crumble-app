@@ -2,15 +2,19 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
+//Services
+import {HttpServiceCore} from './_services/http/HttpServiceCore';
+
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
 import {UserAdministrationModule} from './user-administration/user-administration.module';
-// import {DashboardModule} from './dashboard/dashboard.module';
-
 import {DietLogModule} from './diet-log/diet-log.module';
 import {DietStatisticsModule} from './diet-statistics/diet-statistics.module';
 import {HomeModule} from './home/home.module';
 import {NgCircleProgressModule} from 'ng-circle-progress';
+
 // Routes
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
@@ -19,6 +23,7 @@ import {DietLogComponent} from './diet-log/diet-log.component';
 import {DietStatisticsComponent} from './diet-statistics/diet-statistics.component';
 import {SystemAdministrationComponent} from './system-administration/system-administration.component';
 import {UserAdministrationComponent} from './user-administration/user-administration.component';
+
 
 const crumbsRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -33,9 +38,10 @@ const crumbsRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
+HttpClientModule,
     RouterModule.forRoot(
       crumbsRoutes
     ),
@@ -56,7 +62,7 @@ const crumbsRoutes: Routes = [
     }),
     FormsModule
   ],
-  providers: [],
+  providers: [HttpServiceCore],
   bootstrap: [AppComponent]
 })
 export class AppModule {
