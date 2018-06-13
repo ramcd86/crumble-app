@@ -1,43 +1,91 @@
 {
+  "userLogin": [
+    {
+      "id": 1,
+      "email": "user.name@gmail.com",
+      "password": "1234567890",
+      "data_Id": 1
+    },
+    {
+      "id": 2,
+      "email": "ra_mcd@yahoo.com",
+      "password": "FatherFF123",
+      "data_Id": 2
+    }
+  ],
   "userDetails": [
     {
       "id": 1,
-      "email": "user@user.com",
+      "email": "user.name@gmail.com",
       "firstName": "Firstname",
       "lastName": "Lastname",
-      "userName": "user_001",
-      "startingWeight": 0,
-      "currentWeight": 0,
+      "userName": "firstname_lastname",
+      "startingWeight": "0kg",
+      "currentWeight": "0kg",
       "height": "0",
-      "age": 0
+      "age": 18
     },
     {
+      "id": 2,
       "email": "ra_mcd@yahoo.com",
-      "age": 32,
-      "id": 2
-    },
-    {
-      "email": "ra_mcd@yahoo.com",
-      "age": 32,
-      "id": 3
+      "firstName": "Ross",
+      "lastName": "McDermott",
+      "userName": "RossMcDermott",
+      "startingWeight": "118.7kg",
+      "currentWeight": "118.7kg",
+      "height": "5'11",
+      "age": 32
     }
   ],
   "userDietData": [
     {
+      "id": 1,
+      "bigCrumbCustom": true,
+      "bigCrumbDefault": 0,
+      "bigCrumbCustomType": "Syns",
+      "bigCrumbCustomMaxValue": 25,
+      "bigCrumbUserSetValue": 0,
+      "littleCrumb1Custom": true,
+      "littleCrumb1Default": 0,
+      "littleCrumb1CustomType": "HEXMilk",
+      "littleCrumb1CustomMaxValue": 5,
+      "littleCrumb1UserSetValue": 0,
+      "littleCrumb2Custom": true,
+      "littleCrumb2Default": 0,
+      "littleCrumb2CustomType": "HEXBread",
+      "littleCrumb2CustomMaxValue": 2,
+      "littleCrumb2UserSetValue": 0,
+      "littleCrumb3Custom": false,
+      "littleCrumb3Default": 0,
+      "littleCrumb3CustomType": "Points",
+      "littleCrumb3CustomMaxValue": 0,
+      "littleCrumb3UserSetValue": 0,
+      "littleCrumb4Custom": false,
+      "littleCrumb4Default": 0,
+      "littleCrumb4CustomType": "Points",
+      "littleCrumb4CustomMaxValue": 0,
+      "littleCrumb4UserSetValue": 0,
+      "littleCrumb5Custom": false,
+      "littleCrumb5Default": 0,
+      "littleCrumb5CustomType": "Points",
+      "littleCrumb5CustomMaxValue": 0,
+      "littleCrumb5UserSetValue": 0
+    },
+    {
       "id": 2,
-      "bigCrumbCustom": false,
+      "bigCrumbCustom": true,
       "bigCrumbDefault": 0,
       "bigCrumbCustomType": "Points",
       "bigCrumbCustomMaxValue": 0,
       "bigCrumbUserSetValue": 0,
-      "littleCrumb1Custom": false,
+      "littleCrumb1Custom": true,
       "littleCrumb1Default": 0,
-      "littleCrumb1CustomType": "Points",
+      "littleCrumb1CustomType": "Extras",
       "littleCrumb1CustomMaxValue": 0,
       "littleCrumb1UserSetValue": 0,
-      "littleCrumb2Custom": false,
+      "littleCrumb2Custom": true,
       "littleCrumb2Default": 0,
-      "littleCrumb2CustomType": "Points",
+      "littleCrumb2CustomType": "Extras",
       "littleCrumb2CustomMaxValue": 0,
       "littleCrumb2UserSetValue": 0,
       "littleCrumb3Custom": false,

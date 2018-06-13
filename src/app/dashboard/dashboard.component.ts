@@ -77,10 +77,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   public postUserDetails() {
-
     this.userDetailsObject.email = 'ra_mcd@yahoo.com';
     this.userDetailsObject.age = 32;
-
     this.http.postUserDetails(this.userDetailsObject).subscribe(
       (res) => {
         console.log(res);

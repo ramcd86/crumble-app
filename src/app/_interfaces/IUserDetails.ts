@@ -5,8 +5,8 @@ export interface IUserDetails {
   firstName?: string;
   lastName?: string;
   userName?: string;
-  startingWeight?: number;
-  currentWeight?: number;
+  startingWeight?: string;
+  currentWeight?: string;
   height?: string;
   age?: number;
 }
