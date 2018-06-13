@@ -1,4 +1,6 @@
 export interface IUserDietData {
+  id: number;
+
   bigCrumbCustom?: boolean;
   bigCrumbDefault?: number;
   bigCrumbCustomType?: string;

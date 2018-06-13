@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   public userDetails: IUserDetails[];
   public userDietData: IUserDietData[];
+  public userDetailsObject = <IUserDetails>{};
 
   public totalSyns = 25;
   public userSyns: number;
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.userSyns = 0;
     this.getUserDetails();
     this.getUserDietData();
+    this.postUserDetails();
   }
 
   ngAfterViewInit() {
@@ -67,6 +69,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       (data) => {
         this.userDietData = data;
         console.log('New User Diet Data: ', this.userDietData);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  public postUserDetails() {
+
+    this.userDetailsObject.email = 'ra_mcd@yahoo.com';
+    this.userDetailsObject.age = 32;
+
+    this.http.postUserDetails(this.userDetailsObject).subscribe(
+      (res) => {
+        console.log(res);
+        this.getUserDetails();
       },
       (err) => {
         console.log(err);
