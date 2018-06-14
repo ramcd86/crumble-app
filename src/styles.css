@@ -1,13 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
-/*html {*/
-/*font-size: 14px !important;*/
-/*}*/
 
 body {
   font-family: 'Rubik', sans-serif !important;
   font-weight: 100;
   font-size: 1.8rem;
   background-color: #281914;
+}
+
+input[type=text] {
+  width: 100%;
+  color: #cccccc;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  border-bottom: 3px solid #CCCCCC;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  -webkit-transition: border-bottom-color 0.4s ease-in-out;
+  transition: border-bottom-color 0.4s ease-in-out;
+  border-radius: 5px;
+}
+
+input[type=text]:focus {
+  width: 100%;
+  color: #000;
+  padding: 5px;
+  margin: 5px;
+  background-color: #eeeeee;
+  box-sizing: border-box;
+  border-bottom: 3px solid #f86f06;
+  outline: none;
+  border-radius: 5px;
+  /*border-right: 1px;*/
+  /*border-left: 0px;*/
+  /*border-top: 0px;*/
 }
 
 .white-text {
@@ -53,21 +80,12 @@ a:hover, a:active {
   border-color: #FFFFFF;
   background-image: url("assets/images/dot.png");
   background-repeat: repeat;
-  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
   border-radius: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 10px;
 }
 
-/*.header-div {*/
-/*!*background-image: image(crumbs_logo.svg);*!*/
-/*background-image: url("/assets/images/crumbs_logo.png");*/
-/*background-position: center center;*/
-/*background-size: 50% auto;*/
-/*background-repeat: no-repeat;*/
-/*height: 20vh;*/
-/*}*/
 
 .background-gradient {
   min-height: 100vh;
@@ -76,10 +94,6 @@ a:hover, a:active {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: auto auto;
-  /*background: linear-gradient(*/
-  /*to bottom right,*/
-  /*!*#EB3349,*! !*#F45C43*! !*#c6ffdd,*! !*#FF4E50,*! #654ea3,*/
-  /*#eaafc8);*/
 }
 
 .pull-bottom {
@@ -100,7 +114,6 @@ a:hover, a:active {
   padding: 10px;
   display: block;
   overflow: visible;
-  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
 }
 
 .btn-state-green {
@@ -120,7 +133,10 @@ a:hover, a:active {
 .c-modal-wrap {
   position: fixed;
   z-index: 998;
-  background-color: #111111;
+  background-image: url("assets/images/background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto auto;
   width: 100vw;
   height: 100vh;
 }
