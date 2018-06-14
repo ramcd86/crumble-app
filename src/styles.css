@@ -6,6 +6,14 @@ body {
   background-color: #281914;
 }
 
+input[type=button], input[type=submit], input[type=reset] {
+  outline: none;
+}
+
+input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus {
+  outline: none;
+}
+
 input[type=text] {
   width: 100%;
   color: #cccccc;
@@ -86,7 +94,6 @@ a:hover, a:active {
   padding: 10px;
 }
 
-
 .background-gradient {
   min-height: 100vh;
   min-width: 100%;
@@ -121,6 +128,7 @@ a:hover, a:active {
   font-weight: 100;
   color: #549500;
   font-size: 1.6rem;
+  outline: none;
 }
 
 .btn-state-rust {
@@ -128,6 +136,13 @@ a:hover, a:active {
   font-weight: 100;
   color: #f86f06;
   font-size: 1.6rem;
+  outline: none;
+}
+
+.btn-custom {
+  padding: 5px;
+  margin: 5px;
+  outline: none;
 }
 
 .c-modal-wrap {
