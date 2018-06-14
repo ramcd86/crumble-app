@@ -4,6 +4,7 @@ import {FormControl, Validators} from '@angular/forms';
 import {HttpServiceCore} from './_services/http/HttpServiceCore';
 import {IUserLogin} from './_interfaces/IUserLogin';
 import {IUserDetails} from './_interfaces/IUserDetails';
+import {IUserStore} from './_store/IUserStore';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     public userState: UserState,
+    public userStore: IUserStore,
     public http: HttpServiceCore
   ) {
   }
@@ -33,7 +35,7 @@ export class AppComponent implements OnInit {
 
     this.userEmail.setValue('Email Address');
     this.userPassword.setValue('1234567890');
-    if (this.userState.DATA_ID && this.userState.USER_NAME) {
+    if (this.userStore.get()) {
       this.userPresent = true;
     } else {
       this.userPresent = false;
@@ -52,8 +54,7 @@ export class AppComponent implements OnInit {
       (res: IUserLogin[]) => {
         if (res.length > 0) {
           const id = res[0].data_Id;
-          const email = res[0].email;
-          this.generateAuthenticationObject(email, id);
+          this.generateAuthenticationObject(id);
         } else {
           console.log('Nope');
         }
@@ -64,11 +65,14 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public generateAuthenticationObject(email, data_id) {
+  public generateAuthenticationObject(data_id) {
     this.userState.DATA_ID = data_id;
     this.http.getUserDetails(data_id).subscribe(
       (res: IUserDetails) => {
         this.userState.USER_NAME = res.userName;
+        this.userStore.put(res.userName, data_id);
+        console.log('store: ', this.userStore.get());
+        this.userPresent = true;
         console.log(this.userState);
       },
       (err) => {

@@ -61,8 +61,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.http.getUserDetails(this.dataId).subscribe(
       (data) => {
         this.userDetails = data;
-        console.log('New User Details: ', this.userDetails);
-        console.log(this.userDetails[0].email);
       },
       (err) => {
         console.log(err);
@@ -71,7 +69,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   public getUserDietData() {
-    this.http.getUserDietData().subscribe(
+    this.http.getUserDietData(this.dataId).subscribe(
       (data) => {
         this.userDietData = data;
         console.log('New User Diet Data: ', this.userDietData);

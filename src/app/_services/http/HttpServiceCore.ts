@@ -39,12 +39,19 @@ export class HttpServiceCore {
     );
   }
 
-  public getUserDietData(): Observable<any> {
-    const endPoint = 'userDietData/';
+  public getUserDietData(data_id): Observable<any> {
+    const endPoint = `userDetails/${data_id}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
   }
+
+  // public getUserDietData(): Observable<any> {
+  //   const endPoint = 'userDietData/';
+  //   return this.http.get(this.httpBase + endPoint).map(
+  //     (res: Response) => res
+  //   );
+  // }
 
 
   //POST

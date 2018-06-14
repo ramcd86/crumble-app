@@ -27,7 +27,7 @@ import {UserAdministrationComponent} from './user-administration/user-administra
 
 //Classes
 import {UserState} from './_store/user_state';
-
+import {IUserStore} from './_store/IUserStore';
 
 
 const crumbsRoutes: Routes = [
@@ -69,7 +69,7 @@ const crumbsRoutes: Routes = [
     }),
     FormsModule
   ],
-  providers: [HttpServiceCore, UserState],
+  providers: [HttpServiceCore, UserState, IUserStore],
   bootstrap: [AppComponent]
 })
 export class AppModule {
