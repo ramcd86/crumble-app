@@ -170,6 +170,18 @@ a:hover, a:active {
   overflow: visible;
 }
 
+.warning-cell {
+  background-color: #f8f3f1;
+  color: #da000e;
+  border: 2px solid #da000e;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .btn-state-green {
   background-color: #FFF;
   font-weight: 100;

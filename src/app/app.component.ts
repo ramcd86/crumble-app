@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   public userPresent = false;
   public emailClicked = false;
   public passwordClicked = false;
+  public validLogin = true;
 
   constructor(
     public userState: UserState,
@@ -32,6 +33,25 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log(`
+    ##################################################
+    #################### WARNING #####################
+    ##################################################
+    #
+    # THE CONSOLE IS A FEATURE INTENDED FOR DEVELOPERS.
+    # IF SOMEONE HAS ASKED YOU TO GIVE THEM INFORMATION,
+    # FROM THIS SCREEN THEN YOU ARE PUTTING YOUR ACCOUNT
+    # AT RISK FROM HACKERS. DO NOT SHARE INFORMATION ON
+    # THIS SCREEN WITH THIRD PARTIES.
+    #
+    # THE CRUMBLE TEAM TAKES NO RESPONSIBILITY FOR
+    # INFORMATION YOU SHARE FROM THIS DATA SOURCE.
+    #
+    ##################################################
+    #################### WARNING #####################
+    ##################################################
+    `);
 
     this.userEmail.setValue('Email Address');
     this.userPassword.setValue('1234567890');
@@ -56,7 +76,7 @@ export class AppComponent implements OnInit {
           const id = res[0].data_Id;
           this.generateAuthenticationObject(id);
         } else {
-          console.log('Nope');
+          this.validLogin = false;
         }
       },
       (err) => {
@@ -69,11 +89,10 @@ export class AppComponent implements OnInit {
     this.userState.DATA_ID = data_id;
     this.http.getUserDetails(data_id).subscribe(
       (res: IUserDetails) => {
-        this.userState.USER_NAME = res.userName;
         this.userStore.put(res.userName, data_id);
         console.log('store: ', this.userStore.get());
         this.userPresent = true;
-        console.log(this.userState);
+        this.validLogin = true;
       },
       (err) => {
         console.log(err);
@@ -109,6 +128,7 @@ export class AppComponent implements OnInit {
     this.userPassword.setValue('1234567890');
     this.emailClicked = false;
     this.passwordClicked = false;
+    this.validLogin = true;
   }
 
 }
