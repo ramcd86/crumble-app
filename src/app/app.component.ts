@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserState} from './_store/user_state';
 import {FormControl, Validators} from '@angular/forms';
+import {HttpServiceCore} from './_services/http/HttpServiceCore';
+import {IUserLogin} from './_interfaces/IUserLogin';
+import {IUserDetails} from './_interfaces/IUserDetails';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +15,8 @@ export class AppComponent implements OnInit {
   public userEmail: FormControl = new FormControl(null, [Validators.required]);
   public userPassword: FormControl = new FormControl(null, [Validators.required]);
 
+  public userLoginDetails: IUserLogin[];
+
   public navStatus: boolean;
   public windowDesktop = false;
   public userPresent = false;
@@ -19,7 +24,8 @@ export class AppComponent implements OnInit {
   public passwordClicked = false;
 
   constructor(
-    public userState: UserState
+    public userState: UserState,
+    public http: HttpServiceCore
   ) {
   }
 
@@ -42,7 +48,33 @@ export class AppComponent implements OnInit {
   }
 
   public login() {
+    this.http.getLoginAuthentication(this.userEmail.value, this.userPassword.value).subscribe(
+      (res: IUserLogin[]) => {
+        if (res.length > 0) {
+          const id = res[0].data_Id;
+          const email = res[0].email;
+          this.generateAuthenticationObject(email, id);
+        } else {
+          console.log('Nope');
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
+  public generateAuthenticationObject(email, data_id) {
+    this.userState.DATA_ID = data_id;
+    this.http.getUserDetails(data_id).subscribe(
+      (res: IUserDetails) => {
+        this.userState.USER_NAME = res.userName;
+        console.log(this.userState);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   public tapEmail() {

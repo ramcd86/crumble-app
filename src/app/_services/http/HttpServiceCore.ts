@@ -16,8 +16,24 @@ export class HttpServiceCore {
   }
 
   // GET
-  public getUserDetails(): Observable<any> {
-    const endPoint = 'userDetails/';
+
+  public getLoginAuthentication(email, password): Observable<any> {
+    const endPoint = `userLogin/?email=${email}&password=${password}`;
+    return this.http.get(this.httpBase + endPoint).map(
+      (res: Response) => res
+    );
+  }
+
+  // public getUserDetails(): Observable <any> {
+  //   const endPoint = `userDetails/`;
+  //   return this.http.get(this.httpBase + endPoint).map(
+  //   return this.http.get(this.httpBase + endPoint).map(
+  //
+  //   )
+  // }
+
+  public getUserDetails(data_id): Observable<any> {
+    const endPoint = `userDetails/${data_id}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
