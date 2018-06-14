@@ -40,11 +40,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    // this.route.params.subscribe(
-    //   params => {
-    //     this.dataId = params['userData.DATA_ID'];
-    //   });
-
     console.log(this.dataId);
 
     this.userSyns = 0;

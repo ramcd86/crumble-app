@@ -20,29 +20,68 @@ input[type=text] {
   padding: 5px;
   margin: 5px;
   box-sizing: border-box;
-  background-color: #eeeeee;
-  border-bottom: 3px solid #CCCCCC;
-  border-right: 0px;
-  border-left: 0px;
-  border-top: 0px;
-  -webkit-transition: border-bottom-color 0.4s ease-in-out;
-  transition: border-bottom-color 0.4s ease-in-out;
+  background-color: #fff;
+  border: 1px solid #CCCCCC;
+  /*border-right: 0px;*/
+  /*border-left: 0px;*/
+  /*border-top: 0px;*/
+  -webkit-transition: border 0.4s ease-in-out;
+  transition: border 0.4s ease-in-out;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
   border-radius: 5px;
 }
 
 input[type=text]:focus {
   width: 100%;
-  color: #000;
+  color: #f86f06;
   padding: 5px;
   margin: 5px;
-  background-color: #eeeeee;
+  background-color: #fff;
   box-sizing: border-box;
-  border-bottom: 3px solid #f86f06;
+  border: 1px solid #f86f06;
   outline: none;
   border-radius: 5px;
-  /*border-right: 1px;*/
+}
+
+input[type=password] {
+  width: 100%;
+  color: #cccccc;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #CCCCCC;
+  /*border-right: 0px;*/
   /*border-left: 0px;*/
   /*border-top: 0px;*/
+  -webkit-transition: border 0.4s ease-in-out;
+  transition: border 0.4s ease-in-out;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+  border-radius: 5px;
+}
+
+input[type=password]:focus {
+  width: 100%;
+  color: #f86f06;
+  padding: 5px;
+  margin: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 1px solid #f86f06;
+  outline: none;
+  border-radius: 5px;
+}
+
+.hbar {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 1px;
+  background-color: #f86f06;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .white-text {
@@ -66,9 +105,14 @@ a:hover, a:active {
 
 .header-style-font {
   font-family: 'Indie Flower', Serif !important;
-  font-size: 10rem;
   font-weight: 100;
   color: #fff;
+}
+
+.header-style-font-black {
+  font-family: 'Indie Flower', Serif !important;
+  font-weight: 100;
+  color: #000;
 }
 
 .row.no-gutters {
@@ -141,7 +185,6 @@ a:hover, a:active {
 
 .btn-custom {
   padding: 5px;
-  margin: 5px;
   outline: none;
 }
 

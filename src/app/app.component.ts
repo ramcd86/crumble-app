@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserState} from './_store/user_state';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import {UserState} from './_store/user_state';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  public userEmail: FormControl = new FormControl('', [Validators.required]);
+  public userPassword: FormControl = new FormControl('', [Validators.required]);
 
   public navStatus: boolean;
   public windowDesktop = false;
@@ -18,6 +22,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userEmail.setValue('Email Address');
+    this.userPassword.setValue('1234567890');
 
     if (this.userState.DATA_ID && this.userState.USER_NAME) {
       this.userPresent = true;
