@@ -28,8 +28,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public windowDesktop = true;
   public hideDash = false;
 
-  // public dataId;
-
   constructor(
     private sanitizer: DomSanitizer,
     private http: HttpServiceCore,
@@ -45,7 +43,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.userSyns = 0;
     this.getUserDetails();
     this.getUserDietData();
-    // this.postUserDetails();
   }
 
   ngAfterViewInit() {

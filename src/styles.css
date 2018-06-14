@@ -92,6 +92,10 @@ input[type=password]:focus {
   color: #549500;
 }
 
+.orange-text {
+  color: #f86f06;
+}
+
 a:link, a:visited {
   color: #111;
   text-decoration: #111;
@@ -106,7 +110,6 @@ a:hover, a:active {
 .header-style-font {
   font-family: 'Indie Flower', Serif !important;
   font-weight: 100;
-  color: #fff;
 }
 
 .header-style-font-black {
