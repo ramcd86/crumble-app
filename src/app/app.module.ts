@@ -24,24 +24,29 @@ import {DietStatisticsComponent} from './diet-statistics/diet-statistics.compone
 import {SystemAdministrationComponent} from './system-administration/system-administration.component';
 import {UserAdministrationComponent} from './user-administration/user-administration.component';
 
+//Classes
+import {UserState} from './_store/user_state';
+
+
 
 const crumbsRoutes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
-  {path: 'dashboard', component: DashboardComponent, data: {title: 'Crumbs Dashboard'}},
-  {path: 'diet-log', component: DietLogComponent, data: {title: 'Crumbs Diet Log'}},
-  {path: 'diet-statistics', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
+  {path: 'dashboard/:data_id', component: DashboardComponent, data: {title: 'Crumbs Dashboard'}},
+  {path: 'diet-log/:data_id', component: DietLogComponent, data: {title: 'Crumbs Diet Log'}},
+  {path: 'diet-statistics/:data_id', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
   {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, data: {title: 'Crumbs System Administration'}},
-  {path: 'user-account', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
+  {path: 'user-account/:data_id', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+
   ],
   imports: [
-HttpClientModule,
+    HttpClientModule,
     RouterModule.forRoot(
       crumbsRoutes
     ),
@@ -61,8 +66,9 @@ HttpClientModule,
       animationDuration: 300
     }),
     FormsModule
+
   ],
-  providers: [HttpServiceCore],
+  providers: [HttpServiceCore, UserState],
   bootstrap: [AppComponent]
 })
 export class AppModule {

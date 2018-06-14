@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpServiceCore} from '../_services/http/HttpServiceCore';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('littleCrumb') public littleCrumb: ElementRef;
   @ViewChild('bigCrumb') public bigCrumb: ElementRef;
 
+  @Input() public dataId: number;
+
   public userDetails: IUserDetails[];
   public userDietData: IUserDietData[];
   public userDetailsObject = <IUserDetails>{};
@@ -25,18 +28,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public windowDesktop = true;
   public hideDash = false;
 
+  // public dataId;
+
   constructor(
     private sanitizer: DomSanitizer,
-    private http: HttpServiceCore
+    private http: HttpServiceCore,
+    private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit() {
+
+    // this.route.params.subscribe(
+    //   params => {
+    //     this.dataId = params['userData.DATA_ID'];
+    //   });
+
+    console.log(this.dataId);
+
     this.userSyns = 0;
     this.getUserDetails();
     this.getUserDietData();
-    this.postUserDetails();
+    // this.postUserDetails();
   }
 
   ngAfterViewInit() {

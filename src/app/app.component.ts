@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserState} from './_store/user_state';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,18 @@ export class AppComponent implements OnInit {
   public navStatus: boolean;
   public windowDesktop = false;
 
-  constructor() {
+  constructor(
+    public userState: UserState
+  ) {
   }
 
   ngOnInit() {
+
+    //DEV
+    this.userState.DATA_ID = 2;
+
     this.navStatus = false;
-    if(window.innerWidth < 767) {
+    if (window.innerWidth < 767) {
       this.windowDesktop = true;
     } else {
       this.windowDesktop = false;

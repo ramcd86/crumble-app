@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-diet-log',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DietLogComponent implements OnInit {
 
-  constructor() { }
+  public dataId: any;
+
+  constructor(
+    private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      params => {
+        this.dataId = +params.data_id;
+        console.log(params);
+      });
   }
 
 }
