@@ -19,7 +19,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     //DEV
-    this.userState.DATA_ID = 2;
+    console.log(this.userState.DATA_ID, this.userState.USER_NAME);
+if (this.userState === {}) {
+  console.log('undefined');
+} else {
+  console.log('defined')
+}
 
     this.navStatus = false;
     if (window.innerWidth < 767) {

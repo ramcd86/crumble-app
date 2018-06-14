@@ -117,7 +117,13 @@ a:hover, a:active {
   font-size: 1.6rem;
 }
 
-
+.c-modal-wrap {
+  position: fixed;
+  z-index: 998;
+  background-color: #111111;
+  width: 100vw;
+  height: 100vh;
+}
 
 .mobmenu {
   display: none;

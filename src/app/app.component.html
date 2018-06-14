@@ -1,4 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+<div class="c-modal-wrap"></div>
+<!--<div id="myModal" class="modal fade">-->
+  <!--<div class="modal-dialog">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+        <!--<h4 class="modal-title">Confirmation</h4>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<p>Do you want to save changes you made to document before closing?</p>-->
+        <!--<p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 <div class="deskmenu">
   <div class="navbar navbar-fixed-top nav-style">
     <nav>
@@ -19,46 +39,29 @@
 <div class="mobmenu">
   <div class="navbar navbar-fixed-top nav-style">
     <nav>
-<div class="col-xs-6">
-  <a href="#" (click)="toggleNav()"><h3> <span class="glyphicon glyphicon-menu-hamburger"></span> Menu</h3>
-  </a>
-</div>
+      <div class="col-xs-6">
+        <a href="#" (click)="toggleNav()"><h3> <span class="glyphicon glyphicon-menu-hamburger"></span> Menu</h3>
+        </a>
+      </div>
       <div class="col-xs-6"><h3><img src="../assets/images/crumbs_logo_black.png" class="img-responsive"></h3></div>
       <div *ngIf="navStatus">
-      <div class="col-md-10 col-md-offset-1"><h3 class="pull-left">
-        <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a> <br>
-        <a [routerLink]="['/diet-log', userState.DATA_ID]"><span class="glyphicon glyphicon-book"></span> Diet Log</a> <br>
-        <a [routerLink]="['/diet-statistics', userState.DATA_ID]"><span class="glyphicon glyphicon-stats"></span> Diet Stats</a><br><br>
+        <div class="col-md-10 col-md-offset-1"><h3 class="pull-left">
+          <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a> <br>
+          <a [routerLink]="['/diet-log', userState.DATA_ID]"><span class="glyphicon glyphicon-book"></span> Diet Log</a> <br>
+          <a [routerLink]="['/diet-statistics', userState.DATA_ID]"><span class="glyphicon glyphicon-stats"></span> Diet Stats</a><br><br>
           <a [routerLink]="['/user-account', userState.DATA_ID]"><span class="glyphicon glyphicon-user"></span> Manage Account</a> <br>
           <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
             Login</a></h3>
-      </div></div>
-
-
-      <!--<div class="dropdown-menu" aria-labelledby="dropDown"></div>-->
-      <!--<a routerLink="/home" class="dropdown-item"><span class="glyphicon glyphicon-home"></span> Home</a> - -->
-      <!--<a routerLink="/dashboard" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Dashboard</a> - -->
-      <!--<a routerLink="/diet-log" class="dropdown-item"><span class="glyphicon glyphicon-book"></span> Diet Log</a> - -->
-      <!--<a routerLink="/diet-statistics" class="dropdown-item"><span class="glyphicon glyphicon-stats"></span> Diet Stats</a>-->
-
-      <!--<a routerLink="/user-account" class="dropdown-item"><span class="glyphicon glyphicon-user"></span> Manage Account</a>-->
-      <!-- - -->
-      <!--<a routerLink="/crumble-system-administrator-login" class="dropdown-item"><span-->
-        <!--class="glyphicon glyphicon-off"></span> Admin-->
-        <!--Login</a>-->
-
+        </div></div>
     </nav>
   </div>
 </div>
-
-
 <div class="container-fluid background-gradient" style="padding-top: 70px;">
-
   <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-12 text-center ringroad deskmenu" style="padding: 2rem;">
     <img src="../assets/images/crumbs_logo.png" class="img-responsive center-block">
   </div>
   <app-dashboard
-  [dataId]="userState.DATA_ID"
+    [dataId]="userState.DATA_ID"
   ></app-dashboard>
   <div
     class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
