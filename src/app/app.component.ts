@@ -81,6 +81,7 @@ export class AppComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+        this.validLogin = false;
       }
     );
   }
@@ -96,6 +97,7 @@ export class AppComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+        this.validLogin = false;
       }
     );
   }
