@@ -74,6 +74,16 @@ input[type=password]:focus {
   border-radius: 5px;
 }
 
+.status-bar {
+  z-index: 999;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: block;
+  background-color: #da000e;
+  color: #FFFFFF;
+}
+
 .hbar {
   width: 80%;
   margin-left: 10%;

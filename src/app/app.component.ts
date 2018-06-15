@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
 
   public userLoginDetails: IUserLogin[];
 
+  public developmentMode = true;
+
   public navStatus: boolean;
   public windowDesktop = false;
   public userPresent = false;
