@@ -13,6 +13,8 @@ import {IUserStore} from './../_store/IUserStore';
 })
 export class RegistrationComponent implements OnInit {
 
+  public validDetails = true;
+
   constructor() { }
 
   ngOnInit() {

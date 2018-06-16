@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   public developmentMode = true;
 
+  public newRegister = false;
   public navStatus: boolean;
   public windowDesktop = false;
   public userPresent = false;
@@ -69,6 +70,10 @@ export class AppComponent implements OnInit {
       this.windowDesktop = false;
     }
 
+  }
+
+  public register() {
+    this.newRegister = true;
   }
 
   public login() {

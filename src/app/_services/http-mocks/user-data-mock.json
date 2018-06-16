@@ -13,6 +13,20 @@
       "data_Id": 2
     }
   ],
+  "userBlog": [
+    {
+      "id": 1,
+      "email": "user.name@gmail.com",
+      "password": "1234567890",
+      "data_Id": 1
+    },
+    {
+      "id": 2,
+      "email": "ra_mcd@yahoo.com",
+      "password": "FatherFF123",
+      "data_Id": 2
+    }
+  ],
   "userDetails": [
     {
       "id": 1,
