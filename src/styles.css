@@ -174,7 +174,7 @@ a:hover, a:active {
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-top: 10px;
   padding: 10px;
   display: block;

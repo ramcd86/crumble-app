@@ -28,6 +28,7 @@ import {UserAdministrationComponent} from './user-administration/user-administra
 //Classes
 import {UserState} from './_store/user_state';
 import {IUserStore} from './_store/IUserStore';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 const crumbsRoutes: Routes = [
@@ -44,6 +45,7 @@ const crumbsRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
+    RegistrationComponent,
 
   ],
   imports: [
