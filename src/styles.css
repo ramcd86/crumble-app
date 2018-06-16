@@ -82,6 +82,7 @@ input[type=password]:focus {
   display: block;
   background-color: #da000e;
   color: #FFFFFF;
+  padding: 5px;
 }
 
 .hbar {
