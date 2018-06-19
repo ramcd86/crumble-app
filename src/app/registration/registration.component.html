@@ -3,17 +3,17 @@
     <div
       class="big-cell col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"
       style="margin-top: 10vh;">
-      <div class="row">
-        <div
-          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center" style="padding: 20px;">
-          <h3><img src="../../assets/images/crumbs_logo_black.png" class="img-responsive"></h3>
-          <h3 class="header-style-font orange-text">make the change!</h3>
-        </div>
-      </div>
       <div class="row" *ngIf="!validDetails">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
           <h4 class="warning-cell">Some of the details you entered were incorrect. Please try again.</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+          <h3 class="header-style-font-black text-center">
+            New user registration</h3>
         </div>
       </div>
       <div class="row">
@@ -23,9 +23,11 @@
           <input type="text">
         </div>
       </div>
+
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Password</label>
           <input type="password">
         </div>
       </div>
@@ -33,34 +35,73 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" >
-            <span class="glyphicon glyphicon-log-in"></span> Login
-          </button>
+          <label class="c-label">Re-type Password</label>
+          <input type="password">
         </div>
       </div>
 
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <button class="btn btn-state-rust btn-block" style="margin: 5px; padding: 5px;" >
-            <span class="glyphicon glyphicon-erase"></span> Reset
-          </button>
+          <label class="c-label">First Name</label>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Last Name</label>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Username</label>
+          <input type="text">
         </div>
       </div>
 
       <div class="hbar"></div>
+
       <div class="row">
         <div
           class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-          <h2 class="header-style-font-black text-center">
-            new to crumbs?</h2>
+          <h3 class="header-style-font-black text-center">
+            Please enter your details</h3>
         </div>
       </div>
+
+      <div class="row">
+        <div
+          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Your current weight (kg)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Your height (cm)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <label class="c-label">Your age (yrs)</label>
+          <input type="text">
+        </div>
+      </div>
+
+
       <div class="row" style="padding-bottom: 30px;">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
           <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;">
-            <span class="glyphicon glyphicon-check"></span> Sign up</button>
+            <span class="glyphicon glyphicon-check"></span> Register</button>
         </div>
       </div>
 

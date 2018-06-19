@@ -158,10 +158,11 @@ a:hover, a:active {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: auto auto;
+  background-attachment: fixed;
 }
 
 .pull-bottom {
-  ertical-align: bottom;
+  vertical-align: bottom;
 }
 
 .nav-style {
