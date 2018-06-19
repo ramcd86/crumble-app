@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
-//Services
+// Services
 import {HttpServiceCoreService} from './_services/http/HttpServiceCore.service';
 
 // Core Modules
@@ -23,7 +23,7 @@ import {SystemAdministrationComponent} from './system-administration/system-admi
 import {UserAdministrationComponent} from './user-administration/user-administration.component';
 import {RegistrationComponent} from './registration/registration.component';
 
-//Classes
+// Classes
 import {IUserStore} from './_store/IUserStore.store';
 import {IUserState} from './_store/IUserState.store';
 
