@@ -3,8 +3,7 @@ import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-diet-statistics',
-  templateUrl: './diet-statistics.component.html',
-  styleUrls: ['./diet-statistics.component.css']
+  templateUrl: './diet-statistics.component.html'
 })
 export class DietStatisticsComponent implements OnInit {
 

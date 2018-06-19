@@ -3,8 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-diet-log',
-  templateUrl: './diet-log.component.html',
-  styleUrls: ['./diet-log.component.css']
+  templateUrl: './diet-log.component.html'
 })
 export class DietLogComponent implements OnInit {
 

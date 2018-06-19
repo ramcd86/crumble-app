@@ -1,5 +1,5 @@
 
-export class UserState {
+export class IUserState {
 
   public DATA_ID: number;
   public USER_NAME: string;

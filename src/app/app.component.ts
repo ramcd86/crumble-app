@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {UserState} from './_store/user_state';
 import {FormControl, Validators} from '@angular/forms';
-import {HttpServiceCore} from './_services/http/HttpServiceCore';
+import {HttpServiceCoreService} from './_services/http/HttpServiceCore.service';
 import {IUserLogin} from './_interfaces/IUserLogin';
 import {IUserDetails} from './_interfaces/IUserDetails';
-import {IUserStore} from './_store/IUserStore';
+import {IUserStore} from './_store/IUserStore.store';
+import {IUserState} from './_store/IUserState.store';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 
@@ -29,9 +28,9 @@ export class AppComponent implements OnInit {
   public validLogin = true;
 
   constructor(
-    public userState: UserState,
+    public userState: IUserState,
     public userStore: IUserStore,
-    public http: HttpServiceCore
+    public http: HttpServiceCoreService
   ) {
   }
 

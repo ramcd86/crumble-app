@@ -7,7 +7,7 @@ import {IUserDetails} from '../../_interfaces/IUserDetails';
 import {IUserDietData} from '../../_interfaces/IUserDietData';
 
 @Injectable()
-export class HttpServiceCore {
+export class HttpServiceCoreService {
 
   public httpBase = EnvironmentEndpoints.ENDPOINT;
 

@@ -6,14 +6,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 //Services
-import {HttpServiceCore} from './_services/http/HttpServiceCore';
+import {HttpServiceCoreService} from './_services/http/HttpServiceCore.service';
 
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
 import {UserAdministrationModule} from './user-administration/user-administration.module';
-import {DietLogModule} from './diet-log/diet-log.module';
-import {DietStatisticsModule} from './diet-statistics/diet-statistics.module';
-import {HomeModule} from './home/home.module';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 
 // Routes
@@ -24,11 +21,11 @@ import {DietLogComponent} from './diet-log/diet-log.component';
 import {DietStatisticsComponent} from './diet-statistics/diet-statistics.component';
 import {SystemAdministrationComponent} from './system-administration/system-administration.component';
 import {UserAdministrationComponent} from './user-administration/user-administration.component';
+import {RegistrationComponent} from './registration/registration.component';
 
 //Classes
-import {UserState} from './_store/user_state';
-import {IUserStore} from './_store/IUserStore';
-import { RegistrationComponent } from './registration/registration.component';
+import {IUserStore} from './_store/IUserStore.store';
+import {IUserState} from './_store/IUserState.store';
 
 
 const crumbsRoutes: Routes = [
@@ -46,6 +43,9 @@ const crumbsRoutes: Routes = [
     AppComponent,
     DashboardComponent,
     RegistrationComponent,
+    HomeComponent,
+    DietLogComponent,
+    DietStatisticsComponent
 
   ],
   imports: [
@@ -57,10 +57,6 @@ const crumbsRoutes: Routes = [
     ReactiveFormsModule,
     SystemAdministrationModule,
     UserAdministrationModule,
-    // DashboardModule,
-    DietLogModule,
-    DietStatisticsModule,
-    HomeModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
       outerStrokeWidth: 16,
@@ -71,7 +67,10 @@ const crumbsRoutes: Routes = [
     }),
     FormsModule
   ],
-  providers: [HttpServiceCore, UserState, IUserStore],
+  providers: [
+    HttpServiceCoreService,
+    IUserStore,
+    IUserState],
   bootstrap: [AppComponent]
 })
 export class AppModule {

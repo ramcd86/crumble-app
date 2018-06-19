@@ -1,14 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
-import {UserState} from '../_store/user_state';
-import {IUserStore} from '../_store/IUserStore';
+import {IUserStore} from '../_store/IUserStore.store';
 
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
