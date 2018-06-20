@@ -15,7 +15,18 @@ export class HttpServiceCoreService {
     private http: HttpClient) {
   }
 
-  // GET
+
+  // #############################
+  // GET DATA RETURNS FROM USER DATABASE
+  // #############################
+
+
+  public getDatabaseState(): Observable<any> {
+    const endPoint = `databaseState/`;
+    return this.http.get(this.httpBase + endPoint).map(
+      (res: Response) => res
+    );
+  }
 
   public getLoginAuthentication(email, password): Observable<any> {
     const endPoint = `userLogin/?email=${email}&password=${password}`;
@@ -23,14 +34,6 @@ export class HttpServiceCoreService {
       (res: Response) => res
     );
   }
-
-  // public getUserDetails(): Observable <any> {
-  //   const endPoint = `userDetails/`;
-  //   return this.http.get(this.httpBase + endPoint).map(
-  //   return this.http.get(this.httpBase + endPoint).map(
-  //
-  //   )
-  // }
 
   public getUserDetails(data_id): Observable<any> {
     const endPoint = `userDetails/${data_id}`;
@@ -46,15 +49,12 @@ export class HttpServiceCoreService {
     );
   }
 
-  // public getUserDietData(): Observable<any> {
-  //   const endPoint = 'userDietData/';
-  //   return this.http.get(this.httpBase + endPoint).map(
-  //     (res: Response) => res
-  //   );
-  // }
+
+  // #############################
+  // POST NEW DATA TO THE USER DATABASE
+  // #############################
 
 
-  //POST
   public postUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = 'userDetails/';
     return this.http.post(this.httpBase + endPoint, userDetails).map(
@@ -68,5 +68,11 @@ export class HttpServiceCoreService {
       (res: Response) => res
     );
   }
+
+
+  // #############################
+  // PUT UPDATED DATA INTO EXISTING DB ENTRIES
+  // #############################
+
 
 }
