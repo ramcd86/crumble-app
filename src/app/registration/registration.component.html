@@ -19,32 +19,32 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label"  [class.has-error]="userEmail.invalid">Your email</label>
-          <input type="text" [formControl]="userEmail"  [class.has-error]="userEmail.invalid">
+          <label class="c-label" [class.has-error]="userEmail.invalid && userEmail.dirty">* Your email</label>
+          <input type="text" [formControl]="userEmail" [class.has-error]="userEmail.invalid && userEmail.dirty">
         </div>
       </div>
 
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Password</label>
-          <input type="password">
+          <label class="c-label" [class.has-error]="password.invalid && password.dirty">* Password</label>
+          <input type="password" [class.has-error]="password.invalid && password.dirty">
         </div>
       </div>
 
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Re-type Password</label>
-          <input type="password">
+          <label class="c-label" [class.has-error]="password.invalid && password.dirty">* Re-type Password</label>
+          <input type="password" [class.has-error]="password.invalid && password.dirty">
         </div>
       </div>
 
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">First Name</label>
-          <input type="text">
+          <label class="c-label" [class.has-error]="firstName.invalid && firstName.dirty">* First Name</label>
+          <input type="text" [class.has-error]="firstName.invalid && firstName.dirty">
         </div>
       </div>
 
@@ -59,8 +59,8 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Username</label>
-          <input type="text">
+          <label class="c-label" [class.has-error]="userName.invalid && userName.dirty">* Username</label>
+          <input type="text" [class.has-error]="userName.invalid && userName.dirty">
         </div>
       </div>
 
@@ -73,26 +73,26 @@
             Please enter your details</h3>
         </div>
       </div>
-
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Your current weight (kg)</label>
-          <input type="text">
+          <label class="c-label" [class.has-error]="startingWeight.invalid && startingWeight.dirty">* Your current
+            weight (kg)</label>
+          <input type="number" [class.has-error]="startingWeight.invalid && startingWeight.dirty">
         </div>
       </div>
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Your height (cm)</label>
-          <input type="text">
+          <label class="c-label" [class.has-error]="height.invalid && height.dirty">* Your height (cm)</label>
+          <input type="number" [class.has-error]="height.invalid && height.dirty">
         </div>
       </div>
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label">Your age (yrs)</label>
-          <input type="text">
+          <label class="c-label" [class.has-error]="age.invalid && age.dirty">* Your age (yrs)</label>
+          <input type="number" [class.has-error]="age.invalid && age.dirty">
         </div>
       </div>
 
@@ -101,7 +101,8 @@
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
           <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="logger()">
-            <span class="glyphicon glyphicon-check"></span> Register</button>
+            <span class="glyphicon glyphicon-check"></span> Register
+          </button>
         </div>
       </div>
 

@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
 //   email: string;
 //   password: string;
 //   data_Id: number;
-  public userEmail: FormControl = new FormControl('example@example.com', [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]);
+  public userEmail: FormControl = new FormControl(null, [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]);
   public password: FormControl = new FormControl(null, [Validators.required]);
   public data_id: number;
 
@@ -45,9 +45,9 @@ export class RegistrationComponent implements OnInit {
   public firstName: FormControl = new FormControl(null, [Validators.required]);
   public lastName: FormControl = new FormControl(null, [Validators.required]);
   public userName: FormControl = new FormControl(null, [Validators.required]);
-  public startingWeight: FormControl = new FormControl(null, [Validators.required]);
-  public height: FormControl = new FormControl(null, [Validators.required]);
-  public age: FormControl = new FormControl(null, [Validators.required]);
+  public startingWeight: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
+  public height: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
+  public age: FormControl = new FormControl(null, [Validators.required, Validators.max(120)]);
 
 
   // User diet data template
