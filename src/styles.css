@@ -171,6 +171,14 @@ a:hover, a:active {
   border-bottom-right-radius: 5px;
 }
 
+.has-error {
+  /*border-style: solid !important;*/
+  /*border-width: 1px !important;*/
+  /*border-color: #da000e !important;*/
+  border-bottom: #da000e 3px solid !important;
+  color: #da000e;
+}
+
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
