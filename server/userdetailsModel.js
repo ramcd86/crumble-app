@@ -12,7 +12,7 @@ const userDetailsSchema = new Schema(
     userName: String,
     startingWeight: Number,
     currentWeight: Number,
-    Height: String,
+    height: String,
     age: Number
   }, {
     collection: 'userDetailsModels',

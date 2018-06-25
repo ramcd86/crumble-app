@@ -32,7 +32,7 @@ router.post('/userDetails', (req, res) => {
 router.put('/userLogin/:listId', (req, res) => {
   userLoginService.putUserLogin(req, res);
 });
-router.put('/userLogin/:listId', (req, res) => {
+router.put('/userDetails/:listId', (req, res) => {
   userDetailsService.putUserDetails(req, res);
 });
 
@@ -40,7 +40,7 @@ router.put('/userLogin/:listId', (req, res) => {
 router.delete('/userLogin/:listId', (req, res) => {
   userLoginService.deleteUser(req, res);
 });
-router.delete('/userLogin/:listId', (req, res) => {
+router.delete('/userDetails/:listId', (req, res) => {
   userDetailsService.deleteUserDetails(req, res);
 });
 

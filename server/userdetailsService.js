@@ -61,7 +61,7 @@ function putUserDetails(req, res) {
     details.save(error => {
       if (checkServerError(res, error)) return;
       res.status(200).json(UserDetailsModel);
-      console.log('User updated successfully!');
+      console.log('Details updated successfully!');
     });
   });
 }
@@ -73,7 +73,7 @@ function deleteUserDetails(req, res) {
     .then(user => {
       if (!checkFound(res, user)) return;
       res.status(200).json(user);
-      console.log('User deleted successfully!');
+      console.log('Details deleted successfully!');
     })
     .catch(error => {
       if (checkServerError(res, error)) return;
@@ -99,7 +99,7 @@ function postUserDetails(req, res) {
       return;
     }
     res.status(201).json(newDetails);
-    console.log('User successfully created.');
+    console.log('Details successfully created.');
   })
 }
 
