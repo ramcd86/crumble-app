@@ -4,7 +4,12 @@ const path = require('path');
 const routes = require('./routes');
 const root = './';
 const app = express();
+const pathfinderUI = require('pathfinder-ui');
 
+app.use('/pathfinder', function(req, res, next){
+  pathfinderUI(app);
+  next();
+}, pathfinderUI.router)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(root, 'dist')));
