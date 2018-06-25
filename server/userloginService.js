@@ -1,34 +1,104 @@
 const UserLoginModel = require('../server/userloginModel');
-
+const ReadPreference = require('mongodb').ReadPreference;
 require('./mongo').connect();
 
+//// GET ALL USER LOGINS
 function getUserLogin(req, res) {
-  const docquery = UserLoginModel.find({});
-  docquery.exec()
+  const docquery = UserLoginModel.find({}).read(ReadPreference.NEAREST);
+  docquery
+    .exec()
     .then(userlogins => {
       res.status(200).json(userlogins);
-    }).catch(error => {
+    })
+    .catch(error => {
       res.status(500).send(error);
       return;
-  })
+    })
 }
 
-function postUserLogin(req, res) {
+//// GET EXISTING USER
+function getExistingUserLogin(req, res) {
   const originalUserLogin = {
-    id: req.body.id,
-    email: req.body.name,
+    listId: req.params.listId,
+    email: req.params.email,
+    password: req.params.password,
+    dataId: req.params.dataId
+  };
+  const searchedObject = UserLoginModel.findOne({
+    email: originalUserLogin.email,
+    password: originalUserLogin.password
+  });
+  searchedObject
+    .exec()
+    .then(user => {
+      res.status(200).json(user)
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    })
+}
+
+//// MODIFY EXISTING
+function putUserLogin(req, res) {
+  const originalUserLogin = {
+    listId: req.params.listId,
+    email: req.body.email,
     password: req.body.password,
     dataId: req.body.dataId
   };
-    const newLogin = new UserLoginModel(originalUserLogin);
+  UserLoginModel.findOne({listId: originalUserLogin.listId}, (error, user) => {
+    if (checkServerError(res, error)) return;
+    if (!checkFound(res, user)) return;
+
+    user.email = originalUserLogin.email;
+    user.password = originalUserLogin.password;
+    user.save(error => {
+      if (checkServerError(res, error)) return;
+      res.status(200).json(UserLoginModel);
+      console.log('User updated successfully!');
+    });
+  });
+}
+
+//// DELETE EXISTING
+function deleteUser(req, res) {
+  const id = req.params.listId;
+  UserLoginModel.findOneAndRemove({listId: id})
+    .then(user => {
+      if (!checkFound(res, user)) return;
+      res.status(200).json(user);
+      console.log('User deleted successfully!');
+    })
+    .catch(error => {
+      if (checkServerError(res, error)) return;
+    });
+}
+
+//// POST NEW USER LOGIN
+function postUserLogin(req, res) {
+  const originalUserLogin = {
+    listId: req.body.listId,
+    email: req.body.email,
+    password: req.body.password,
+    dataId: req.body.dataId
+  };
+  const newLogin = new UserLoginModel(originalUserLogin);
   newLogin.save(error => {
     if (checkServerError(res, error)) {
-      return; }
-      res.status(201).json(newLogin);
+      return;
+    }
+    res.status(201).json(newLogin);
     console.log('User successfully created.');
   })
 }
 
+function checkFound(res, hero) {
+  if (!hero) {
+    res.status(404).send('Not found.');
+    return;
+  }
+  return hero;
+}
 function checkServerError(res, error) {
   if (error) {
     res.status(500).send(error);
@@ -38,5 +108,8 @@ function checkServerError(res, error) {
 
 module.exports = {
   getUserLogin,
-  postUserLogin
+  postUserLogin,
+  putUserLogin,
+  deleteUser,
+  getExistingUserLogin
 };
