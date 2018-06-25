@@ -11,8 +11,7 @@ const userLoginSchema = new Schema(
   }, {
     collection: 'userLoginModels',
   read: 'nearest'
-  },
-  {versionKey: false}
+  }
 );
 
 const userLoginModel = mongoose.model('userLoginModel', userLoginSchema);
