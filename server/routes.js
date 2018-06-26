@@ -23,7 +23,7 @@ router.get('/userLogin/:email/:password', (req, res) => {
 router.get('/userDetails/:listId', (req, res) => {
   userDetailsService.getExistingUserDetails(req, res);
 });
-router.get('/userDetails/:listId', (req, res) => {
+router.get('/userDietData/:listId', (req, res) => {
   userDietData.getExistingUserDietData(req, res);
 });
 
@@ -34,7 +34,7 @@ router.post('/userLogin', (req, res) => {
 router.post('/userDetails', (req, res) => {
   userDetailsService.postUserDetails(req, res);
 });
-router.post('/userDetails', (req, res) => {
+router.post('/userDietData', (req, res) => {
   userDietData.postUserDietData(req, res);
 });
 
@@ -45,7 +45,7 @@ router.put('/userLogin/:listId', (req, res) => {
 router.put('/userDetails/:listId', (req, res) => {
   userDetailsService.putUserDetails(req, res);
 });
-router.put('/userDetails/:listId', (req, res) => {
+router.put('/userDietData/:listId', (req, res) => {
   userDietData.putUserDietData(req, res);
 });
 
@@ -56,7 +56,7 @@ router.delete('/userLogin/:listId', (req, res) => {
 router.delete('/userDetails/:listId', (req, res) => {
   userDetailsService.deleteUserDetails(req, res);
 });
-router.delete('/userDetails/:listId', (req, res) => {
+router.delete('/userDietData/:listId', (req, res) => {
   userDietData.deleteUserDietData(req, res);
 });
 
