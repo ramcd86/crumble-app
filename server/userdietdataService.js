@@ -1,8 +1,6 @@
 const UserDietDataModel = require('../server/userdietdataModel');
 const ReadPreference = require('mongodb').ReadPreference;
 require('./mongo').connect();
-
-//// GET ALL USER DietData
 function getUserDietData(req, res) {
   const docquery = UserDietDataModel.find({}).read(ReadPreference.NEAREST);
   docquery
@@ -15,8 +13,6 @@ function getUserDietData(req, res) {
       return;
     })
 }
-
-//// GET EXISTING USER
 function getExistingUserDietData(req, res) {
   const originalUserDietData = {
     listId: req.params.listId
@@ -33,8 +29,6 @@ function getExistingUserDietData(req, res) {
       res.status(500).send(error);
     })
 }
-
-//// MODIFY EXISTING
 function putUserDietData(req, res) {
   const originalUserDietData = {
     listId: req.params.listId,
@@ -109,8 +103,6 @@ function putUserDietData(req, res) {
     });
   });
 }
-
-//// DELETE EXISTING
 function deleteUserDietData(req, res) {
   const id = req.params.listId;
   UserDietDataModel.findOneAndRemove({listId: id})
@@ -123,8 +115,6 @@ function deleteUserDietData(req, res) {
       if (checkServerError(res, error)) return;
     });
 }
-
-//// POST NEW USER LOGIN
 function postUserDietData(req, res) {
   const originalUserDietData = {
     listId: req.body.listId,
@@ -168,7 +158,6 @@ function postUserDietData(req, res) {
     console.log('DietData successfully created.');
   })
 }
-
 function checkFound(res, hero) {
   if (!hero) {
     res.status(404).send('Not found.');
@@ -176,14 +165,12 @@ function checkFound(res, hero) {
   }
   return hero;
 }
-
 function checkServerError(res, error) {
   if (error) {
     res.status(500).send(error);
     return error;
   }
 }
-
 module.exports = {
   getUserDietData,
   postUserDietData,

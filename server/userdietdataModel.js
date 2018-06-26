@@ -1,8 +1,5 @@
-
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const userDietDataSchema = new Schema(
   {
     listId: {type: Number, required: true, unique: true},
@@ -42,7 +39,5 @@ const userDietDataSchema = new Schema(
   },
   {versionKey: false}
 );
-
 const userDietDataModel = mongoose.model('userDietDataModel', userDietDataSchema);
-
 module.exports = userDietDataModel;

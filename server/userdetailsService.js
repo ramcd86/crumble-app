@@ -1,8 +1,6 @@
 const UserDetailsModel = require('../server/userdetailsModel');
 const ReadPreference = require('mongodb').ReadPreference;
 require('./mongo').connect();
-
-//// GET ALL USER DETAILS
 function getUserDetails(req, res) {
   const docquery = UserDetailsModel.find({}).read(ReadPreference.NEAREST);
   docquery
@@ -15,8 +13,6 @@ function getUserDetails(req, res) {
       return;
     })
 }
-
-//// GET EXISTING USER
 function getExistingUserDetails(req, res) {
   const originalUserDetails = {
     listId: req.params.listId
@@ -33,8 +29,6 @@ function getExistingUserDetails(req, res) {
       res.status(500).send(error);
     })
 }
-
-//// MODIFY EXISTING
 function putUserDetails(req, res) {
   const originalUserDetails = {
     listId: req.params.listId,
@@ -65,8 +59,6 @@ function putUserDetails(req, res) {
     });
   });
 }
-
-//// DELETE EXISTING
 function deleteUserDetails(req, res) {
   const id = req.params.listId;
   UserDetailsModel.findOneAndRemove({listId: id})
@@ -79,8 +71,6 @@ function deleteUserDetails(req, res) {
       if (checkServerError(res, error)) return;
     });
 }
-
-//// POST NEW USER LOGIN
 function postUserDetails(req, res) {
   const originalUserDetails = {
     listId: req.body.listId,
@@ -102,7 +92,6 @@ function postUserDetails(req, res) {
     console.log('Details successfully created.');
   })
 }
-
 function checkFound(res, hero) {
   if (!hero) {
     res.status(404).send('Not found.');
@@ -110,14 +99,12 @@ function checkFound(res, hero) {
   }
   return hero;
 }
-
 function checkServerError(res, error) {
   if (error) {
     res.status(500).send(error);
     return error;
   }
 }
-
 module.exports = {
   getUserDetails,
   postUserDetails,

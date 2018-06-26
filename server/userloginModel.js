@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const userLoginSchema = new Schema(
   {
     listId: {type: Number, required: true, unique: true},
@@ -13,7 +11,5 @@ const userLoginSchema = new Schema(
   read: 'nearest'
   }
 );
-
 const userLoginModel = mongoose.model('userLoginModel', userLoginSchema);
-
 module.exports = userLoginModel;

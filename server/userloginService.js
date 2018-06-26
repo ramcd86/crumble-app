@@ -1,8 +1,6 @@
 const UserLoginModel = require('../server/userloginModel');
 const ReadPreference = require('mongodb').ReadPreference;
 require('./mongo').connect();
-
-//// GET ALL USER LOGINS
 function getUserLogin(req, res) {
   const docquery = UserLoginModel.find({}).read(ReadPreference.NEAREST);
   docquery
@@ -15,8 +13,6 @@ function getUserLogin(req, res) {
       return;
     })
 }
-
-//// GET EXISTING USER
 function getExistingUserLogin(req, res) {
   const originalUserLogin = {
     listId: req.params.listId,
@@ -37,8 +33,6 @@ function getExistingUserLogin(req, res) {
       res.status(500).send(error);
     })
 }
-
-//// MODIFY EXISTING
 function putUserLogin(req, res) {
   const originalUserLogin = {
     listId: req.params.listId,
@@ -59,8 +53,6 @@ function putUserLogin(req, res) {
     });
   });
 }
-
-//// DELETE EXISTING
 function deleteUser(req, res) {
   const id = req.params.listId;
   UserLoginModel.findOneAndRemove({listId: id})
@@ -73,8 +65,6 @@ function deleteUser(req, res) {
       if (checkServerError(res, error)) return;
     });
 }
-
-//// POST NEW USER LOGIN
 function postUserLogin(req, res) {
   const originalUserLogin = {
     listId: req.body.listId,
@@ -91,7 +81,6 @@ function postUserLogin(req, res) {
     console.log('User successfully created.');
   })
 }
-
 function checkFound(res, hero) {
   if (!hero) {
     res.status(404).send('Not found.');
@@ -105,7 +94,6 @@ function checkServerError(res, error) {
     return error;
   }
 }
-
 module.exports = {
   getUserLogin,
   postUserLogin,
