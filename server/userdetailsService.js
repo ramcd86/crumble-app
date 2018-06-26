@@ -38,6 +38,7 @@ function putUserDetails(req, res) {
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,
+    weightHistory: req.body.weightHistory,
     height: req.body.height,
     age: req.body.age
   };
@@ -50,6 +51,7 @@ function putUserDetails(req, res) {
     details.userName = originalUserDetails.userName;
     details.startingWeight = originalUserDetails.startingWeight;
     details.currentWeight = originalUserDetails.currentWeight;
+    details.weightHistory = originalUserDetails.weightHistory;
     details.height = originalUserDetails.height;
     details.age = originalUserDetails.age;
     details.save(error => {
@@ -80,6 +82,7 @@ function postUserDetails(req, res) {
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,
+    weightHistory: req.body.weightHistory,
     height: req.body.height,
     age: req.body.age
   };

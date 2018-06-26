@@ -1,4 +1,4 @@
 export interface IDataBaseIteration {
-  id: number;
+  listId: number;
   dbState: number;
 }

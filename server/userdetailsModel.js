@@ -9,6 +9,7 @@ const userDetailsSchema = new Schema(
     userName: String,
     startingWeight: Number,
     currentWeight: Number,
+    weightHistory: Array,
     height: String,
     age: Number
   }, {
