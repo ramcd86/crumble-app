@@ -1,5 +1,5 @@
 export interface IUserLogin {
-  id: number;
+  listId: number;
   email: string;
   password: string;
   data_Id: number;
