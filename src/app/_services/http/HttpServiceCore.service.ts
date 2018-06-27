@@ -28,19 +28,24 @@ export class HttpServiceCoreService {
       (res: Response) => res
     );
   }
-  public getLoginAuthentication(email: IUserLogin, password: IUserLogin): Observable<any> {
+
+  public getLoginAuthentication(email: string, password: string): Observable<any> {
     const endPoint = `userLogin/${email}/${password}`;
     return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => res
+      (res: Response) => {
+        console.log(res);
+      }
     );
   }
-  public getUserDetails(listId: IUserDetails): Observable<any> {
+
+  public getUserDetails(listId: number): Observable<any> {
     const endPoint = `userDetails/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
   }
-  public getUserDietData(listId: IUserDietData): Observable<any> {
+
+  public getUserDietData(listId: number): Observable<any> {
     const endPoint = `userDietData/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
@@ -58,12 +63,14 @@ export class HttpServiceCoreService {
       (res: Response) => res
     );
   }
+
   public postNewUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = 'userDetails/';
     return this.http.post(this.httpBase + endPoint, userDetails).map(
       (res: Response) => res
     );
   }
+
   public postNewUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = 'userDietData/';
     return this.http.post(this.httpBase + endPoint, userDietData).map(
@@ -82,12 +89,14 @@ export class HttpServiceCoreService {
       (res: Response) => res
     );
   }
+
   public putUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = `userDetails/${userDetails.listId}`;
     return this.http.post(this.httpBase + endPoint, userDetails).map(
       (res: Response) => res
     );
   }
+
   public putUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = `userDietData/${userDietData.listId}`;
     return this.http.post(this.httpBase + endPoint, userDietData).map(

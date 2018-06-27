@@ -6,6 +6,8 @@ import {IUserDetails} from './_interfaces/IUserDetails';
 import {IUserStore} from './_store/IUserStore.store';
 import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
+import {IDataBaseIteration} from './_interfaces/IDataBaseIteration';
+import {IUserDietData} from './_interfaces/IUserDietData';
 
 @Component({
   selector: 'app-root',
@@ -77,12 +79,16 @@ export class AppComponent implements OnInit {
     this.newRegister = true;
   }
 
+  // public userLogin() {
+  //   this.http.getLoginAuthentication()
+  // }
+
   public login() {
     this.http.getLoginAuthentication(this.userEmail.value, this.userPassword.value).subscribe(
       (res: IUserLogin[]) => {
         if (res.length > 0) {
-          const id = res[0].data_Id;
-          this.generateAuthenticationObject(id);
+          console.log(res);
+          this.generateAuthenticationObject(res[0].listId);
         } else {
           this.validLogin = false;
         }
@@ -94,20 +100,34 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public generateAuthenticationObject(data_id) {
-    this.userState.DATA_ID = data_id;
-    this.http.getUserDetails(data_id).subscribe(
-      (res: IUserDetails) => {
-        this.userStore.put(res.userName, data_id);
-        console.log('store: ', this.userStore.get());
-        this.userPresent = true;
-        this.validLogin = true;
+  public generateAuthenticationObject(listId: number) {
+    // Begin building user session object.
+    this.session.setAuth(true);
+    this.http.getDatabaseState().subscribe(
+      (res: IDataBaseIteration[]) => {
+        this.session.setDbState(res[0]);
       },
       (err) => {
         console.log(err);
-        this.validLogin = false;
       }
     );
+    this.http.getUserDetails(listId).subscribe(
+      (res: IUserDetails[]) => {
+        this.session.setUserDetails(res[0]);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    this.http.getUserDietData(listId).subscribe(
+      (res: IUserDietData[]) => {
+        this.session.setUserDietData(res[0]);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    console.log(this.session);
   }
 
   public tapEmail() {

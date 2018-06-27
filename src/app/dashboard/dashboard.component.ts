@@ -79,19 +79,19 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     );
   }
 
-  public postUserDetails() {
-    this.userDetailsObject.email = 'ra_mcd@yahoo.com';
-    this.userDetailsObject.age = 32;
-    this.http.postUserDetails(this.userDetailsObject).subscribe(
-      (res) => {
-        console.log(res);
-        this.getUserDetails();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
+  // public postUserDetails() {
+  //   this.userDetailsObject.email = 'ra_mcd@yahoo.com';
+  //   this.userDetailsObject.age = 32;
+  //   this.http.postUserDetails(this.userDetailsObject).subscribe(
+  //     (res) => {
+  //       console.log(res);
+  //       this.getUserDetails();
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
 
   public resizerCheck(event) {
     const windowSize = event.target.innerWidth;

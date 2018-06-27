@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(root, 'dist')));
 app.use('/api', routes);
 app.get('*', (req, res) => {
-  res.sendFile('../dist/index.html', {root: root});
+  res.sendFile(path.resolve('./../dist/index.html'));
 });
 
 const port = process.env.Port || 3000;

@@ -26,6 +26,7 @@ import {RegistrationComponent} from './registration/registration.component';
 // Classes
 import {IUserStore} from './_store/IUserStore.store';
 import {IUserState} from './_store/IUserState.store';
+import {SessionStorageService} from './_store/SessionStorage.service';
 
 
 const crumbsRoutes: Routes = [
@@ -70,7 +71,9 @@ const crumbsRoutes: Routes = [
   providers: [
     HttpServiceCoreService,
     IUserStore,
-    IUserState],
+    IUserState,
+    SessionStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
