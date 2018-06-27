@@ -27,7 +27,7 @@ export class HttpServiceCoreService {
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
-  }git add -A
+  }
   public getLoginAuthentication(email: IUserLogin, password: IUserLogin): Observable<any> {
     const endPoint = `userLogin/${email}/${password}`;
     return this.http.get(this.httpBase + endPoint).map(
