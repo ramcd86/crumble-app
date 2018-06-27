@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {IUserDetails} from '../../_interfaces/IUserDetails';
 import {IUserDietData} from '../../_interfaces/IUserDietData';
 import {IUserLogin} from '../../_interfaces/IUserLogin';
+import {IDataBaseIteration} from '../../_interfaces/IDataBaseIteration';
 
 @Injectable()
 export class HttpServiceCoreService {
@@ -25,30 +26,30 @@ export class HttpServiceCoreService {
   public getDatabaseState(): Observable<any> {
     const endPoint = `dbState/`;
     return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => res
+      (res: IDataBaseIteration) => res
     );
   }
 
   public getLoginAuthentication(email: string, password: string): Observable<any> {
     const endPoint = `userLogin/${email}/${password}`;
     return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => {
-        console.log(res);
-      }
+      (res: IUserLogin) => res
+      //   console.log('Object: ', res, 'Element');
+      // }
     );
   }
 
   public getUserDetails(listId: number): Observable<any> {
     const endPoint = `userDetails/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => res
+      (res: IUserDetails) => res
     );
   }
 
   public getUserDietData(listId: number): Observable<any> {
     const endPoint = `userDietData/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => res
+      (res: IUserDietData) => res
     );
   }
 
@@ -60,21 +61,21 @@ export class HttpServiceCoreService {
   public postNewUserLogin(userDetails: IUserLogin): Observable<any> {
     const endPoint = 'userLogin/';
     return this.http.post(this.httpBase + endPoint, userDetails).map(
-      (res: Response) => res
+      (res: IUserLogin) => res
     );
   }
 
   public postNewUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = 'userDetails/';
     return this.http.post(this.httpBase + endPoint, userDetails).map(
-      (res: Response) => res
+      (res: IUserDetails) => res
     );
   }
 
   public postNewUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = 'userDietData/';
     return this.http.post(this.httpBase + endPoint, userDietData).map(
-      (res: Response) => res
+      (res: IUserDietData) => res
     );
   }
 
@@ -86,21 +87,21 @@ export class HttpServiceCoreService {
   public putUserLogin(userLogin: IUserLogin): Observable<any> {
     const endPoint = `userLogin/${userLogin.listId}`;
     return this.http.post(this.httpBase + endPoint, userLogin).map(
-      (res: Response) => res
+      (res: IUserLogin) => res
     );
   }
 
   public putUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = `userDetails/${userDetails.listId}`;
     return this.http.post(this.httpBase + endPoint, userDetails).map(
-      (res: Response) => res
+      (res: IUserDetails) => res
     );
   }
 
   public putUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = `userDietData/${userDietData.listId}`;
     return this.http.post(this.httpBase + endPoint, userDietData).map(
-      (res: Response) => res
+      (res: IUserDietData) => res
     );
   }
 

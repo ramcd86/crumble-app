@@ -85,10 +85,10 @@ export class AppComponent implements OnInit {
 
   public login() {
     this.http.getLoginAuthentication(this.userEmail.value, this.userPassword.value).subscribe(
-      (res: IUserLogin[]) => {
-        if (res.length > 0) {
-          console.log(res);
-          this.generateAuthenticationObject(res[0].listId);
+      (res: IUserLogin) => {
+        if (res) {
+          console.log('Object:', res);
+          this.generateAuthenticationObject(res.listId);
         } else {
           this.validLogin = false;
         }
@@ -104,24 +104,24 @@ export class AppComponent implements OnInit {
     // Begin building user session object.
     this.session.setAuth(true);
     this.http.getDatabaseState().subscribe(
-      (res: IDataBaseIteration[]) => {
-        this.session.setDbState(res[0]);
+      (res: IDataBaseIteration) => {
+        this.session.setDbState(res);
       },
       (err) => {
         console.log(err);
       }
     );
     this.http.getUserDetails(listId).subscribe(
-      (res: IUserDetails[]) => {
-        this.session.setUserDetails(res[0]);
+      (res: IUserDetails) => {
+        this.session.setUserDetails(res);
       },
       (err) => {
         console.log(err);
       }
     );
     this.http.getUserDietData(listId).subscribe(
-      (res: IUserDietData[]) => {
-        this.session.setUserDietData(res[0]);
+      (res: IUserDietData) => {
+        this.session.setUserDietData(res);
       },
       (err) => {
         console.log(err);

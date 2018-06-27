@@ -203,6 +203,17 @@ a:hover, a:active {
   color: #da000e;
 }
 
+.has-warning {
+  /*border-style: solid !important;*/
+  /*border-width: 1px !important;*/
+  /*border-color: #da000e !important;*/
+  border: #f86f06 1px solid !important;
+  background-color: #FFF ;
+  color: #da000e;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
