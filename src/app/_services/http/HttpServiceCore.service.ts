@@ -5,6 +5,7 @@ import {EnvironmentEndpoints} from '../../_constants/environments';
 import 'rxjs/add/operator/map';
 import {IUserDetails} from '../../_interfaces/IUserDetails';
 import {IUserDietData} from '../../_interfaces/IUserDietData';
+import {IUserLogin} from '../../_interfaces/IUserLogin';
 
 @Injectable()
 export class HttpServiceCoreService {
@@ -22,28 +23,25 @@ export class HttpServiceCoreService {
 
 
   public getDatabaseState(): Observable<any> {
-    const endPoint = `databaseState/`;
+    const endPoint = `dbState/`;
+    return this.http.get(this.httpBase + endPoint).map(
+      (res: Response) => res
+    );
+  }git add -A
+  public getLoginAuthentication(email: IUserLogin, password: IUserLogin): Observable<any> {
+    const endPoint = `userLogin/${email}/${password}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
   }
-
-  public getLoginAuthentication(email, password): Observable<any> {
-    const endPoint = `userLogin/?email=${email}&password=${password}`;
+  public getUserDetails(listId: IUserDetails): Observable<any> {
+    const endPoint = `userDetails/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
   }
-
-  public getUserDetails(data_id): Observable<any> {
-    const endPoint = `userDetails/${data_id}`;
-    return this.http.get(this.httpBase + endPoint).map(
-      (res: Response) => res
-    );
-  }
-
-  public getUserDietData(data_id): Observable<any> {
-    const endPoint = `userDetails/${data_id}`;
+  public getUserDietData(listId: IUserDietData): Observable<any> {
+    const endPoint = `userDietData/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: Response) => res
     );
@@ -54,15 +52,19 @@ export class HttpServiceCoreService {
   // POST NEW DATA TO THE USER DATABASE
   // #############################
 
-
-  public postUserDetails(userDetails: IUserDetails): Observable<any> {
+  public postNewUserLogin(userDetails: IUserLogin): Observable<any> {
+    const endPoint = 'userLogin/';
+    return this.http.post(this.httpBase + endPoint, userDetails).map(
+      (res: Response) => res
+    );
+  }
+  public postNewUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = 'userDetails/';
     return this.http.post(this.httpBase + endPoint, userDetails).map(
       (res: Response) => res
     );
   }
-
-  public postUserDietData(userDietData: IUserDietData): Observable<any> {
+  public postNewUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = 'userDietData/';
     return this.http.post(this.httpBase + endPoint, userDietData).map(
       (res: Response) => res
@@ -74,5 +76,23 @@ export class HttpServiceCoreService {
   // PUT UPDATED DATA INTO EXISTING DB ENTRIES
   // #############################
 
+  public putUserLogin(userLogin: IUserLogin): Observable<any> {
+    const endPoint = `userLogin/${userLogin.listId}`;
+    return this.http.post(this.httpBase + endPoint, userLogin).map(
+      (res: Response) => res
+    );
+  }
+  public putUserDetails(userDetails: IUserDetails): Observable<any> {
+    const endPoint = `userDetails/${userDetails.listId}`;
+    return this.http.post(this.httpBase + endPoint, userDetails).map(
+      (res: Response) => res
+    );
+  }
+  public putUserDietData(userDietData: IUserDietData): Observable<any> {
+    const endPoint = `userDietData/${userDietData.listId}`;
+    return this.http.post(this.httpBase + endPoint, userDietData).map(
+      (res: Response) => res
+    );
+  }
 
 }

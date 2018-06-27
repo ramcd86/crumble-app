@@ -5,6 +5,7 @@ import {IUserLogin} from './_interfaces/IUserLogin';
 import {IUserDetails} from './_interfaces/IUserDetails';
 import {IUserStore} from './_store/IUserStore.store';
 import {IUserState} from './_store/IUserState.store';
+import {SessionStorageService} from './_store/SessionStorage.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent implements OnInit {
   constructor(
     public userState: IUserState,
     public userStore: IUserStore,
-    public http: HttpServiceCoreService
+    public http: HttpServiceCoreService,
+    public session: SessionStorageService
   ) {
   }
 
