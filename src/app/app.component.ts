@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {HttpServiceCoreService} from './_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
 import {IUserLogin} from './_interfaces/IUserLogin';
 import {IUserDetails} from './_interfaces/IUserDetails';
 import {IUserStore} from './_store/IUserStore.store';
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   constructor(
     public userState: IUserState,
     public userStore: IUserStore,
-    public http: HttpServiceCoreService,
+    public http: HttpServiceCore,
     public session: SessionStorageService
   ) {
   }

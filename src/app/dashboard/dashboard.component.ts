@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-import {HttpServiceCoreService} from '../_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {ActivatedRoute} from '@angular/router';
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private http: HttpServiceCoreService,
+    private http: HttpServiceCore,
     private route: ActivatedRoute
   ) {
 

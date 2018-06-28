@@ -9,7 +9,7 @@ import {IUserLogin} from '../../_interfaces/IUserLogin';
 import {IDataBaseIteration} from '../../_interfaces/IDataBaseIteration';
 
 @Injectable()
-export class HttpServiceCoreService {
+export class HttpServiceCore {
 
   public httpBase = EnvironmentEndpoints.ENDPOINT;
 

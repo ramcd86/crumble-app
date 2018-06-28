@@ -6,7 +6,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 // Services
-import {HttpServiceCoreService} from './_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
 
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
@@ -69,7 +69,7 @@ const crumbsRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    HttpServiceCoreService,
+    HttpServiceCore,
     IUserStore,
     IUserState,
     SessionStorageService
