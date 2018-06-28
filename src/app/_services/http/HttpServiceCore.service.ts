@@ -84,6 +84,13 @@ export class HttpServiceCore {
   // PUT UPDATED DATA INTO EXISTING DB ENTRIES
   // #############################
 
+  public putDbState(dbState: IDataBaseIteration): Observable<any> {
+    const endPoint = `dbState/${dbState.listId}`;
+    return this.http.post(this.httpBase + endPoint, dbState).map(
+      (res: IUserLogin) => res
+    );
+  }
+
   public putUserLogin(userLogin: IUserLogin): Observable<any> {
     const endPoint = `userLogin/${userLogin.listId}`;
     return this.http.post(this.httpBase + endPoint, userLogin).map(

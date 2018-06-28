@@ -6,9 +6,6 @@ import {IUserLogin} from '../_interfaces/IUserLogin';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
-// States
-import {IUserState} from '../_store/IUserState.store';
-import {IUserStore} from '../_store/IUserStore.store';
 
 
 @Component({
@@ -17,6 +14,7 @@ import {IUserStore} from '../_store/IUserStore.store';
 })
 export class RegistrationComponent implements OnInit {
 
+  public dbState: IDataBaseIteration;
   public newUserLogin: IUserLogin;
   public newUserDetails: IUserDetails;
   public newUserDietData: IUserDietData;
@@ -26,7 +24,7 @@ export class RegistrationComponent implements OnInit {
   public crumb4Toggle = false;
   public crumb5Toggle = false;
 
-  public dbState: any;
+  // public dbState: any;
   public validDetails = true;
 
   public userLoginListId = 0;
@@ -96,41 +94,83 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.getDatabaseState().subscribe(
-      (res: IDataBaseIteration) => {
-        console.log('Initial DB state: ', res.dbState);
-        this.dbState = res.dbState + 1;
-        console.log('New DB State: ', this.dbState);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    // this.http.getDatabaseState().subscribe(
+    //   (res: IDataBaseIteration) => {
+    //     console.log('Initial DB state: ', res.dbState);
+    //     this.dbState = res.dbState + 1;
+    //     console.log('New DB State: ', this.dbState);
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
   }
 
   public register() {
-    let listId = 0;
+    let iterationCount = 0;
+    let statusValid = true;
     this.http.getDatabaseState().subscribe(
       (res: IDataBaseIteration) => {
-        listId = res.listId + 1;
-        this.createNewUserLogin(listId);
-        this.createNewUserDetails(listId);
-        this.createNewUserDietData(listId);
+        this.dbState = res;
+        iterationCount = res.dbState + 1;
+        this.createNewUserLogin(iterationCount);
+        this.createNewUserDetails(iterationCount);
+        this.createNewUserDietData(iterationCount);
       },
       (err) => {
         console.log(err);
+        statusValid = false;
       }
     );
+    this.http.postNewUserLogin(this.newUserLogin).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+        statusValid = false;
+      }
+    );
+    this.http.postNewUserDetails(this.newUserDetails).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+        statusValid = false;
+      }
+    );
+    this.http.postNewUserDietData(this.newUserDietData).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+        statusValid = false;
+      }
+    );
+    if (statusValid = true) {
+      this.dbState.dbState = this.dbState.dbState + 1;
+      this.http.putDbState(this.dbState).subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
   }
 
-  public createNewUserLogin(listId) {
-    this.newUserLogin.listId = listId;
+  public createNewUserLogin(iterationCount) {
+    this.newUserLogin.listId = iterationCount;
     this.newUserLogin.email = this.userEmail.value;
     this.newUserLogin.password = this.password1.value;
-    this.newUserLogin.dataId = listId;
+    this.newUserLogin.dataId = iterationCount;
   }
-  public createNewUserDetails(listId) {
-    this.newUserDetails.listId = listId;
+
+  public createNewUserDetails(iterationCount) {
+    this.newUserDetails.listId = iterationCount;
     this.newUserDetails.firstName = this.firstName.value;
     this.newUserDetails.lastName = this.lastName.value;
     this.newUserDetails.userName = this.userName.value;
@@ -139,8 +179,9 @@ export class RegistrationComponent implements OnInit {
     this.newUserDetails.height = this.height.value;
     this.newUserDetails.age = this.age.value;
   }
-  public createNewUserDietData(listId) {
-    this.newUserDietData.listId = listId;
+
+  public createNewUserDietData(iterationCount) {
+    this.newUserDietData.listId = iterationCount;
     this.newUserDietData.bigCrumbCustom = this.bigCrumbCustom;
     this.newUserDietData.bigCrumbDefault = this.bigCrumbDefault;
     this.newUserDietData.bigCrumbCustomType = this.bigCrumbCustomType.value;
@@ -153,30 +194,30 @@ export class RegistrationComponent implements OnInit {
     this.newUserDietData.littleCrumb1CustomMaxValue = this.littleCrumb1CustomMaxValue.value;
     this.newUserDietData.littleCrumb1UserSetValue = this.littleCrumb1UserSetValue;
     this.newUserDietData.littleCrumb1History = this.littleCrumb1History;
-   this.newUserDietData.littleCrumb2Custom = this.littleCrumb2Custom;
+    this.newUserDietData.littleCrumb2Custom = this.littleCrumb2Custom;
     this.newUserDietData.littleCrumb2Default = this.littleCrumb2Default;
     this.newUserDietData.littleCrumb2CustomType = this.littleCrumb2CustomType.value;
-   this.newUserDietData. littleCrumb2CustomMaxValue = this.littleCrumb2CustomMaxValue.value;
+    this.newUserDietData.littleCrumb2CustomMaxValue = this.littleCrumb2CustomMaxValue.value;
     this.newUserDietData.littleCrumb2UserSetValue = this.littleCrumb2UserSetValue;
     this.newUserDietData.littleCrumb2History = this.littleCrumb2History;
     this.newUserDietData.littleCrumb3Custom = this.littleCrumb3Custom;
     this.newUserDietData.littleCrumb3Default = this.littleCrumb3Default;
     this.newUserDietData.littleCrumb3CustomType = this.littleCrumb3CustomType.value;
-   this.newUserDietData.littleCrumb3CustomMaxValue = this.littleCrumb3CustomMaxValue.value;
+    this.newUserDietData.littleCrumb3CustomMaxValue = this.littleCrumb3CustomMaxValue.value;
     this.newUserDietData.littleCrumb3UserSetValue = this.littleCrumb3UserSetValue;
-   this.newUserDietData.littleCrumb3History = this.littleCrumb3History;
+    this.newUserDietData.littleCrumb3History = this.littleCrumb3History;
     this.newUserDietData.littleCrumb4Custom = this.littleCrumb4Custom;
-   this.newUserDietData.littleCrumb4Default = this.littleCrumb4Default;
-   this.newUserDietData.littleCrumb4CustomType = this.littleCrumb4CustomType.value;
+    this.newUserDietData.littleCrumb4Default = this.littleCrumb4Default;
+    this.newUserDietData.littleCrumb4CustomType = this.littleCrumb4CustomType.value;
     this.newUserDietData.littleCrumb4CustomMaxValue = this.littleCrumb4CustomMaxValue.value;
     this.newUserDietData.littleCrumb4UserSetValue = this.littleCrumb4UserSetValue;
     this.newUserDietData.littleCrumb4History = this.littleCrumb4History;
-   this.newUserDietData.littleCrumb5Custom = this.littleCrumb5Custom;
+    this.newUserDietData.littleCrumb5Custom = this.littleCrumb5Custom;
     this.newUserDietData.littleCrumb5Default = this.littleCrumb5Default;
     this.newUserDietData.littleCrumb5CustomType = this.littleCrumb5CustomType.value;
     this.newUserDietData.littleCrumb5CustomMaxValue = this.littleCrumb5CustomMaxValue.value;
     this.newUserDietData.littleCrumb5UserSetValue = this.littleCrumb5UserSetValue;
-   this.newUserDietData.littleCrumb5History = this.littleCrumb5History;
+    this.newUserDietData.littleCrumb5History = this.littleCrumb5History;
   }
 
   public toggleSwitchTemplate() {
