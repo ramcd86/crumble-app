@@ -21,6 +21,8 @@ export class RegistrationComponent implements OnInit {
   public newUserDetails: IUserDetails;
   public newUserDietData: IUserDietData;
 
+  public switchTemp = false;
+
   public dbState: any;
   public validDetails = true;
 
@@ -100,6 +102,10 @@ export class RegistrationComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  public toggleSwitchTemplate() {
+    this.switchTemp = !this.switchTemp;
   }
 
   public logger() {
