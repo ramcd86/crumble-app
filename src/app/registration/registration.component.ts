@@ -106,6 +106,8 @@ export class RegistrationComponent implements OnInit {
 
   public toggleSwitchTemplate() {
     this.switchTemp = !this.switchTemp;
+    // window.scrollTo(0, 0);
+    document.getElementById('regModal').scrollTop = 0;
   }
 
   public logger() {
