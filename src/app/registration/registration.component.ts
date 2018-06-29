@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
-// Interfaces
 import {IUserLogin} from '../_interfaces/IUserLogin';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
@@ -18,24 +17,16 @@ export class RegistrationComponent implements OnInit {
   public newUserLogin = <IUserLogin>{};
   public newUserDetails = <IUserDetails>{};
   public newUserDietData = <IUserDietData>{};
-
   public switchTemp = false;
   public crumb3Toggle = false;
   public crumb4Toggle = false;
   public crumb5Toggle = false;
   public httpError: boolean;
-
-  // public dbState: any;
   public validDetails = true;
-
-  public userLoginListId = 0;
   public userEmail: FormControl = new FormControl(null, [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]);
   public password1: FormControl = new FormControl(null, [Validators.required]);
   public password2: FormControl = new FormControl(null, [Validators.required]);
   public dataId: number;
-
-// EMAIL REQUIRED FOR OBJECT, TO BE ACQUIRED FROM USER SUBMITTED EMAIL.
-  public userDetailsListId = 0;
   public firstName: FormControl = new FormControl(null, [Validators.required]);
   public lastName: FormControl = new FormControl(null, [Validators.required]);
   public userName: FormControl = new FormControl(null, [Validators.required]);
@@ -43,44 +34,36 @@ export class RegistrationComponent implements OnInit {
   public height: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
   public age: FormControl = new FormControl(null, [Validators.required, Validators.max(120)]);
   public weightHistory = [];
-
-
-  public userDietDataListId = 0;
   public bigCrumbCustom = true;
   public bigCrumbCustomType: FormControl = new FormControl(null, [Validators.required]);
   public bigCrumbCustomMaxValue: FormControl = new FormControl(null, [Validators.required, Validators.max(99999)]);
   public bigCrumbUserSetValue = 0;
   public bigCrumbDefault = 0;
   public bigCrumbHistory = [];
-
   public littleCrumb1Custom = true;
   public littleCrumb1CustomType: FormControl = new FormControl(null, [Validators.required]);
   public littleCrumb1CustomMaxValue: FormControl = new FormControl(null, [Validators.required, Validators.max(99999)]);
   public littleCrumb1UserSetValue = 0;
   public littleCrumb1Default = 0;
   public littleCrumb1History = [];
-
   public littleCrumb2Custom = true;
   public littleCrumb2CustomType: FormControl = new FormControl(null, [Validators.required]);
   public littleCrumb2CustomMaxValue: FormControl = new FormControl(null, [Validators.required, Validators.max(99999)]);
   public littleCrumb2UserSetValue = 0;
   public littleCrumb2Default = 0;
   public littleCrumb2History = [];
-
   public littleCrumb3Custom = false;
   public littleCrumb3CustomType: FormControl = new FormControl('Points');
   public littleCrumb3CustomMaxValue: FormControl = new FormControl(0, [Validators.max(99999)]);
   public littleCrumb3UserSetValue = 0;
   public littleCrumb3Default = 0;
   public littleCrumb3History = [];
-
   public littleCrumb4Custom = false;
   public littleCrumb4CustomType: FormControl = new FormControl('Points');
   public littleCrumb4CustomMaxValue: FormControl = new FormControl(0, [Validators.max(99999)]);
   public littleCrumb4UserSetValue = 0;
   public littleCrumb4Default = 0;
   public littleCrumb4History = [];
-
   public littleCrumb5Custom = false;
   public littleCrumb5CustomType: FormControl = new FormControl('Points');
   public littleCrumb5CustomMaxValue: FormControl = new FormControl(0, [Validators.max(99999)]);
@@ -95,20 +78,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.http.getDatabaseState().subscribe(
-    //   (res: IDataBaseIteration) => {
-    //     console.log('Initial DB state: ', res.dbState);
-    //     this.dbState = res.dbState + 1;
-    //     console.log('New DB State: ', this.dbState);
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
   }
 
   public register() {
-
     let iterationCount = 0;
     this.http.getDatabaseState().subscribe(
       (res: IDataBaseIteration) => {
@@ -127,12 +99,8 @@ export class RegistrationComponent implements OnInit {
       () => {
         this.dbState.dbState = this.dbState.dbState + 1;
         this.createNewUserLogin(iterationCount);
-
       }
     );
-    // if (this.httpError === false) {
-    //
-    // }
   }
 
   public createNewUserLogin(iterationCount: number) {
@@ -248,7 +216,6 @@ export class RegistrationComponent implements OnInit {
 
   public toggleSwitchTemplate() {
     this.switchTemp = !this.switchTemp;
-    // window.scrollTo(0, 0);
     document.getElementById('regModal').scrollTop = 0;
   }
 
@@ -265,10 +232,6 @@ export class RegistrationComponent implements OnInit {
   public toggleCrumb5() {
     this.crumb5Toggle = !this.crumb5Toggle;
     this.littleCrumb5Custom = !this.littleCrumb5Custom;
-  }
-
-  public logger() {
-    console.log(this.userEmail.value);
   }
 
 }
