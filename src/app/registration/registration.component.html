@@ -181,8 +181,8 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label" [class.has-error]="bigCrumbCutomMaxValue.invalid && bigCrumbCutomMaxValue.dirty">* Your daily maximum or target:</label>
-          <input type="number" [formControl]="bigCrumbCutomMaxValue" [class.has-error]="bigCrumbCutomMaxValue.invalid && bigCrumbCutomMaxValue.dirty">
+          <label class="c-label" [class.has-error]="bigCrumbCustomMaxValue.invalid && bigCrumbCustomMaxValue.dirty">* Your daily maximum or target:</label>
+          <input type="number" [formControl]="bigCrumbCustomMaxValue" [class.has-error]="bigCrumbCustomMaxValue.invalid && bigCrumbCustomMaxValue.dirty">
         </div>
       </div>
 
@@ -197,8 +197,8 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label" [class.has-error]="littleCrumb1CutomMaxValue.invalid && littleCrumb1CutomMaxValue.dirty">* Your daily maximum or target:</label>
-          <input type="text" [formControl]="littleCrumb1CutomMaxValue" [class.has-error]="littleCrumb1CutomMaxValue.invalid && littleCrumb1CutomMaxValue.dirty">
+          <label class="c-label" [class.has-error]="littleCrumb1CustomMaxValue.invalid && littleCrumb1CustomMaxValue.dirty">* Your daily maximum or target:</label>
+          <input type="text" [formControl]="littleCrumb1CustomMaxValue" [class.has-error]="littleCrumb1CustomMaxValue.invalid && littleCrumb1CustomMaxValue.dirty">
         </div>
       </div>
 
@@ -213,8 +213,8 @@
       <div class="row">
         <div
           class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-          <label class="c-label" [class.has-error]="littleCrumb2CutomMaxValue.invalid && littleCrumb2CutomMaxValue.dirty">* Your daily maximum or target:</label>
-          <input type="text" [formControl]="littleCrumb2CutomMaxValue" [class.has-error]="littleCrumb2CutomMaxValue.invalid && littleCrumb2CutomMaxValue.dirty">
+          <label class="c-label" [class.has-error]="littleCrumb2CustomMaxValue.invalid && littleCrumb2CustomMaxValue.dirty">* Your daily maximum or target:</label>
+          <input type="text" [formControl]="littleCrumb2CustomMaxValue" [class.has-error]="littleCrumb2CustomMaxValue.invalid && littleCrumb2CustomMaxValue.dirty">
         </div>
       </div>
 
@@ -248,8 +248,8 @@
         <div class="row">
           <div
             class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <label class="c-label" [class.has-error]="littleCrumb3CutomMaxValue.invalid && littleCrumb3CutomMaxValue.dirty">* Your daily maximum or target:</label>
-            <input type="text" [formControl]="littleCrumb3CutomMaxValue" [class.has-error]="littleCrumb3CutomMaxValue.invalid && littleCrumb3CutomMaxValue.dirty">
+            <label class="c-label" [class.has-error]="littleCrumb3CustomMaxValue.invalid && littleCrumb3CustomMaxValue.dirty">* Your daily maximum or target:</label>
+            <input type="text" [formControl]="littleCrumb3CustomMaxValue" [class.has-error]="littleCrumb3CustomMaxValue.invalid && littleCrumb3CustomMaxValue.dirty">
           </div>
         </div>
       </div>
@@ -274,8 +274,8 @@
         <div class="row">
           <div
             class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <label class="c-label" [class.has-error]="littleCrumb4CutomMaxValue.invalid && littleCrumb4CutomMaxValue.dirty">* Your daily maximum or target:</label>
-            <input type="text" [formControl]="littleCrumb4CutomMaxValue" [class.has-error]="littleCrumb4CutomMaxValue.invalid && littleCrumb4CutomMaxValue.dirty">
+            <label class="c-label" [class.has-error]="littleCrumb4CustomMaxValue.invalid && littleCrumb4CustomMaxValue.dirty">* Your daily maximum or target:</label>
+            <input type="text" [formControl]="littleCrumb4CustomMaxValue" [class.has-error]="littleCrumb4CustomMaxValue.invalid && littleCrumb4CustomMaxValue.dirty">
           </div>
         </div>
       </div>
@@ -299,8 +299,8 @@
         <div class="row">
           <div
             class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <label class="c-label" [class.has-error]="littleCrumb5CutomMaxValue.invalid && littleCrumb5CutomMaxValue.dirty">* Your daily maximum or target:</label>
-            <input type="text" [formControl]="littleCrumb5CutomMaxValue" [class.has-error]="littleCrumb5CutomMaxValue.invalid && littleCrumb5CutomMaxValue.dirty">
+            <label class="c-label" [class.has-error]="littleCrumb5CustomMaxValue.invalid && littleCrumb5CustomMaxValue.dirty">* Your daily maximum or target:</label>
+            <input type="text" [formControl]="littleCrumb5CustomMaxValue" [class.has-error]="littleCrumb5CustomMaxValue.invalid && littleCrumb5CustomMaxValue.dirty">
           </div>
         </div>
       </div>
@@ -317,7 +317,7 @@
           </button>
         </div>
         <div class="row">
-          <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="logger()">
+          <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="register()">
             <span class="glyphicon glyphicon-check"></span> Complete Registration
           </button>
       </div>

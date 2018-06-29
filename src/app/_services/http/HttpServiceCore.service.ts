@@ -86,28 +86,28 @@ export class HttpServiceCore {
 
   public putDbState(dbState: IDataBaseIteration): Observable<any> {
     const endPoint = `dbState/${dbState.listId}`;
-    return this.http.post(this.httpBase + endPoint, dbState).map(
+    return this.http.put(this.httpBase + endPoint, dbState).map(
       (res: IUserLogin) => res
     );
   }
 
   public putUserLogin(userLogin: IUserLogin): Observable<any> {
     const endPoint = `userLogin/${userLogin.listId}`;
-    return this.http.post(this.httpBase + endPoint, userLogin).map(
+    return this.http.put(this.httpBase + endPoint, userLogin).map(
       (res: IUserLogin) => res
     );
   }
 
   public putUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = `userDetails/${userDetails.listId}`;
-    return this.http.post(this.httpBase + endPoint, userDetails).map(
+    return this.http.put(this.httpBase + endPoint, userDetails).map(
       (res: IUserDetails) => res
     );
   }
 
   public putUserDietData(userDietData: IUserDietData): Observable<any> {
     const endPoint = `userDietData/${userDietData.listId}`;
-    return this.http.post(this.httpBase + endPoint, userDietData).map(
+    return this.http.put(this.httpBase + endPoint, userDietData).map(
       (res: IUserDietData) => res
     );
   }

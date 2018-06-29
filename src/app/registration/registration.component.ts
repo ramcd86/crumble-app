@@ -14,15 +14,16 @@ import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
 })
 export class RegistrationComponent implements OnInit {
 
-  public dbState: IDataBaseIteration;
-  public newUserLogin: IUserLogin;
-  public newUserDetails: IUserDetails;
-  public newUserDietData: IUserDietData;
+  public dbState = <IDataBaseIteration>{};
+  public newUserLogin = <IUserLogin>{};
+  public newUserDetails = <IUserDetails>{};
+  public newUserDietData = <IUserDietData>{};
 
   public switchTemp = false;
   public crumb3Toggle = false;
   public crumb4Toggle = false;
   public crumb5Toggle = false;
+  public httpError: boolean;
 
   // public dbState: any;
   public validDetails = true;
@@ -107,69 +108,55 @@ export class RegistrationComponent implements OnInit {
   }
 
   public register() {
+
     let iterationCount = 0;
-    let statusValid = true;
     this.http.getDatabaseState().subscribe(
       (res: IDataBaseIteration) => {
-        this.dbState = res;
-        iterationCount = res.dbState + 1;
+        console.log(res[0]);
+        this.dbState = res[0];
+        console.log(this.dbState);
+        iterationCount = res[0].dbState + 1;
+        console.log(iterationCount);
+        this.httpError = false;
+        console.log(this.httpError);
+      },
+      (err) => {
+        console.log(err);
+        this.httpError = true;
+      },
+      () => {
+        this.dbState.dbState = this.dbState.dbState + 1;
         this.createNewUserLogin(iterationCount);
-        this.createNewUserDetails(iterationCount);
-        this.createNewUserDietData(iterationCount);
-      },
-      (err) => {
-        console.log(err);
-        statusValid = false;
+
       }
     );
-    this.http.postNewUserLogin(this.newUserLogin).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-        statusValid = false;
-      }
-    );
-    this.http.postNewUserDetails(this.newUserDetails).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-        statusValid = false;
-      }
-    );
-    this.http.postNewUserDietData(this.newUserDietData).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-        statusValid = false;
-      }
-    );
-    if (statusValid = true) {
-      this.dbState.dbState = this.dbState.dbState + 1;
-      this.http.putDbState(this.dbState).subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }
+    // if (this.httpError === false) {
+    //
+    // }
   }
 
-  public createNewUserLogin(iterationCount) {
+  public createNewUserLogin(iterationCount: number) {
     this.newUserLogin.listId = iterationCount;
     this.newUserLogin.email = this.userEmail.value;
     this.newUserLogin.password = this.password1.value;
     this.newUserLogin.dataId = iterationCount;
+    console.log(this.newUserLogin);
+    this.http.postNewUserLogin(this.newUserLogin).subscribe(
+      (res) => {
+        console.log(res);
+        this.httpError = false;
+      },
+      (err) => {
+        console.log(err);
+        this.httpError = true;
+      },
+      () => {
+        this.createNewUserDetails(iterationCount);
+      }
+    );
   }
 
-  public createNewUserDetails(iterationCount) {
+  public createNewUserDetails(iterationCount: number) {
     this.newUserDetails.listId = iterationCount;
     this.newUserDetails.firstName = this.firstName.value;
     this.newUserDetails.lastName = this.lastName.value;
@@ -178,9 +165,23 @@ export class RegistrationComponent implements OnInit {
     this.newUserDetails.weightHistory = this.weightHistory;
     this.newUserDetails.height = this.height.value;
     this.newUserDetails.age = this.age.value;
+    console.log(this.newUserDetails);
+    this.http.postNewUserDetails(this.newUserDetails).subscribe(
+      (res) => {
+        console.log(res);
+        this.httpError = false;
+      },
+      (err) => {
+        console.log(err);
+        this.httpError = true;
+      },
+      () => {
+        this.createNewUserDietData(iterationCount);
+      }
+    );
   }
 
-  public createNewUserDietData(iterationCount) {
+  public createNewUserDietData(iterationCount: number) {
     this.newUserDietData.listId = iterationCount;
     this.newUserDietData.bigCrumbCustom = this.bigCrumbCustom;
     this.newUserDietData.bigCrumbDefault = this.bigCrumbDefault;
@@ -218,6 +219,31 @@ export class RegistrationComponent implements OnInit {
     this.newUserDietData.littleCrumb5CustomMaxValue = this.littleCrumb5CustomMaxValue.value;
     this.newUserDietData.littleCrumb5UserSetValue = this.littleCrumb5UserSetValue;
     this.newUserDietData.littleCrumb5History = this.littleCrumb5History;
+    console.log(this.newUserDietData);
+    this.http.postNewUserDietData(this.newUserDietData).subscribe(
+      (res) => {
+        console.log(res);
+        this.httpError = false;
+      },
+      (err) => {
+        console.log(err);
+        this.httpError = true;
+      },
+      () => {
+        this.pushNewDbState(this.dbState);
+      }
+    );
+  }
+
+  public pushNewDbState(state: IDataBaseIteration) {
+    this.http.putDbState(state).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   public toggleSwitchTemplate() {
