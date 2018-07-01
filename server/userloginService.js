@@ -16,12 +16,12 @@ function getUserLogin(req, res) {
 function getExistingUserLogin(req, res) {
   const originalUserLogin = {
     listId: req.params.listId,
-    email: req.params.email,
+    username: req.params.username,
     password: req.params.password,
     dataId: req.params.dataId
   };
   const searchedObject = UserLoginModel.findOne({
-    email: originalUserLogin.email,
+    username: originalUserLogin.username,
     password: originalUserLogin.password
   });
   searchedObject
