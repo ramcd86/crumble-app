@@ -9,6 +9,23 @@ const passport = require('passport');
 
 const User = require('../server/user');
 
+const jwt = require('express-jwt');
+const auth = jwt({
+  secret: 'MY_SECRET',
+  userProperty: 'payload'
+});
+
+const ctrlProfile = require('./profile');
+const ctrlAuth = require('./authentication');
+
+// profile
+router.get('/profile', auth, ctrlProfile.profileRead);
+
+// authentication
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
+
+module.exports = router;
 
 router.post('/userLogin', function (req, res) {
   userLoginModel.register(new userLoginModel(

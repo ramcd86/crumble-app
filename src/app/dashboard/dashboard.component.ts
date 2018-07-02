@@ -40,8 +40,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     console.log(this.dataId);
 
     this.userSyns = 0;
-    this.getUserDetails();
-    this.getUserDietData();
+    // this.getUserDetails();
+    // this.getUserDietData();
   }
 
   ngAfterViewInit() {

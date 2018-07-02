@@ -8,6 +8,7 @@ import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
 import {IDataBaseIteration} from './_interfaces/IDataBaseIteration';
 import {IUserDietData} from './_interfaces/IUserDietData';
+import {AuthenticationService} from './_services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
   public newRegister = false;
   public navStatus: boolean;
   public windowDesktop = false;
-  public userPresent = false;
+  public userPresent = true;
   public emailClicked = false;
   public passwordClicked = false;
   public validLogin = true;
@@ -34,7 +35,8 @@ export class AppComponent implements OnInit {
     public userState: IUserState,
     public userStore: IUserStore,
     public http: HttpServiceCore,
-    public session: SessionStorageService
+    public session: SessionStorageService,
+    public auth: AuthenticationService
   ) {
   }
 

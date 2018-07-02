@@ -1,81 +1,81 @@
-<div class="status-bar text-center" *ngIf="developmentMode"><h5>Warning: Crumbs is currently set to <em>development
-  mode</em>, as such many features may not work.</h5></div>
-<app-registration
-  *ngIf="newRegister === true"
-></app-registration>
-<div *ngIf="userPresent === false && newRegister === false">
-  <div class="c-modal-wrap">
-    <div class="row no-gutters">
-      <div
-        class="big-cell col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"
-        style="margin-top: 10vh;">
-        <div class="row">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center"
-            style="padding: 20px;">
-            <h3><img src="../assets/images/crumbs_logo_black.png" class="img-responsive"></h3>
-            <h3 class="header-style-font orange-text">make the change!</h3>
-          </div>
-        </div>
-        <div class="row" *ngIf="!validLogin">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <h4 class="warning-cell">Invalid Login Details!</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <input type="text" [formControl]="userEmail" (click)="tapEmail()">
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <input type="password" [formControl]="userPassword" (click)="tapPassword()">
-          </div>
-        </div>
+<!--<div class="status-bar text-center" *ngIf="developmentMode"><h5>Warning: Crumbs is currently set to <em>development-->
+  <!--mode</em>, as such many features may not work.</h5></div>-->
+<!--<app-registration-->
+  <!--*ngIf="newRegister === true"-->
+<!--&gt;</app-registration>-->
+<!--<div *ngIf="userPresent === false && newRegister === false">-->
+  <!--<div class="c-modal-wrap">-->
+    <!--<div class="row no-gutters">-->
+      <!--<div-->
+        <!--class="big-cell col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"-->
+        <!--style="margin-top: 10vh;">-->
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center"-->
+            <!--style="padding: 20px;">-->
+            <!--<h3><img src="../assets/images/crumbs_logo_black.png" class="img-responsive"></h3>-->
+            <!--<h3 class="header-style-font orange-text">make the change!</h3>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row" *ngIf="!validLogin">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<h4 class="warning-cell">Invalid Login Details!</h4>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<input type="text" [formControl]="userEmail" (click)="tapEmail()">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<input type="password" [formControl]="userPassword" (click)="tapPassword()">-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="login()">
-              <span class="glyphicon glyphicon-log-in"></span> Login
-            </button>
-          </div>
-        </div>
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="login()">-->
+              <!--<span class="glyphicon glyphicon-log-in"></span> Login-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <button class="btn btn-state-rust btn-block" style="margin: 5px; padding: 5px;" (click)="resetFields()">
-              <span class="glyphicon glyphicon-erase"></span> Reset
-            </button>
-          </div>
-        </div>
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<button class="btn btn-state-rust btn-block" style="margin: 5px; padding: 5px;" (click)="resetFields()">-->
+              <!--<span class="glyphicon glyphicon-erase"></span> Reset-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="hbar"></div>
-        <div class="row">
-          <div
-            class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-            <h2 class="header-style-font-black text-center">
-              new to crumbs?</h2>
-          </div>
-        </div>
-        <div class="row" style="padding-bottom: 30px;">
-          <div
-            class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="register()">
-              <span class="glyphicon glyphicon-check"></span> Sign up
-            </button>
-          </div>
-        </div>
+        <!--<div class="hbar"></div>-->
+        <!--<div class="row">-->
+          <!--<div-->
+            <!--class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">-->
+            <!--<h2 class="header-style-font-black text-center">-->
+              <!--new to crumbs?</h2>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row" style="padding-bottom: 30px;">-->
+          <!--<div-->
+            <!--class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">-->
+            <!--<button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="register()">-->
+              <!--<span class="glyphicon glyphicon-check"></span> Sign up-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
 
-      </div>
-    </div>
-  </div>
-</div>
-<div *ngIf="userPresent === true">
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<div>
   <div class="deskmenu">
     <div class="navbar navbar-fixed-top nav-style">
       <nav>
@@ -88,6 +88,9 @@
         </h4>
 
           <h4 class="pull-right">
+            <span *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></span>
+            <span *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></span>
+            <span *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></span>
             <a [routerLink]="['/user-account', userState.DATA_ID]"><span class="glyphicon glyphicon-user"></span> Manage
               Account</a> -
             <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
@@ -111,6 +114,10 @@
               Log</a> <br>
             <a [routerLink]="['/diet-statistics', userState.DATA_ID]"><span class="glyphicon glyphicon-stats"></span>
               Diet Stats</a><br><br>
+            <a routerLink="/login">Sign in</a><br>
+            <a routerLink="/register">Register</a><br>
+            <a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a><br>
+            <a (click)="auth.logout()">Logout</a><br>
             <a [routerLink]="['/user-account', userState.DATA_ID]"><span class="glyphicon glyphicon-user"></span> Manage
               Account</a> <br>
             <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin

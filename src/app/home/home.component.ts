@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      params => {
-        this.dataId = params['userData.DATA_ID'];
-      });
-    this.titleService.setTitle('Crumbs - Home');
-    console.log('aslo store: ', this.userStore.get().data_id);
+    // this.route.params.subscribe(
+    //   params => {
+    //     this.dataId = params['userData.DATA_ID'];
+    //   });
+    // this.titleService.setTitle('Crumbs - Home');
+    // console.log('aslo store: ', this.userStore.get().data_id);
   }
 
 
