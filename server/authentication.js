@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 module.exports.register = function(req, res) {
+
+
   const user = new User();
 
   user.name = req.body.name;
