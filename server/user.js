@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // listId: {type: Number, required: true, unique: true},
+  dataId: {type: Number, required: true, unique: true},
   // dataId: {type: Number, required: true, unique: true},
   hash: String,
   salt: String
@@ -37,7 +37,7 @@ userSchema.methods.generateJwt = function() {
     email: this.email,
     name: this.name,
     // listId: this.listId,
-    // dataId: this.dataId,
+    dataId: this.dataId,
     exp: parseInt(expiry.getTime() / 1000),
   }, "MY_SECRET"); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };

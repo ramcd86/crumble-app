@@ -8,7 +8,7 @@ import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
 import {IDataBaseIteration} from './_interfaces/IDataBaseIteration';
 import {IUserDietData} from './_interfaces/IUserDietData';
-import {AuthenticationService} from './_services/authentication.service';
+import {AuthenticationService, UserDetails} from './_services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   public emailClicked = false;
   public passwordClicked = false;
   public validLogin = true;
+  public details: UserDetails;
 
   constructor(
     public userState: IUserState,
@@ -41,6 +42,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+    }, (err) => {
+      console.error(err);
+    });
+
+    // this.auth.profile();
+    // console.log(this.auth.isLoggedIn());
 
     console.log(`
     ##################################################
