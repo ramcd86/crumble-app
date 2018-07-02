@@ -13,7 +13,7 @@ const userDetailsSchema = new Schema(
     height: String,
     age: Number
   }, {
-    collection: 'userDetailsModels',
+    collection: 'userDetailsDocuments',
     read: 'nearest'
   },
   {versionKey: false}

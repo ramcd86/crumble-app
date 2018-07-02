@@ -1,6 +1,6 @@
-const UserDietDataModel = require('../server/userdietdataModel');
+const UserDietDataModel = require('../models/userDietDataModel');
 const ReadPreference = require('mongodb').ReadPreference;
-require('./mongo').connect();
+require('../env/mongo').connect();
 function getUserDietData(req, res) {
   const docquery = UserDietDataModel.find({}).read(ReadPreference.NEAREST);
   docquery

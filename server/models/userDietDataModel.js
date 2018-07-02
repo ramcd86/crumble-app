@@ -34,7 +34,7 @@ const userDietDataSchema = new Schema(
     littleCrumb5UserSetValue: Number,
     littleCrumb5History: Array
   }, {
-    collection: 'userDietDataModels',
+    collection: 'userDietDataDocuments',
     read: 'nearest'
   },
   {versionKey: false}

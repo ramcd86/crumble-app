@@ -1,26 +1,23 @@
 const express = require('express');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const http = require('http');
-const routes = require('./routes');
-const root = './';
+const routes = require('./routes/routes');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const passport = require('passport');
 
-require('./user');
-require('./passport');
+require('./models/userRegisterModel');
+require('./passport-engine/passport');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-// app.use(cookieParser());
-// app.use(require('express-session')({
-//   secret: 'User Persistent',
-//   resave: false,
-//     saveUninitialized: false
-// }));
+app.use(cookieParser());
+app.use(require('express-session')({
+  secret: 'User Persistent',
+  resave: false,
+    saveUninitialized: false
+}));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(passport.initialize());
 app.use('/api', routes);
@@ -33,21 +30,8 @@ app.use(function (err, req, res, next) {
     res.json({"message" : err.name + ": " + err.message});
   }
 });
-// const account = require('./userloginModel');
-// passport.use(new LocalStrategy(account.authenticate()));
-// passport.serializeUser(account.serializeUser());
-// passport.deserializeUser(account.deserializeUser());
-
 
 const port = process.env.PORT || 4200;
 app.set('port', port);
-
-/**
- * Create HTTP server.
- */
 const server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
 server.listen(port, () => console.log(`API running on localhost:${port}`));

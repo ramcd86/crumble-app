@@ -1,8 +1,6 @@
-const dbStateModel = require('../server/dbstateModel');
+const dbStateModel = require('../models/dbStateModel');
 const ReadPreference = require('mongodb').ReadPreference;
-require('./mongo').connect();
-
-//// GET ALL USER DietData
+require('../env/mongo').connect();
 function getDbState(req, res) {
   const docquery = dbStateModel.find({}).read(ReadPreference.NEAREST);
   docquery
@@ -15,8 +13,6 @@ function getDbState(req, res) {
       return;
     })
 }
-
-//// GET EXISTING USER
 function getExistingDbState(req, res) {
   const originalDbState = {
     listId: req.params.listId
@@ -33,8 +29,6 @@ function getExistingDbState(req, res) {
       res.status(500).send(error);
     })
 }
-
-//// MODIFY EXISTING
 function putDbState(req, res) {
   const originalDbState = {
     listId: req.params.listId,
@@ -51,8 +45,6 @@ function putDbState(req, res) {
     });
   });
 }
-
-//// DELETE EXISTING
 function deleteDbState(req, res) {
   const id = req.params.listId;
   dbStateModel.findOneAndRemove({listId: id})
@@ -65,8 +57,6 @@ function deleteDbState(req, res) {
       if (checkServerError(res, error)) return;
     });
 }
-
-//// POST NEW USER LOGIN
 function postDbState(req, res) {
   const originalDbState = {
     listId: req.body.listId,
@@ -81,7 +71,6 @@ function postDbState(req, res) {
     console.log('DbState successfully created.');
   })
 }
-
 function checkFound(res, hero) {
   if (!hero) {
     res.status(404).send('Not found.');
@@ -89,14 +78,12 @@ function checkFound(res, hero) {
   }
   return hero;
 }
-
 function checkServerError(res, error) {
   if (error) {
     res.status(500).send(error);
     return error;
   }
 }
-
 module.exports = {
   getDbState,
   postDbState,
