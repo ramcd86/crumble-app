@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   public getUserDetails() {
-    this.http.getUserDetails(this.dataId).subscribe(
+    this.http.getUserPersonalDetails(this.dataId).subscribe(
       (data) => {
         this.userDetails = data;
       },

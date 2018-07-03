@@ -24,14 +24,14 @@ import {UserAdministrationComponent} from './user-administration/user-administra
 import {RegistrationComponent} from './registration/registration.component';
 
 // Classes
-import {IUserStore} from './_store/IUserStore.store';
-import {IUserState} from './_store/IUserState.store';
+// import {IUserStore} from './_store/IUserStore.store';
+// import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
-import {LoginComponent} from './register/login.component';
-import {RegisterComponent} from './register/register.component';
+// import {LoginComponent} from './register/login.component';
+// import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './_services/auth-guard.service';
-import {ProfileComponent} from './register/profile.component';
-import {AuthenticationService} from './_services/authentication.service';
+// import {ProfileComponent} from './register/profile.component';
+// import {AuthenticationService} from './_services/authentication.service';
 
 
 const crumbsRoutes: Routes = [
@@ -42,11 +42,11 @@ const crumbsRoutes: Routes = [
   {path: 'diet-statistics/:data_id', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
   {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, data: {title: 'Crumbs System Administration'}},
   {path: 'user-account/:data_id', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
-  { path: 'login', component: LoginComponent },
-
-  { path: 'register', component: RegisterComponent },
-
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+  // { path: 'login', component: LoginComponent },
+  //
+  // { path: 'register', component: RegisterComponent },
+  //
+  // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
 
 
 ];
@@ -59,9 +59,9 @@ const crumbsRoutes: Routes = [
     HomeComponent,
     DietLogComponent,
     DietStatisticsComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent
+    // LoginComponent,
+    // RegisterComponent,
+    // ProfileComponent
 
   ],
   imports: [
@@ -84,11 +84,11 @@ const crumbsRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    AuthenticationService,
+    // AuthenticationService,
     AuthGuardService,
     HttpServiceCore,
-    IUserStore,
-    IUserState,
+    // IUserStore,
+    // IUserState,
     SessionStorageService
   ],
   bootstrap: [AppComponent]

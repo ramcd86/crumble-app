@@ -4,8 +4,8 @@ const userDetailsSchema = new Schema(
   {
     listId: {type: Number, required: true, unique: true},
     email: String,
-    firstName: String,
-    lastName: String,
+    // firstName: String,
+    // lastName: String,
     userName: String,
     startingWeight: Number,
     currentWeight: Number,

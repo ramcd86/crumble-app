@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
-import {IUserStore} from '../_store/IUserStore.store';
+// import {IUserStore} from '../_store/IUserStore.store';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
-    private userStore: IUserStore
+    // private userStore: IUserStore
   ) {
   }
 

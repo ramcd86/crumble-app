@@ -15,6 +15,7 @@ import {map} from 'rxjs/operators/map';
 export class HttpServiceCore {
 
   public httpBase = EnvironmentEndpoints.ENDPOINT;
+  private token: string;
 
   constructor(
     private http: HttpClient,
@@ -86,6 +87,7 @@ export class HttpServiceCore {
   }
 
   public login(user: ITokenPayload): Observable<any> {
+    console.log('user', user.dataId);
     return this.request('post', 'login', user);
   }
 
@@ -96,7 +98,7 @@ export class HttpServiceCore {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('../');
   }
 
 
@@ -121,7 +123,7 @@ export class HttpServiceCore {
     );
   }
 
-  public getUserDetails(listId: number): Observable<any> {
+  public getUserPersonalDetails(listId: number): Observable<any> {
     const endPoint = `userDetails/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: IUserDetails) => res

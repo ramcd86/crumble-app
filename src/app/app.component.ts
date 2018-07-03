@@ -1,14 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
-import {IUserLogin} from './_interfaces/IUserLogin';
 import {IUserDetails} from './_interfaces/IUserDetails';
-import {IUserStore} from './_store/IUserStore.store';
-import {IUserState} from './_store/IUserState.store';
+// import {IUserStore} from './_store/IUserStore.store';
+// import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
-import {IDataBaseIteration} from './_interfaces/IDataBaseIteration';
 import {IUserDietData} from './_interfaces/IUserDietData';
-import {AuthenticationService, UserDetails} from './_services/authentication.service';
+import {ITokenPayload, IUserAuth} from './_interfaces/IUserAuth';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +17,6 @@ export class AppComponent implements OnInit {
   public userEmail: FormControl = new FormControl(null, [Validators.required]);
   public userPassword: FormControl = new FormControl(null, [Validators.required]);
 
-  public userLoginDetails: IUserLogin[];
-
   public developmentMode = true;
 
   public newRegister = false;
@@ -30,27 +26,19 @@ export class AppComponent implements OnInit {
   public emailClicked = false;
   public passwordClicked = false;
   public validLogin = true;
-  public details: UserDetails;
+  public credentials = <ITokenPayload>{};
 
   constructor(
-    public userState: IUserState,
-    public userStore: IUserStore,
+    // public userState: IUserState,
+    // public userStore: IUserStore,
     public http: HttpServiceCore,
-    public session: SessionStorageService,
-    public auth: AuthenticationService
+    public session: SessionStorageService
   ) {
   }
 
   ngOnInit() {
 
-    this.auth.profile().subscribe(user => {
-      this.details = user;
-    }, (err) => {
-      console.error(err);
-    });
-
-    // this.auth.profile();
-    // console.log(this.auth.isLoggedIn());
+    this.userSetter();
 
     console.log(`
     ##################################################
@@ -73,11 +61,11 @@ export class AppComponent implements OnInit {
 
     this.userEmail.setValue('Email Address');
     this.userPassword.setValue('1234567890');
-    if (this.userStore.get()) {
-      this.userPresent = true;
-    } else {
-      this.userPresent = false;
-    }
+    // if (this.userStore.get()) {
+    //   this.userPresent = true;
+    // } else {
+    //   this.userPresent = false;
+    // }
     this.navStatus = false;
     if (window.innerWidth < 767) {
       this.windowDesktop = true;
@@ -91,39 +79,28 @@ export class AppComponent implements OnInit {
     this.newRegister = true;
   }
 
-  // public userLogin() {
-  //   this.http.getLoginAuthentication()
-  // }
-
   public login() {
-    this.http.getLoginAuthentication(this.userEmail.value, this.userPassword.value).subscribe(
-      (res: IUserLogin) => {
-        if (res) {
-          console.log('Object:', res);
-          this.generateAuthenticationObject(res.listId);
-        } else {
-          this.validLogin = false;
-        }
-      },
-      (err) => {
-        console.log(err);
-        this.validLogin = false;
-      }
-    );
+    this.credentials.email = this.userEmail.value;
+    this.credentials.password = this.userPassword.value;
+    this.http.login(this.credentials).subscribe(() => {
+      this.userSetter();
+    }, (err) => {
+      console.error(err);
+    });
+  }
+
+  public userSetter() {
+    this.http.profile().subscribe(
+      (res: IUserAuth) => {
+        this.generateAuthenticationObject(res.dataId);
+      }, (err) => {
+        console.error(err);
+      });
   }
 
   public generateAuthenticationObject(listId: number) {
-    // Begin building user session object.
-    this.session.setAuth(true);
-    this.http.getDatabaseState().subscribe(
-      (res: IDataBaseIteration) => {
-        this.session.setDbState(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-    this.http.getUserDetails(listId).subscribe(
+    this.session.setUserPresent(true);
+    this.http.getUserPersonalDetails(listId).subscribe(
       (res: IUserDetails) => {
         this.session.setUserDetails(res);
       },

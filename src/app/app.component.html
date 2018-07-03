@@ -3,7 +3,7 @@
 <app-registration
   *ngIf="newRegister === true"
 ></app-registration>
-<div *ngIf="userPresent === false && newRegister === false">
+<div *ngIf="session.getUserPresentStatus() === false && newRegister === false">
   <div class="c-modal-wrap">
     <div class="row no-gutters">
       <div
@@ -81,18 +81,18 @@
       <nav>
         <div class="col-md-10 col-md-offset-1"><h4 class="pull-left">
           <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a> -
-          <a [routerLink]="['/diet-log', userState.DATA_ID]"><span class="glyphicon glyphicon-book"></span> Diet Log</a>
+          <a [routerLink]="['/diet-log']"><span class="glyphicon glyphicon-book"></span> Diet Log</a>
           -
-          <a [routerLink]="['/diet-statistics', userState.DATA_ID]"><span class="glyphicon glyphicon-stats"></span> Diet
+          <a [routerLink]="['/diet-statistics']"><span class="glyphicon glyphicon-stats"></span> Diet
             Stats</a>
         </h4>
 
           <h4 class="pull-right">
-            <span *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></span>
-            <span *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></span>
+            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']">Sign in</a></span>
+            <span *ngIf="http.isLoggedIn()"><a routerLink="/profile">{{ session.getDetailsUserName() }}</a></span>
             <a routerLink="/register">Register</a><br>
-            <span *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></span>
-            <a [routerLink]="['/user-account', userState.DATA_ID]"><span class="glyphicon glyphicon-user"></span> Manage
+            <span *ngIf="http.isLoggedIn()"><a (click)="http.logout()">Logout</a></span>
+            <a [routerLink]="['/user-account']"><span class="glyphicon glyphicon-user"></span> Manage
               Account</a> -
             <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
               Login</a></h4>
@@ -111,16 +111,17 @@
         <div *ngIf="navStatus">
           <div class="col-md-10 col-md-offset-1"><h3 class="pull-left">
             <a [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a> <br>
-            <a [routerLink]="['/diet-log', userState.DATA_ID]"><span class="glyphicon glyphicon-book"></span> Diet
+            <a [routerLink]="['/diet-log']"><span class="glyphicon glyphicon-book"></span> Diet
               Log</a> <br>
-            <a [routerLink]="['/diet-statistics', userState.DATA_ID]"><span class="glyphicon glyphicon-stats"></span>
+            <a [routerLink]="['/diet-statistics']"><span class="glyphicon glyphicon-stats"></span>
               Diet Stats</a><br><br>
-            <a routerLink="/login">Sign in</a><br>
+            <a routerLink="/">Sign in</a><br>
             <a routerLink="/register">Register</a><br>
-            <a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a><br>
-            <a (click)="auth.logout()">Logout</a><br>
-            <a [routerLink]="['/user-account', userState.DATA_ID]"><span class="glyphicon glyphicon-user"></span> Manage
+            <a routerLink="/profile">{{ http.getUserDetails()?.name }}</a><br>
+            <a (click)="http.logout()">Logout</a><br>
+            <a [routerLink]="['/user-account']"><span class="glyphicon glyphicon-user"></span> Manage
               Account</a> <br>
+
             <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
               Login</a></h3>
           </div>

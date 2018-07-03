@@ -33,8 +33,8 @@ function putUserDetails(req, res) {
   const originalUserDetails = {
     listId: req.params.listId,
     email: req.body.email,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    // firstName: req.body.firstName,
+    // lastName: req.body.lastName,
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,
@@ -46,8 +46,8 @@ function putUserDetails(req, res) {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, details)) return;
     details.email = originalUserDetails.email;
-    details.firstName = originalUserDetails.firstName;
-    details.lastName = originalUserDetails.lastName;
+    // details.firstName = originalUserDetails.firstName;
+    // details.lastName = originalUserDetails.lastName;
     details.userName = originalUserDetails.userName;
     details.startingWeight = originalUserDetails.startingWeight;
     details.currentWeight = originalUserDetails.currentWeight;
@@ -77,8 +77,8 @@ function postUserDetails(req, res) {
   const originalUserDetails = {
     listId: req.body.listId,
     email: req.body.email,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    // firstName: req.body.firstName,
+    // lastName: req.body.lastName,
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,

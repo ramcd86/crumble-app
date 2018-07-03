@@ -12,37 +12,42 @@ export class SessionStorageService {
 
 
   // Set user-defined objects.
-  public dbState = <IDataBaseIteration>{};
-  public userLoginDetails = <IUserLogin>{};
+  // public dbState = <IDataBaseIteration>{};
+  // public userLoginDetails = <IUserLogin>{};
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
-  public userAuthorized = false;
+  public userPresent = false;
+  // public userAuthorized = false;
 
 
   // Authorize user.
-  public setAuth(authToken: boolean) {
-    this.userAuthorized = authToken;
-  }
-  public getAuth() {
-    return this.userAuthorized;
-  }
+  // public setAuth(authToken: boolean) {
+  //   this.userAuthorized = authToken;
+  // }
+  // public getAuth() {
+  //   return this.userAuthorized;
+  // }
 
   // Logout
-  public Logout() {
-    this.userAuthorized = false;
-    this.dbState = null;
-    this.userLoginDetails = null;
-    this.userDetails = null;
-    this.userDietData = null;
-  }
+  // public Logout() {
+  //   this.userAuthorized = false;
+  //   this.dbState = null;
+  //   this.userLoginDetails = null;
+  //   this.userDetails = null;
+  //   this.userDietData = null;
+  // }
 
   // Build user-defined objects.
-  public setDbState(dbState: IDataBaseIteration) {
-    this.dbState = dbState;
+  // public setDbState(dbState: IDataBaseIteration) {
+  //   this.dbState = dbState;
+  // }
+  // public setUserLoginState(loginState: IUserLogin) {
+  //   this.userLoginDetails = loginState;
+  // }
+  public setUserPresent(value) {
+    this.userPresent = value;
   }
-  public setUserLoginState(loginState: IUserLogin) {
-    this.userLoginDetails = loginState;
-  }
+
   public setUserDetails(details: IUserDetails) {
     this.userDetails = details;
   }
@@ -51,15 +56,15 @@ export class SessionStorageService {
   }
 
   // Expose DB State Properties.
-  public getDbId() {
-    return this.dbState.listId;
-  }
-  public getDbStateIteration() {
-    return this.dbState.dbState;
-  }
-  public getFullDbState() {
-    return this.dbState;
-  }
+  // public getDbId() {
+  //   return this.dbState.listId;
+  // }
+  // public getDbStateIteration() {
+  //   return this.dbState.dbState;
+  // }
+  // public getFullDbState() {
+  //   return this.dbState;
+  // }
 
   // Modify DB state
   // public modifyDBStateIteration(value: number) {
@@ -67,18 +72,22 @@ export class SessionStorageService {
   // }
 
   // Expose User Details properties.
+  public getUserPresentStatus() {
+    return this.userPresent;
+  }
+
   public getDetailsId() {
     return this.userDetails.listId;
   }
   public getDetailsEmail() {
     return this.userDetails.email;
   }
-  public getDetailsFirstName() {
-    return this.userDetails.firstName;
-  }
-  public getDetailsLastName() {
-    return this.userDetails.lastName;
-  }
+  // public getDetailsFirstName() {
+  //   return this.userDetails.firstName;
+  // }
+  // public getDetailsLastName() {
+  //   return this.userDetails.lastName;
+  // }
   public getDetailsUserName() {
     return this.userDetails.userName;
   }
