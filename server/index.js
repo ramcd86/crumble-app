@@ -19,10 +19,12 @@ app.use(require('express-session')({
     saveUninitialized: false
 }));
 app.use(express.static(path.join(__dirname, '../dist')));
+// app.use(express.static(path.join(__dirname, '../src')));
 app.use(passport.initialize());
 app.use('/api', routes);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
+  // res.sendFile(path.join(__dirname, 'src/index.html'));
 });
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {

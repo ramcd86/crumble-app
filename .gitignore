@@ -5,6 +5,7 @@
 /dist-server
 /tmp
 /out-tsc
+/server/env/mongo.js
 
 # dependencies
 /node_modules

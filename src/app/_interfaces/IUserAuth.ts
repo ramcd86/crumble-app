@@ -6,12 +6,13 @@ export interface IUserAuth {
   iat: number;
 }
 
-interface TokenResponse {
+export interface ITokenResponse {
   token: string;
 }
 
-export interface TokenPayload {
+export interface ITokenPayload {
   email: string;
   password: string;
-  name?: string;
+  name: string;
+  dataId: number;
 }
