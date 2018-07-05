@@ -3,7 +3,7 @@
 <app-registration
   *ngIf="newRegister === true"
 ></app-registration>
-<div *ngIf="session.getUserPresentStatus() === false && newRegister === false">
+<div *ngIf="session.getUserPresentStatus() === false && session.getNewRegister() === false">
   <div class="c-modal-wrap">
     <div class="row no-gutters">
       <div

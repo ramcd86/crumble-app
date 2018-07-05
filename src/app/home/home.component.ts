@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
-    private auth:
+    // private auth:
     // private userStore: IUserStore
   ) {
   }

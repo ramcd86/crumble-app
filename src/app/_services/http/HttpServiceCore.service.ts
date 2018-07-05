@@ -10,6 +10,8 @@ import {IDataBaseIteration} from '../../_interfaces/IDataBaseIteration';
 import {Router} from '@angular/router';
 import {ITokenPayload, ITokenResponse, IUserAuth} from '../../_interfaces/IUserAuth';
 import {map} from 'rxjs/operators/map';
+// import {Session} from 'selenium-webdriver';
+import {SessionStorageService} from '../../_store/SessionStorage.service';
 
 @Injectable()
 export class HttpServiceCore {
@@ -19,7 +21,8 @@ export class HttpServiceCore {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private session: SessionStorageService
   ) {
   }
 
@@ -96,9 +99,10 @@ export class HttpServiceCore {
   }
 
   public logout(): void {
+    this.session.setUserPresent(false);
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('../');
+    this.router.navigateByUrl('/home');
   }
 
 

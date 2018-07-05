@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   public newRegister = false;
   public navStatus: boolean;
   public windowDesktop = false;
-  public userPresent = true;
+  // public userPresent = true;
   public emailClicked = false;
   public passwordClicked = false;
   public validLogin = true;
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
   }
 
   public register() {
-    this.newRegister = true;
+    this.session.setNewRegister(true)
   }
 
   public login() {

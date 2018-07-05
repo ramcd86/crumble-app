@@ -17,6 +17,7 @@ export class SessionStorageService {
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
   public userPresent = false;
+  public newRegister = false;
   // public userAuthorized = false;
 
 
@@ -44,6 +45,14 @@ export class SessionStorageService {
   // public setUserLoginState(loginState: IUserLogin) {
   //   this.userLoginDetails = loginState;
   // }
+  public setNewRegister(value) {
+    this.newRegister = value;
+  }
+
+  public getNewRegister() {
+    return this.newRegister;
+  }
+
   public setUserPresent(value) {
     this.userPresent = value;
   }
