@@ -35,13 +35,13 @@ import {AuthGuardService} from './_services/auth-guard.service';
 
 
 const crumbsRoutes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', component: AppComponent, pathMatch: 'full'},
   {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
-  {path: 'dashboard/:data_id', component: DashboardComponent, data: {title: 'Crumbs Dashboard'}},
-  {path: 'diet-log/:data_id', component: DietLogComponent, data: {title: 'Crumbs Diet Log'}},
-  {path: 'diet-statistics/:data_id', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
-  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, data: {title: 'Crumbs System Administration'}},
-  {path: 'user-account/:data_id', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService], data: {title: 'Crumbs Dashboard'}},
+  {path: 'diet-log', component: DietLogComponent, canActivate: [AuthGuardService], data: {title: 'Crumbs Diet Log'}},
+  {path: 'diet-statistics', component: DietStatisticsComponent, canActivate: [AuthGuardService], data: {title: 'Crumbs Diet Stats'}},
+  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, canActivate: [AuthGuardService], data: {title: 'Crumbs System Administration'}},
+  {path: 'user-account', component: UserAdministrationComponent, canActivate: [AuthGuardService], data: {title: 'Crumbs Dashboard'}},
   // { path: 'login', component: LoginComponent },
   //
   // { path: 'register', component: RegisterComponent },

@@ -88,14 +88,10 @@
         </h4>
 
           <h4 class="pull-right">
-            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']">Sign in</a></span>
-            <span *ngIf="http.isLoggedIn()"><a routerLink="/profile">{{ session.getDetailsUserName() }}</a></span>
-            <a routerLink="/register">Register</a><br>
-            <span *ngIf="http.isLoggedIn()"><a (click)="http.logout()">Logout</a></span>
-            <a [routerLink]="['/user-account']"><span class="glyphicon glyphicon-user"></span> Manage
-              Account</a> -
-            <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
-              Login</a></h4>
+            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></span>
+            <span  *ngIf="http.isLoggedIn()"><a [routerLink]="['/profile']"><span class="glyphicon glyphicon-user"></span> {{ session.getDetailsUserName() }}</a> - </span>
+            <span *ngIf="http.isLoggedIn()"><a (click)="http.logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></span>
+          </h4>
         </div>
       </nav>
     </div>
@@ -115,15 +111,10 @@
               Log</a> <br>
             <a [routerLink]="['/diet-statistics']"><span class="glyphicon glyphicon-stats"></span>
               Diet Stats</a><br><br>
-            <a routerLink="/">Sign in</a><br>
-            <a routerLink="/register">Register</a><br>
-            <a routerLink="/profile">{{ http.getUserDetails()?.name }}</a><br>
-            <a (click)="http.logout()">Logout</a><br>
-            <a [routerLink]="['/user-account']"><span class="glyphicon glyphicon-user"></span> Manage
-              Account</a> <br>
-
-            <a routerLink="/crumble-system-administrator-login"><span class="glyphicon glyphicon-off"></span> Admin
-              Login</a></h3>
+            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></span>
+            <span  *ngIf="http.isLoggedIn()"><a [routerLink]="['/profile']"><span class="glyphicon glyphicon-user"></span> {{ session.getDetailsUserName() }}</a> - </span>
+            <span *ngIf="http.isLoggedIn()"><a (click)="http.logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></span>
+          </h3>
           </div>
         </div>
       </nav>

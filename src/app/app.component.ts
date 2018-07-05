@@ -7,6 +7,7 @@ import {IUserDetails} from './_interfaces/IUserDetails';
 import {SessionStorageService} from './_store/SessionStorage.service';
 import {IUserDietData} from './_interfaces/IUserDietData';
 import {ITokenPayload, IUserAuth} from './_interfaces/IUserAuth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,8 @@ export class AppComponent implements OnInit {
     // public userState: IUserState,
     // public userStore: IUserStore,
     public http: HttpServiceCore,
-    public session: SessionStorageService
+    public session: SessionStorageService,
+    public router: Router
   ) {
   }
 
@@ -83,10 +85,13 @@ export class AppComponent implements OnInit {
     this.credentials.email = this.userEmail.value;
     this.credentials.password = this.userPassword.value;
     this.http.login(this.credentials).subscribe(() => {
-      this.userSetter();
-    }, (err) => {
-      console.error(err);
-    });
+        this.userSetter();
+      }, (err) => {
+        console.error(err);
+      }, () => {
+        this.router.navigateByUrl('/dashboard');
+      }
+    );
   }
 
   public userSetter() {
