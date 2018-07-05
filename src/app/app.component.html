@@ -111,8 +111,8 @@
               Log</a> <br>
             <a [routerLink]="['/diet-statistics']"><span class="glyphicon glyphicon-stats"></span>
               Diet Stats</a><br><br>
-            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></span>
-            <span  *ngIf="http.isLoggedIn()"><a [routerLink]="['/profile']"><span class="glyphicon glyphicon-user"></span> {{ session.getDetailsUserName() }}</a> - </span>
+            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-in"></span> Sign in</a><br></span>
+            <span  *ngIf="http.isLoggedIn()"><a [routerLink]="['/profile']"><span class="glyphicon glyphicon-user"></span> {{ session.getDetailsUserName() }}</a><br></span>
             <span *ngIf="http.isLoggedIn()"><a (click)="http.logout()"><span class="glyphicon glyphicon-off"></span> Logout</a></span>
           </h3>
           </div>
