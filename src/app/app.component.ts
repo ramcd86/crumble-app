@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   //
   // public newRegister = false;
   public navStatus: boolean;
-  public windowDesktop = false;
+  public windowDesktop: boolean;
   // // public userPresent = true;
   // public emailClicked = false;
   // public passwordClicked = false;

@@ -181,7 +181,7 @@ a:hover, a:active {
 }
 
 .background-gradient {
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   min-width: 100%;
 
 }
@@ -272,7 +272,7 @@ a:hover, a:active {
 .d-modal-wrap {
 
   width: 100vw;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 .mobmenu {
