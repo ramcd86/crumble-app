@@ -36,8 +36,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
-    console.log(this.dataId);
+console.log(localStorage.getItem('mean-token'));
+    // console.log(this.dataId);
 
     this.userSyns = 0;
     // this.getUserDetails();

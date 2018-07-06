@@ -36,7 +36,7 @@ export class HttpServiceCore {
     this.token = token;
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('mean-token');
     }
@@ -90,7 +90,7 @@ export class HttpServiceCore {
   }
 
   public login(user: ITokenPayload): Observable<any> {
-    console.log('user', user.dataId);
+    // console.log('user', user.dataId);
     return this.request('post', 'login', user);
   }
 
@@ -102,7 +102,7 @@ export class HttpServiceCore {
     this.session.setUserPresent(false);
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/login');
   }
 
 

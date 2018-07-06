@@ -15,19 +15,20 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  public userEmail: FormControl = new FormControl(null, [Validators.required]);
-  public userPassword: FormControl = new FormControl(null, [Validators.required]);
-
-  public developmentMode = true;
-
-  public newRegister = false;
+  // public userEmail: FormControl = new FormControl(null, [Validators.required]);
+  // public userPassword: FormControl = new FormControl(null, [Validators.required]);
+  //
+  // public developmentMode = true;
+  //
+  // public newRegister = false;
   public navStatus: boolean;
   public windowDesktop = false;
-  // public userPresent = true;
-  public emailClicked = false;
-  public passwordClicked = false;
-  public validLogin = true;
-  public credentials = <ITokenPayload>{};
+  // // public userPresent = true;
+  // public emailClicked = false;
+  // public passwordClicked = false;
+  // public validLogin = true;
+  // public credentials = <ITokenPayload>{};
+  public token = null;
 
   constructor(
     // public userState: IUserState,
@@ -36,11 +37,24 @@ export class AppComponent implements OnInit {
     public session: SessionStorageService,
     public router: Router
   ) {
+    this.token = this.http.getToken();
   }
 
   ngOnInit() {
+console.log('Token: ', this.token);
+    console.log('Stored Token: ', localStorage.getItem('mean-token'));
+    if (this.token === null) {
+      this.session.setUserPresent(false);
+      this.router.navigateByUrl('/login');
+    } else if (this.token === localStorage.getItem('mean-token')) {
+      this.router.navigateByUrl('/home');
+    }
 
-    this.userSetter();
+    // this.userSetter();
+
+    // this.token = this.http.getToken();
+
+
 
     console.log(`
     ##################################################
@@ -61,13 +75,13 @@ export class AppComponent implements OnInit {
     ##################################################
     `);
 
-    this.userEmail.setValue('Email Address');
-    this.userPassword.setValue('1234567890');
-    // if (this.userStore.get()) {
-    //   this.userPresent = true;
-    // } else {
-    //   this.userPresent = false;
-    // }
+    // this.userEmail.setValue('Email Address');
+    // this.userPassword.setValue('1234567890');
+    // // if (this.userStore.get()) {
+    // //   this.userPresent = true;
+    // // } else {
+    // //   this.userPresent = false;
+    // // }
     this.navStatus = false;
     if (window.innerWidth < 767) {
       this.windowDesktop = true;
@@ -77,82 +91,87 @@ export class AppComponent implements OnInit {
 
   }
 
-  public register() {
-    this.session.setNewRegister(true)
+  public logOut() {
+    this.toggleNav();
+    this.http.logout();
   }
 
-  public login() {
-    this.credentials.email = this.userEmail.value;
-    this.credentials.password = this.userPassword.value;
-    this.http.login(this.credentials).subscribe(() => {
-        this.userSetter();
-      }, (err) => {
-        console.error(err);
-      }, () => {
-        this.router.navigateByUrl('/dashboard');
-      }
-    );
-  }
-
-  public userSetter() {
-    this.http.profile().subscribe(
-      (res: IUserAuth) => {
-        this.generateAuthenticationObject(res.dataId);
-      }, (err) => {
-        console.error(err);
-      });
-  }
-
-  public generateAuthenticationObject(listId: number) {
-    this.session.setUserPresent(true);
-    this.http.getUserPersonalDetails(listId).subscribe(
-      (res: IUserDetails) => {
-        this.session.setUserDetails(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-    this.http.getUserDietData(listId).subscribe(
-      (res: IUserDietData) => {
-        this.session.setUserDietData(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-    console.log(this.session);
-  }
-
-  public tapEmail() {
-    if (this.emailClicked === false) {
-      this.userEmail.setValue('');
-      this.emailClicked = true;
-    } else if (this.emailClicked === true) {
-      this.userEmail.setValue(this.userEmail.value);
-    }
-  }
-
-  public tapPassword() {
-    if (this.passwordClicked === false) {
-      this.userPassword.setValue('');
-      this.passwordClicked = true;
-    } else if (this.passwordClicked === true) {
-      this.userPassword.setValue(this.userPassword.value);
-    }
-  }
-
+  // public register() {
+  //   this.session.setNewRegister(true);
+  // }
+  //
+  // public login() {
+  //   this.credentials.email = this.userEmail.value;
+  //   this.credentials.password = this.userPassword.value;
+  //   this.http.login(this.credentials).subscribe(() => {
+  //       this.userSetter();
+  //     }, (err) => {
+  //       console.error(err);
+  //     }, () => {
+  //       this.router.navigateByUrl('/dashboard');
+  //     }
+  //   );
+  // }
+  //
+  // public userSetter() {
+  //   this.http.profile().subscribe(
+  //     (res: IUserAuth) => {
+  //       this.generateAuthenticationObject(res.dataId);
+  //     }, (err) => {
+  //       console.error(err);
+  //     });
+  // }
+  //
+  // public generateAuthenticationObject(listId: number) {
+  //   this.session.setUserPresent(true);
+  //   this.http.getUserPersonalDetails(listId).subscribe(
+  //     (res: IUserDetails) => {
+  //       this.session.setUserDetails(res);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  //   this.http.getUserDietData(listId).subscribe(
+  //     (res: IUserDietData) => {
+  //       this.session.setUserDietData(res);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  //   console.log(this.session);
+  // }
+  //
+  // public tapEmail() {
+  //   if (this.emailClicked === false) {
+  //     this.userEmail.setValue('');
+  //     this.emailClicked = true;
+  //   } else if (this.emailClicked === true) {
+  //     this.userEmail.setValue(this.userEmail.value);
+  //   }
+  // }
+  //
+  // public tapPassword() {
+  //   if (this.passwordClicked === false) {
+  //     this.userPassword.setValue('');
+  //     this.passwordClicked = true;
+  //   } else if (this.passwordClicked === true) {
+  //     this.userPassword.setValue(this.userPassword.value);
+  //   }
+  // }
+  //
   public toggleNav(): boolean {
     this.navStatus = !this.navStatus;
     return false;
   }
-
-  public resetFields() {
-    this.userEmail.setValue('Email Address');
-    this.userPassword.setValue('1234567890');
-    this.emailClicked = false;
-    this.passwordClicked = false;
-    this.validLogin = true;
-  }
+  //
+  // public resetFields() {
+  //   this.userEmail.setValue('Email Address');
+  //   this.userPassword.setValue('1234567890');
+  //   this.emailClicked = false;
+  //   this.passwordClicked = false;
+  //   this.validLogin = true;
+  // }
 
 }

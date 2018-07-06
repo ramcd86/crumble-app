@@ -4,6 +4,11 @@ body {
   font-weight: 100;
   font-size: 1.8rem;
   background-color: #d4d4d4;
+  background-attachment: fixed;
+  background-image: url("assets/images/background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto auto;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
@@ -178,11 +183,7 @@ a:hover, a:active {
 .background-gradient {
   min-height: 100vh;
   min-width: 100%;
-  background-image: url("assets/images/background.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: auto auto;
-  background-attachment: fixed;
+
 }
 
 .pull-bottom {
@@ -217,8 +218,8 @@ a:hover, a:active {
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
-  margin-bottom: 50px;
-  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-top: 0px;
   padding: 10px;
   display: block;
 }
@@ -257,15 +258,21 @@ a:hover, a:active {
 }
 
 .c-modal-wrap {
-  position: fixed;
-  z-index: 998;
-  background-image: url("assets/images/background.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: auto auto;
+   position: fixed;
+   z-index: 998;
+   /*background-image: url("assets/images/background.jpg");*/
+   /*background-position: center top;*/
+   /*background-repeat: no-repeat;*/
+   /*background-size: auto auto;*/
+   width: 100vw;
+   height: 100vh;
+   overflow: scroll;
+ }
+
+.d-modal-wrap {
+
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
 }
 
 .mobmenu {

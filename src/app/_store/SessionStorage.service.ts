@@ -64,21 +64,6 @@ export class SessionStorageService {
     this.userDietData = dietData;
   }
 
-  // Expose DB State Properties.
-  // public getDbId() {
-  //   return this.dbState.listId;
-  // }
-  // public getDbStateIteration() {
-  //   return this.dbState.dbState;
-  // }
-  // public getFullDbState() {
-  //   return this.dbState;
-  // }
-
-  // Modify DB state
-  // public modifyDBStateIteration(value: number) {
-  //   return null;
-  // }
 
   // Expose User Details properties.
   public getUserPresentStatus() {

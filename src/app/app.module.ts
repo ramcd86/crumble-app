@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {routing} from './app.routes';
 
 // Services
 import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
@@ -30,28 +31,29 @@ import {SessionStorageService} from './_store/SessionStorage.service';
 // import {LoginComponent} from './register/login.component';
 // import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './_services/auth-guard.service';
+import {LoginComponent} from './login/login.component';
 // import {ProfileComponent} from './register/profile.component';
 // import {AuthenticationService} from './_services/authentication.service';
 
 
-const crumbsRoutes: Routes = [
-  {path: '', component: AppComponent, pathMatch: 'full'},
-  {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
-  {path: 'dashboard', component: DashboardComponent , data: {title: 'Crumbs Dashboard'}},
-  {path: 'diet-log', component: DietLogComponent , data: {title: 'Crumbs Diet Log'}},
-  {path: 'diet-statistics', component: DietStatisticsComponent , data: {title: 'Crumbs Diet Stats'}},
-  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent , data: {title: 'Crumbs System Administration'}},
-  {path: 'user-account', component: UserAdministrationComponent , data: {title: 'Crumbs Dashboard'}},
-  // , canActivate: [AuthGuardService],
-
-  // { path: 'login', component: LoginComponent },
-  //
-  // { path: 'register', component: RegisterComponent },
-  //
-  // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
-
-
-];
+// const crumbsRoutes: Routes = [
+//   {path: '', component: AppComponent, pathMatch: 'full'},
+//   {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
+//   {path: 'dashboard', component: DashboardComponent , data: {title: 'Crumbs Dashboard'}},
+//   {path: 'diet-log', component: DietLogComponent , data: {title: 'Crumbs Diet Log'}},
+//   {path: 'diet-statistics', component: DietStatisticsComponent , data: {title: 'Crumbs Diet Stats'}},
+//   {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent , data: {title: 'Crumbs System Administration'}},
+//   {path: 'user-account', component: UserAdministrationComponent , data: {title: 'Crumbs Dashboard'}},
+//   // , canActivate: [AuthGuardService],
+//
+//   // { path: 'login', component: LoginComponent },
+//   //
+//   // { path: 'register', component: RegisterComponent },
+//   //
+//   // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+//
+//
+// ];
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ const crumbsRoutes: Routes = [
     HomeComponent,
     DietLogComponent,
     DietStatisticsComponent,
+    LoginComponent
     // LoginComponent,
     // RegisterComponent,
     // ProfileComponent
@@ -68,9 +71,10 @@ const crumbsRoutes: Routes = [
   ],
   imports: [
     HttpClientModule,
-    RouterModule.forRoot(
-      crumbsRoutes
-    ),
+    // RouterModule.forRoot(
+    //   crumbsRoutes
+    // ),
+    routing,
     BrowserModule,
     ReactiveFormsModule,
     SystemAdministrationModule,
