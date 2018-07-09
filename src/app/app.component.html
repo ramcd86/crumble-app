@@ -1,4 +1,4 @@
-
+<div [hidden]="session.getUserPresentStatus() !== true">
   <div class="deskmenu">
     <div class="navbar navbar-fixed-top nav-style">
       <nav>
@@ -30,12 +30,14 @@
         <div class="col-xs-4"><h3><img src="../assets/images/crumbs_logo_black.png" class="img-responsive"></h3></div>
         <div *ngIf="navStatus">
           <div class="col-md-10 col-md-offset-1"><h3 class="pull-left">
-            <a [routerLink]="['/home']" (click)="toggleNav()"><span class="glyphicon glyphicon-home"></span> Home</a> <br>
+            <a [routerLink]="['/home']" (click)="toggleNav()"><span class="glyphicon glyphicon-home"></span> Home</a>
+            <br>
             <a [routerLink]="['/diet-log']" (click)="toggleNav()"><span class="glyphicon glyphicon-book"></span> Diet
               Log</a> <br>
             <a [routerLink]="['/diet-statistics']" (click)="toggleNav()"><span class="glyphicon glyphicon-stats"></span>
               Diet Stats</a><br><br>
-            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']" (click)="toggleNav()"><span class="glyphicon glyphicon-log-in"></span> Sign in</a><br></span>
+            <span *ngIf="!http.isLoggedIn()"><a [routerLink]="['/']" (click)="toggleNav()"><span
+              class="glyphicon glyphicon-log-in"></span> Sign in</a><br></span>
             <span *ngIf="http.isLoggedIn()"><a [routerLink]="['/profile']" (click)="toggleNav()"><span
               class="glyphicon glyphicon-user"></span> {{ session.getDetailsUserName() }}</a><br></span>
             <span *ngIf="http.isLoggedIn()"><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-off"></span> Logout</a></span>
@@ -45,5 +47,5 @@
       </nav>
     </div>
   </div>
-
-  <router-outlet></router-outlet>
+</div>
+<router-outlet></router-outlet>

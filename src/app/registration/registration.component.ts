@@ -222,7 +222,7 @@ export class RegistrationComponent implements OnInit {
 
   public toggleSwitchTemplate() {
     this.switchTemp = !this.switchTemp;
-    document.getElementById('regModal').scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 
   public toggleCrumb3() {
