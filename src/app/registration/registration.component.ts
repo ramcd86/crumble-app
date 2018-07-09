@@ -6,6 +6,7 @@ import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
 import {ITokenPayload} from '../_interfaces/IUserAuth';
 import {Title} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -73,7 +74,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private http: HttpServiceCore,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {
   }
 
@@ -209,6 +211,10 @@ export class RegistrationComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+      },
+      () => {
+        window.scrollTo(0, 0);
+        this.router.navigateByUrl('/home');
       }
     );
   }

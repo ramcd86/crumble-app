@@ -1,9 +1,5 @@
-// Storage service SETS objects on successful login, GETS existing states, MODIFIES existing states.
-// Objects in completed state are posted to API.
 
 import {Injectable} from '@angular/core';
-import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
-import {IUserLogin} from '../_interfaces/IUserLogin';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 
@@ -11,40 +7,13 @@ import {IUserDietData} from '../_interfaces/IUserDietData';
 export class SessionStorageService {
 
 
-  // Set user-defined objects.
-  // public dbState = <IDataBaseIteration>{};
-  // public userLoginDetails = <IUserLogin>{};
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
   public userPresent = false;
   public newRegister = false;
-  // public userAuthorized = false;
 
 
-  // Authorize user.
-  // public setAuth(authToken: boolean) {
-  //   this.userAuthorized = authToken;
-  // }
-  // public getAuth() {
-  //   return this.userAuthorized;
-  // }
 
-  // Logout
-  // public Logout() {
-  //   this.userAuthorized = false;
-  //   this.dbState = null;
-  //   this.userLoginDetails = null;
-  //   this.userDetails = null;
-  //   this.userDietData = null;
-  // }
-
-  // Build user-defined objects.
-  // public setDbState(dbState: IDataBaseIteration) {
-  //   this.dbState = dbState;
-  // }
-  // public setUserLoginState(loginState: IUserLogin) {
-  //   this.userLoginDetails = loginState;
-  // }
   public setNewRegister(value) {
     this.newRegister = value;
   }
@@ -76,12 +45,6 @@ export class SessionStorageService {
   public getDetailsEmail() {
     return this.userDetails.email;
   }
-  // public getDetailsFirstName() {
-  //   return this.userDetails.firstName;
-  // }
-  // public getDetailsLastName() {
-  //   return this.userDetails.lastName;
-  // }
   public getDetailsUserName() {
     return this.userDetails.userName;
   }
@@ -120,9 +83,17 @@ export class SessionStorageService {
   public getDietDataBigCrumbCustomMaxValue() {
     return this.userDietData.bigCrumbCustomMaxValue;
   }
+  public setDietDataBigCrumbCustomMaxValue(value) {
+    this.userDietData.bigCrumbCustomMaxValue = value;
+  }
+
   public getDietDataBigCrumbUserSetValue() {
     return this.userDietData.bigCrumbUserSetValue;
   }
+  public setDietDataBigCrumbUserSetValue(value) {
+    this.userDietData.bigCrumbUserSetValue = value;
+  }
+
   public getDietDataBigCrumbHistory() {
     return this.userDietData.bigCrumbHistory;
   }

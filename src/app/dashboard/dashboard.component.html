@@ -35,13 +35,25 @@
     >
       <div class="row no-gutters">
         <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
-          class="glyphicon glyphicon-upload"></span> Hide Dashboard
+          class="glyphicon glyphicon-upload"></span> Hide Dashboard <br>
+
         </div>
+
+        <input type="text" [formControl]="pointHolder">
+      <button class="btn" (click)="simpleSetter()"></button>
+
       </div>
       <div class="row no-gutters">
         <div class="col-md-1 col-sm-0"></div>
         <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb
              style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+
+          <!--public getDietDataBigCrumbCustomMaxValue() {-->
+          <!--return this.userDietData.bigCrumbCustomMaxValue;-->
+          <!--}-->
+          <!--public getDietDataBigCrumbUserSetValue() {-->
+          <!--return this.userDietData.bigCrumbUserSetValue;-->
+          <!--}-->
           <circle-progress
             [percent]="calculatorFunc()"
             [radius]="100"
@@ -65,6 +77,7 @@
         <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer"
              style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
 
+
           <circle-progress
             [percent]="calculatorFunc()"
             [radius]="100"
@@ -74,12 +87,12 @@
             [backgroundColor]="'#fff'"
             [outerStrokeColor]="'#549500'"
             [animation]="true"
-            [units]="totalSyns + ' / ' + userSyns"
+            [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
             [showUnits]="true"
             [animationDuration]="500"
             [responsive]="true"
             [toFixed]="0"
-            [title]="dietDeficitType"
+            [title]="session.getDietDataBigCrumbCustomType()"
             [unitsColor]="'#000'"
             [titleColor]="'#000'"
             [animateTitle]="true"
@@ -167,12 +180,12 @@
             [backgroundColor]="'#fff'"
             [outerStrokeColor]="'#549500'"
             [animation]="true"
-            [units]="totalSyns + ' / ' + userSyns"
+            [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
             [showUnits]="true"
             [animationDuration]="500"
             [responsive]="true"
             [toFixed]="0"
-            [title]="dietDeficitType"
+            [title]="session.getDietDataBigCrumbCustomType()"
             [unitsColor]="'#000'"
             [titleColor]="'#000'"
             [animateTitle]="true"
