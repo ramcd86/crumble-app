@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {SessionStorageService} from '../_store/SessionStorage.service';
@@ -16,7 +16,15 @@ import {IUserDetails} from '../_interfaces/IUserDetails';
 })
 export class HomeComponent implements OnInit {
 
+
   public dataId: number;
+
+
+  @HostListener('window:resize', ['$event']) onResize(event) {
+    console.log(event.target.innerWidth);
+    console.log(event.target.innerHeight);
+  }
+
 
   constructor(
     private titleService: Title,
@@ -27,7 +35,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(`Crumbs - ${this.session.getDetailsUserName()}.`);
     this.userSetter();
+    // console.log(this.onResize());
   }
 
   public userSetter() {

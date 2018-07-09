@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-diet-log',
@@ -10,16 +10,12 @@ export class DietLogComponent implements OnInit {
   public dataId: any;
 
   constructor(
-    private route: ActivatedRoute
+    private titleService: Title
   ) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      params => {
-        this.dataId = +params.data_id;
-        console.log(params);
-      });
+    this.titleService.setTitle('Crumbs - Diet Log');
   }
 
 }

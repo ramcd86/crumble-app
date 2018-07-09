@@ -1,9 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
-import {IUserDetails} from '../_interfaces/IUserDetails';
-import {IUserDietData} from '../_interfaces/IUserDietData';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, HostListener} from '@angular/core';
 
 
 @Component({
@@ -17,31 +12,23 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   @Input() public dataId: number;
 
-  public userDetails: IUserDetails[];
-  public userDietData: IUserDietData[];
-  public userDetailsObject = <IUserDetails>{};
-
   public totalSyns = 25;
   public userSyns: number;
   public dietDeficitType = 'Syns';
   public windowDesktop = true;
   public hideDash = false;
+  public windowMeasure: number;
+  @HostListener('window:resize', ['$event']) onResize(event) {
+    this.windowMeasure = event.target.innerWidth;
+    // console.log(event.target.innerWidth);
+    // console.log(event.target.innerHeight);
+  }
 
-  constructor(
-    private sanitizer: DomSanitizer,
-    private http: HttpServiceCore,
-    private route: ActivatedRoute
-  ) {
 
+  constructor() {
   }
 
   ngOnInit() {
-console.log(localStorage.getItem('mean-token'));
-    // console.log(this.dataId);
-
-    this.userSyns = 0;
-    // this.getUserDetails();
-    // this.getUserDietData();
   }
 
   ngAfterViewInit() {
@@ -55,43 +42,6 @@ console.log(localStorage.getItem('mean-token'));
       this.windowDesktop = false;
     }
   }
-
-  public getUserDetails() {
-    this.http.getUserPersonalDetails(this.dataId).subscribe(
-      (data) => {
-        this.userDetails = data;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  public getUserDietData() {
-    this.http.getUserDietData(this.dataId).subscribe(
-      (data) => {
-        this.userDietData = data;
-        console.log('New User Diet Data: ', this.userDietData);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  // public postUserDetails() {
-  //   this.userDetailsObject.email = 'ra_mcd@yahoo.com';
-  //   this.userDetailsObject.age = 32;
-  //   this.http.postUserDetails(this.userDetailsObject).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //       this.getUserDetails();
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
 
   public resizerCheck(event) {
     const windowSize = event.target.innerWidth;

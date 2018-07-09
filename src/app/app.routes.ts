@@ -12,16 +12,15 @@ import {RegistrationComponent} from './registration/registration.component';
 
 export const crumbsRoutes: Routes = [
   {path: '', component: AppComponent, pathMatch: 'full'},
-  {path: 'login', component: LoginComponent, data: {title: 'Crumbs Login'}},
-  {path: 'register', component: RegistrationComponent, data: {title: 'Crumbs Sign-Up'}},
-  {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
-  {path: 'dashboard', component: DashboardComponent, data: {title: 'Crumbs Dashboard'}},
-  {path: 'diet-log', component: DietLogComponent, data: {title: 'Crumbs Diet Log'}},
-  {path: 'diet-statistics', component: DietStatisticsComponent, data: {title: 'Crumbs Diet Stats'}},
-  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent, data: {title: 'Crumbs System Administration'}},
-  {path: 'user-account', component: UserAdministrationComponent, data: {title: 'Crumbs Dashboard'}},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegistrationComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'diet-log', component: DietLogComponent},
+  {path: 'diet-statistics', component: DietStatisticsComponent},
+  {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent},
+  {path: 'user-account', component: UserAdministrationComponent},
 ];
 
-// export const appRoutingProviders: any[] = [];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(crumbsRoutes);

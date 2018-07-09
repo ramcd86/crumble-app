@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
-// import {IUserLogin} from '../_interfaces/IUserLogin';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
 import {ITokenPayload} from '../_interfaces/IUserAuth';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -15,7 +15,6 @@ import {ITokenPayload} from '../_interfaces/IUserAuth';
 export class RegistrationComponent implements OnInit {
 
   public dbState = <IDataBaseIteration>{};
-  // public newUserLogin = <IUserLogin>{};
   public newUserDetails = <IUserDetails>{};
   public newUserDietData = <IUserDietData>{};
   public newUserRegistration = <ITokenPayload>{};
@@ -29,8 +28,6 @@ export class RegistrationComponent implements OnInit {
   public password1: FormControl = new FormControl(null, [Validators.required]);
   public password2: FormControl = new FormControl(null, [Validators.required]);
   public dataId: number;
-  // public firstName: FormControl = new FormControl(null, [Validators.required]);
-  // public lastName: FormControl = new FormControl(null, [Validators.required]);
   public userName: FormControl = new FormControl(null, [Validators.required]);
   public startingWeight: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
   public height: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
@@ -75,11 +72,13 @@ export class RegistrationComponent implements OnInit {
 
 
   constructor(
-    private http: HttpServiceCore
+    private http: HttpServiceCore,
+    private titleService: Title
   ) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Crumbs - Registration');
   }
 
   public register() {
@@ -110,10 +109,6 @@ export class RegistrationComponent implements OnInit {
     this.newUserRegistration.password = this.password1.value;
     this.newUserRegistration.name = this.userName.value;
     this.newUserRegistration.dataId = iterationCount;
-    // this.newUserLogin.listId = iterationCount;
-    // this.newUserLogin.email = this.userEmail.value;
-    // this.newUserLogin.password = this.password1.value;
-    // this.newUserLogin.dataId = iterationCount;
     console.log(this.newUserRegistration);
     this.http.register(this.newUserRegistration).subscribe(
       (res) => {
@@ -132,8 +127,6 @@ export class RegistrationComponent implements OnInit {
 
   public createNewUserDetails(iterationCount: number) {
     this.newUserDetails.listId = iterationCount;
-    // this.newUserDetails.firstName = this.firstName.value;
-    // this.newUserDetails.lastName = this.lastName.value;
     this.newUserDetails.userName = this.userName.value;
     this.newUserDetails.startingWeight = this.startingWeight.value;
     this.newUserDetails.weightHistory = this.weightHistory;

@@ -7,7 +7,6 @@ import {ITokenPayload, IUserAuth} from '../_interfaces/IUserAuth';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {FormControl, Validators} from '@angular/forms';
-// import {IUserStore} from '../_store/IUserStore.store';
 
 
 @Component({
@@ -21,15 +20,10 @@ export class LoginComponent implements OnInit {
   public userPassword: FormControl = new FormControl(null, [Validators.required]);
 
   public dataId: number;
-  public newRegister = false;
-  public navStatus: boolean;
-  public windowDesktop = false;
-  // public userPresent = true;
   public emailClicked = false;
   public passwordClicked = false;
   public validLogin = true;
   public credentials = <ITokenPayload>{};
-  public token: string = 'empty';
 
   constructor(
     private titleService: Title,
@@ -37,18 +31,11 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpServiceCore,
     private session: SessionStorageService
-    // private auth:
-    // private userStore: IUserStore
   ) {
   }
 
   ngOnInit() {
-    // this.route.params.subscribe(
-    //   params => {
-    //     this.dataId = params['userData.DATA_ID'];
-    //   });
-    // this.titleService.setTitle('Crumbs - Home');
-    // console.log('aslo store: ', this.userStore.get().data_id);
+    this.titleService.setTitle('Crumbs - Login');
   }
 
   public register() {
@@ -116,10 +103,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public toggleNav(): boolean {
-    this.navStatus = !this.navStatus;
-    return false;
-  }
 
   public resetFields() {
     this.userEmail.setValue('Email Address');
