@@ -2,7 +2,7 @@ import {Component, OnInit, HostListener} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {SessionStorageService} from '../_store/SessionStorage.service';
-import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from '../_services/http/http-service-core.service';
 import {IUserAuth} from '../_interfaces/IUserAuth';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';

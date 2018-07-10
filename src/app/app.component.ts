@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from './_services/http/http-service-core.service';
 import {SessionStorageService} from './_store/SessionStorage.service';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';

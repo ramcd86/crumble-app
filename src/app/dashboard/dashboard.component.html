@@ -28,147 +28,146 @@
     </div>
   </div>
 </div>
-<div [ngSwitch]="windowDesktop" (window:resize)="resizerCheck($event)">
-  <div *ngSwitchDefault>
-    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
-         [hidden]="hideDash === true"
-    >
-      <div class="row no-gutters">
-        <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
-          class="glyphicon glyphicon-upload"></span> Hide Dashboard <br>
+<div>
 
-        </div>
+  <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad deskdash"
 
-        <input type="text" [formControl]="pointHolder">
+  >
+    <div class="row no-gutters">
+      <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
+        class="glyphicon glyphicon-upload"></span> Hide Dashboard <br>
+
+      </div>
+
+      <input type="text" [formControl]="pointHolder">
       <button class="btn" (click)="simpleSetter()"></button>
 
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-1 col-sm-0"></div>
+      <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb
+           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+
+        <!--public getDietDataBigCrumbCustomMaxValue() {-->
+        <!--return this.userDietData.bigCrumbCustomMaxValue;-->
+        <!--}-->
+        <!--public getDietDataBigCrumbUserSetValue() {-->
+        <!--return this.userDietData.bigCrumbUserSetValue;-->
+        <!--}-->
+        <circle-progress
+          [percent]="calculatorFunc()"
+          [radius]="100"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [outerStrokeColor]="'#549500'"
+          [animation]="true"
+          [units]="totalSyns + ' / ' + userSyns"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="dietDeficitType"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
       </div>
-      <div class="row no-gutters">
-        <div class="col-md-1 col-sm-0"></div>
-        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb
-             style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
-
-          <!--public getDietDataBigCrumbCustomMaxValue() {-->
-          <!--return this.userDietData.bigCrumbCustomMaxValue;-->
-          <!--}-->
-          <!--public getDietDataBigCrumbUserSetValue() {-->
-          <!--return this.userDietData.bigCrumbUserSetValue;-->
-          <!--}-->
-          <circle-progress
-            [percent]="calculatorFunc()"
-            [radius]="100"
-            [outerStrokeWidth]="10"
-            [showBackground]="true"
-            [backgroundStroke]="'#000'"
-            [backgroundColor]="'#fff'"
-            [outerStrokeColor]="'#549500'"
-            [animation]="true"
-            [units]="totalSyns + ' / ' + userSyns"
-            [showUnits]="true"
-            [animationDuration]="500"
-            [responsive]="true"
-            [toFixed]="0"
-            [title]="dietDeficitType"
-            [unitsColor]="'#000'"
-            [titleColor]="'#000'"
-            [animateTitle]="true"
-          ></circle-progress>
-        </div>
-        <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer"
-             style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+      <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer"
+           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
 
 
-          <circle-progress
-            [percent]="calculatorFunc()"
-            [radius]="100"
-            [outerStrokeWidth]="10"
-            [showBackground]="true"
-            [backgroundStroke]="'#000'"
-            [backgroundColor]="'#fff'"
-            [outerStrokeColor]="'#549500'"
-            [animation]="true"
-            [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
-            [showUnits]="true"
-            [animationDuration]="500"
-            [responsive]="true"
-            [toFixed]="0"
-            [title]="session.getDietDataBigCrumbCustomType()"
-            [unitsColor]="'#000'"
-            [titleColor]="'#000'"
-            [animateTitle]="true"
-          ></circle-progress>
-        </div>
-        <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb2"
-             style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
-          <circle-progress
-            [percent]="calculatorFunc()"
-            [radius]="100"
-            [outerStrokeWidth]="10"
-            [showBackground]="true"
-            [backgroundStroke]="'#000'"
-            [backgroundColor]="'#fff'"
-            [outerStrokeColor]="'#549500'"
-            [animation]="true"
-            [units]="totalSyns + ' / ' + userSyns"
-            [showUnits]="true"
-            [animationDuration]="500"
-            [responsive]="true"
-            [toFixed]="0"
-            [title]="dietDeficitType"
-            [unitsColor]="'#000'"
-            [titleColor]="'#000'"
-            [animateTitle]="true"
-          ></circle-progress>
-        </div>
+        <circle-progress
+          [percent]="calculatorFunc()"
+          [radius]="100"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [outerStrokeColor]="'#549500'"
+          [animation]="true"
+          [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataBigCrumbCustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
       </div>
-      <div class="row no-gutters">
-        <div class="col-md-1 col-sm-0"></div>
-        <div class="col-md-3 col-sm-12 text-center" style="padding-left: 15px; padding-right: 15px;">
-          <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
-            Add
-            {{dietDeficitType}}
-          </button>
-          <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
-            Take
-            {{dietDeficitType}}
-          </button>
-        </div>
-        <div class="col-md-4 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
-
-          <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
-            Add
-            {{dietDeficitType}}
-          </button>
-          <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
-            Take
-            {{dietDeficitType}}
-          </button>
-        </div>
-        <div class="col-md-3 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
-          <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
-            Add
-            {{dietDeficitType}}
-          </button>
-          <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
-            Take
-            {{dietDeficitType}}
-          </button>
-        </div>
+      <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb2"
+           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+        <circle-progress
+          [percent]="calculatorFunc()"
+          [radius]="100"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [outerStrokeColor]="'#549500'"
+          [animation]="true"
+          [units]="totalSyns + ' / ' + userSyns"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="dietDeficitType"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
       </div>
     </div>
-    <!--<input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">-->
-  </div>
-
-
-  <div *ngSwitchCase="false">
-    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"     [hidden]="hideDash === true">
-
-
-      <div class="row no-gutters">      <div class="row no-gutters">
-        <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
-          class="glyphicon glyphicon-upload"></span> Hide Dashboard
-        </div>
+    <div class="row no-gutters">
+      <div class="col-md-1 col-sm-0"></div>
+      <div class="col-md-3 col-sm-12 text-center" style="padding-left: 15px; padding-right: 15px;">
+        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
+          Add
+          {{dietDeficitType}}
+        </button>
+        <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
+          Take
+          {{dietDeficitType}}
+        </button>
       </div>
+      <div class="col-md-4 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
+
+        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
+          Add
+          {{dietDeficitType}}
+        </button>
+        <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
+          Take
+          {{dietDeficitType}}
+        </button>
+      </div>
+      <div class="col-md-3 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
+        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
+          Add
+          {{dietDeficitType}}
+        </button>
+        <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
+          Take
+          {{dietDeficitType}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--<input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">-->
+
+
+    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad mobdash">
+
+
+      <div class="row no-gutters">
+        <div class="row no-gutters">
+          <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
+            class="glyphicon glyphicon-upload"></span> Hide Dashboard
+          </div>
+        </div>
 
         <div class="col-sm-12 text-center" style="padding-left: 15px; padding-right: 15px; height: 40vh;">
           <circle-progress
@@ -256,6 +255,6 @@
         </button>
       </div>
     </div>
+
   </div>
-</div>
 

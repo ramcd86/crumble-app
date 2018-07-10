@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {routing} from './app.routes';
 
 // Services
-import {HttpServiceCore} from './_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from './_services/http/http-service-core.service';
 
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
@@ -32,6 +32,7 @@ import {SessionStorageService} from './_store/SessionStorage.service';
 // import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {LoginComponent} from './login/login.component';
+import {UserManagementService} from './_services/user-management.service';
 // import {ProfileComponent} from './register/profile.component';
 // import {AuthenticationService} from './_services/authentication.service';
 
@@ -95,7 +96,8 @@ import {LoginComponent} from './login/login.component';
     HttpServiceCore,
     // IUserStore,
     // IUserState,
-    SessionStorageService
+    SessionStorageService,
+    UserManagementService
   ],
   bootstrap: [AppComponent]
 })

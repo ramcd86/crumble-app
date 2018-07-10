@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, HostListener} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
 import {SessionStorageService} from '../_store/SessionStorage.service';
 import {FormControl, Validators} from '@angular/forms';
 
@@ -7,7 +7,7 @@ import {FormControl, Validators} from '@angular/forms';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit {
 
   @ViewChild('littleCrumb') public littleCrumb: ElementRef;
   @ViewChild('bigCrumb') public bigCrumb: ElementRef;
@@ -38,30 +38,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // this.session.set
   }
 
-  ngAfterViewInit() {
-    if (window.innerWidth > 999) {
-      this.windowDesktop = true;
-      document.getElementById('littleCrumb1').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
-      document.getElementById('littleCrumb2').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
-    } else {
-      this.windowDesktop = false;
-    }
-  }
 
-  public resizerCheck(event) {
-    const windowSize = event.target.innerWidth;
-    if (windowSize > 999) {
-      this.windowDesktop = true;
-      document.getElementById('littleCrumb1').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
-      document.getElementById('littleCrumb2').style.paddingTop = (
-        (this.bigCrumb.nativeElement.clientWidth - this.littleCrumb.nativeElement.clientWidth)).toString() + 'px';
-    } else {
-      this.windowDesktop = false;
-    }
-  }
 
   public calculatorFunc() {
     // const calCap = this.totalSyns - this.userSyns;

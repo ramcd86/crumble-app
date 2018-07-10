@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {HttpServiceCore} from '../_services/http/HttpServiceCore.service';
+import {HttpServiceCore} from '../_services/http/http-service-core.service';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';

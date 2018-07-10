@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import {HttpServiceCore} from './http/HttpServiceCore.service';
+import {HttpServiceCore} from './http/http-service-core.service';
 
 
 @Injectable()

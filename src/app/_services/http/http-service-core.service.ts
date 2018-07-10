@@ -10,7 +10,6 @@ import {IDataBaseIteration} from '../../_interfaces/IDataBaseIteration';
 import {Router} from '@angular/router';
 import {ITokenPayload, ITokenResponse, IUserAuth} from '../../_interfaces/IUserAuth';
 import {map} from 'rxjs/operators/map';
-// import {Session} from 'selenium-webdriver';
 import {SessionStorageService} from '../../_store/SessionStorage.service';
 
 @Injectable()

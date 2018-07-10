@@ -283,6 +283,14 @@ a:hover, a:active {
   display: block;
 }
 
+.mobdash {
+  display: none;
+}
+
+.deskdash {
+  display: block;
+}
+
 @media (max-width: 999px) {
   .mobmenu {
     display: block;
@@ -291,4 +299,15 @@ a:hover, a:active {
   .deskmenu {
     display: none;
   }
+
+  .mobdash {
+    display: block;
+  }
+
+  .deskdash {
+    display: none;
+  }
+
 }
+
+
