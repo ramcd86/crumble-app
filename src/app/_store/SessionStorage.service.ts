@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
-import {UserManagementService} from '../_services/user-management.service';
 
 @Injectable()
 export class SessionStorageService {
@@ -15,26 +14,9 @@ export class SessionStorageService {
 
 
   constructor(
-    public userManagement: UserManagementService
+    // public userManagement: UserManagementService
   ) {
 
-  }
-
-
-  public setListId(value) {
-    this.listId = value;
-  }
-
-  public getListId() {
-    return this.listId;
-  }
-
-  public setNewRegister(value) {
-    this.newRegister = value;
-  }
-
-  public getNewRegister() {
-    return this.newRegister;
   }
 
   public setUserPresent(value) {
@@ -48,6 +30,24 @@ export class SessionStorageService {
   public setUserDietData(dietData: IUserDietData) {
     this.userDietData = dietData;
   }
+
+  public setListId(value) {
+    this.listId = value;
+  }
+
+
+  public getListId() {
+    return this.listId;
+  }
+
+  public setNewRegister(value) {
+    this.newRegister = value;
+  }
+
+  public getNewRegister() {
+    return this.newRegister;
+  }
+
 
 
   // Expose User Details properties.
@@ -252,12 +252,12 @@ export class SessionStorageService {
     return this.userDietData;
   }
 
-  public updateUserDietData() {
-    this.userManagement.putUserDietData(this.userDietData);
-  }
-
-  public updateUserDetails() {
-    this.userManagement.putUserDetails(this.userDetails);
-  }
+  // public updateUserDietData() {
+  //   this.userManagement.putUserDietData(this.userDietData);
+  // }
+  //
+  // public updateUserDetails() {
+  //   this.userManagement.putUserDetails(this.userDetails);
+  // }
 
 }

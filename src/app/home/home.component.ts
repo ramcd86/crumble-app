@@ -6,6 +6,7 @@ import {HttpServiceCore} from '../_services/http/http-service-core.service';
 import {IUserAuth} from '../_interfaces/IUserAuth';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';
+import {DataManagerService} from '../_services/data-manager.service';
 
 // import {IUserStore} from '../_store/IUserStore.store';
 
@@ -31,44 +32,46 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private session: SessionStorageService,
     private http: HttpServiceCore,
+    private dataManager: DataManagerService
   ) {
   }
 
   ngOnInit() {
     this.titleService.setTitle(`Crumbs - ${this.session.getDetailsUserName()}.`);
-    this.userSetter();
+    // this.userSetter();
     // console.log(this.onResize());
+    this.dataManager.setUp();
   }
-
-  public userSetter() {
-    this.http.profile().subscribe(
-      (res: IUserAuth) => {
-        this.generateAuthenticationObject(res.dataId);
-      }, (err) => {
-        console.error(err);
-      });
-  }
-
-  public generateAuthenticationObject(listId: number) {
-    this.session.setUserPresent(true);
-    this.http.getUserPersonalDetails(listId).subscribe(
-      (res: IUserDetails) => {
-        this.session.setUserDetails(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-    this.http.getUserDietData(listId).subscribe(
-      (res: IUserDietData) => {
-        this.session.setUserDietData(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-    console.log(this.session);
-  }
+  //
+  // public userSetter() {
+  //   this.http.profile().subscribe(
+  //     (res: IUserAuth) => {
+  //       this.generateAuthenticationObject(res.dataId);
+  //     }, (err) => {
+  //       console.error(err);
+  //     });
+  // }
+  //
+  // public generateAuthenticationObject(listId: number) {
+  //   this.session.setUserPresent(true);
+  //   this.http.getUserPersonalDetails(listId).subscribe(
+  //     (res: IUserDetails) => {
+  //       this.session.setUserDetails(res);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  //   this.http.getUserDietData(listId).subscribe(
+  //     (res: IUserDietData) => {
+  //       this.session.setUserDietData(res);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  //   console.log(this.session);
+  // }
 
 
 }

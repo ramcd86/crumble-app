@@ -15,46 +15,20 @@ import {UserAdministrationModule} from './user-administration/user-administratio
 import {NgCircleProgressModule} from 'ng-circle-progress';
 
 // Routes
-import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DietLogComponent} from './diet-log/diet-log.component';
 import {DietStatisticsComponent} from './diet-statistics/diet-statistics.component';
-import {SystemAdministrationComponent} from './system-administration/system-administration.component';
-import {UserAdministrationComponent} from './user-administration/user-administration.component';
 import {RegistrationComponent} from './registration/registration.component';
-
-// Classes
-// import {IUserStore} from './_store/IUserStore.store';
-// import {IUserState} from './_store/IUserState.store';
 import {SessionStorageService} from './_store/SessionStorage.service';
-// import {LoginComponent} from './register/login.component';
-// import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {UserManagementService} from './_services/user-management.service';
-// import {ProfileComponent} from './register/profile.component';
-// import {AuthenticationService} from './_services/authentication.service';
+// import {UserManagementService} from './_services/user-management.service';
+import {DashboardModalComponent} from './dashboard/modal/dashboard-modal.component';
+import {DataManagerService} from './_services/data-manager.service';
 
 
-// const crumbsRoutes: Routes = [
-//   {path: '', component: AppComponent, pathMatch: 'full'},
-//   {path: 'home', component: HomeComponent, data: {title: 'Crumbs Home'}},
-//   {path: 'dashboard', component: DashboardComponent , data: {title: 'Crumbs Dashboard'}},
-//   {path: 'diet-log', component: DietLogComponent , data: {title: 'Crumbs Diet Log'}},
-//   {path: 'diet-statistics', component: DietStatisticsComponent , data: {title: 'Crumbs Diet Stats'}},
-//   {path: 'crumble-system-administrator-login', component: SystemAdministrationComponent , data: {title: 'Crumbs System Administration'}},
-//   {path: 'user-account', component: UserAdministrationComponent , data: {title: 'Crumbs Dashboard'}},
-//   // , canActivate: [AuthGuardService],
-//
-//   // { path: 'login', component: LoginComponent },
-//   //
-//   // { path: 'register', component: RegisterComponent },
-//   //
-//   // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
-//
-//
-// ];
 
 @NgModule({
   declarations: [
@@ -64,17 +38,11 @@ import {UserManagementService} from './_services/user-management.service';
     HomeComponent,
     DietLogComponent,
     DietStatisticsComponent,
-    LoginComponent
-    // LoginComponent,
-    // RegisterComponent,
-    // ProfileComponent
-
+    LoginComponent,
+    DashboardModalComponent
   ],
   imports: [
     HttpClientModule,
-    // RouterModule.forRoot(
-    //   crumbsRoutes
-    // ),
     routing,
     BrowserModule,
     ReactiveFormsModule,
@@ -91,13 +59,11 @@ import {UserManagementService} from './_services/user-management.service';
     FormsModule
   ],
   providers: [
-    // AuthenticationService,
     AuthGuardService,
     HttpServiceCore,
-    // IUserStore,
-    // IUserState,
     SessionStorageService,
-    UserManagementService
+    UserManagementService,
+    DataManagerService
   ],
   bootstrap: [AppComponent]
 })

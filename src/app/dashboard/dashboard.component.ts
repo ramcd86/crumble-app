@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   @Input() public dataId: number;
 
+  public showModalWindow = false;
   public totalSyns = 25;
   public userSyns: number;
   public dietDeficitType = 'Syns';
