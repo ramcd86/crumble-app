@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SessionStorageService {
@@ -12,11 +14,41 @@ export class SessionStorageService {
   public newRegister = false;
   public listId: number;
 
+  public exposeUserDetails: Subject<IUserDetails> = new Subject<IUserDetails>();
+  public exposeUserDietData: Subject<IUserDietData> = new Subject<IUserDietData>();
+  public exposeListId: Subject<number> = new Subject<number>();
+  public exposeUserPresent: Subject<boolean> = new Subject<boolean>();
+  // public completeStatus: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     // public userManagement: UserManagementService
   ) {
 
+  }
+
+  public inputUserDetails(value: IUserDetails) {
+    this.exposeUserDetails.next(value);
+  }
+  public pipeUserDetails(): Observable <IUserDetails> {
+    return this.exposeUserDetails.asObservable();
+  }
+  public inputUserDietData(value: IUserDietData) {
+    this.exposeUserDietData.next(value);
+  }
+  public pipeUserDietData(): Observable <IUserDietData> {
+    return this.exposeUserDietData.asObservable();
+  }
+  public inputUserPresent(value: boolean) {
+    this.exposeUserPresent.next(value);
+  }
+  public pipeUserPresent(): Observable <boolean> {
+    return this.exposeUserPresent.asObservable();
+  }
+  public inputListId(value: number) {
+    this.exposeListId.next(value);
+  }
+  public pipeListId(): Observable <number> {
+    return this.exposeListId.asObservable();
   }
 
   public setUserPresent(value) {
