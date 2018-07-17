@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   public passwordClicked = false;
   public validLogin = true;
   public credentials = <ITokenPayload>{};
+  public inputTypeReturn = 'text';
 
   constructor(
     private titleService: Title,
@@ -37,7 +38,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.inputType('text');
     this.titleService.setTitle('Crumbs - Login');
+    this.userEmail.setValue('User Email');
+    this.userPassword.setValue('User Password');
   }
 
   public register() {
@@ -58,6 +62,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
+public inputType(value: string) {
+    this.inputTypeReturn = value;
+}
 
   public tapEmail() {
     if (this.emailClicked === false) {
@@ -70,6 +77,7 @@ export class LoginComponent implements OnInit {
 
   public tapPassword() {
     if (this.passwordClicked === false) {
+      this.inputType('password');
       this.userPassword.setValue('');
       this.passwordClicked = true;
     } else if (this.passwordClicked === true) {
@@ -79,8 +87,9 @@ export class LoginComponent implements OnInit {
 
 
   public resetFields() {
-    this.userEmail.setValue('Email Address');
-    this.userPassword.setValue('1234567890');
+    this.inputType('text');
+    this.userEmail.setValue('User Address');
+    this.userPassword.setValue('User Password');
     this.emailClicked = false;
     this.passwordClicked = false;
     this.validLogin = true;

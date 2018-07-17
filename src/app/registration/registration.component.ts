@@ -25,6 +25,7 @@ export class RegistrationComponent implements OnInit {
   public crumb5Toggle = false;
   public httpError: boolean;
   public validDetails = true;
+  public passwordInputType = 'password';
   public userEmail: FormControl = new FormControl(null, [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]);
   public password1: FormControl = new FormControl(null, [Validators.required]);
   public password2: FormControl = new FormControl(null, [Validators.required]);
@@ -217,6 +218,14 @@ export class RegistrationComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }
     );
+  }
+
+  public switchPasswordType() {
+    if (this.passwordInputType === 'password') {
+      this.passwordInputType = 'text';
+    } else if (this.passwordInputType === 'text') {
+      this.passwordInputType = 'password';
+    }
   }
 
   public toggleSwitchTemplate() {
