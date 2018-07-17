@@ -41,11 +41,25 @@ export class DashboardComponent implements OnInit {
 
 
 
-  public calculatorFunc() {
-    // const calCap = this.totalSyns - this.userSyns;
+  public bigCrumbCalculatorFunc() {
     const calCap = this.session.getDietDataBigCrumbCustomMaxValue() - this.session.getDietDataBigCrumbUserSetValue();
-      // this.session.getDietDataBigCrumbUserSetValue();
     const Totes = (calCap * 100) / this.session.getDietDataBigCrumbCustomMaxValue();
+    return Totes - 100;
+  }
+
+  public littleCrumb1CalculatorFunc() {
+    // const calCap = this.session.getDietDataBigCrumbCustomMaxValue() - this.session.getDietDataBigCrumbUserSetValue();
+    // const Totes = (calCap * 100) / this.session.getDietDataBigCrumbCustomMaxValue();
+    const calCap = this.session.getDietDataLittleCrumb1CustomMaxValue() - this.session.getDietDataLittleCrumb1UserSetValue();
+    const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb1CustomMaxValue();
+    return Totes - 100;
+  }
+
+  public littleCrumb2CalculatorFunc() {
+    // const calCap = this.session.getDietDataBigCrumbCustomMaxValue() - this.session.getDietDataBigCrumbUserSetValue();
+    // const Totes = (calCap * 100) / this.session.getDietDataBigCrumbCustomMaxValue();
+    const calCap = this.session.getDietDataLittleCrumb2CustomMaxValue() - this.session.getDietDataLittleCrumb2UserSetValue();
+    const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb2CustomMaxValue();
     return Totes - 100;
   }
 
@@ -53,12 +67,16 @@ export class DashboardComponent implements OnInit {
     this.hideDash = !this.hideDash;
   }
 
-  public simpleSetter() {
-    console.log(this.pointHolder.value);
-    this.session.setDietDataBigCrumbUserSetValue(this.pointHolder.value);
-    console.log(this.session.getDietDataBigCrumbUserSetValue());
-    this.calculatorFunc();
-    console.log(this.calculatorFunc());
+  public modalToggle() {
+    this.showModalWindow = !this.showModalWindow;
   }
+
+  // public simpleSetter() {
+  //   console.log(this.pointHolder.value);
+  //   this.session.setDietDataBigCrumbUserSetValue(this.pointHolder.value);
+  //   console.log(this.session.getDietDataBigCrumbUserSetValue());
+  //   this.calculatorFunc();
+  //   console.log(this.calculatorFunc());
+  // }
 
 }

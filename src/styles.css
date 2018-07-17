@@ -264,8 +264,6 @@ a:hover, a:active {
    /*background-position: center top;*/
    /*background-repeat: no-repeat;*/
    /*background-size: auto auto;*/
-   width: 100vw;
-   height: 100vh;
    overflow: scroll;
  }
 

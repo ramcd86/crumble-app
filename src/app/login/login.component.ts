@@ -3,9 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpServiceCore} from '../_services/http/http-service-core.service';
 import {SessionStorageService} from '../_store/SessionStorage.service';
-import {ITokenPayload, IUserAuth} from '../_interfaces/IUserAuth';
-import {IUserDietData} from '../_interfaces/IUserDietData';
-import {IUserDetails} from '../_interfaces/IUserDetails';
+import {ITokenPayload} from '../_interfaces/IUserAuth';
 import {FormControl, Validators} from '@angular/forms';
 import {UserManagementService} from '../_services/user-management.service';
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -9,12 +9,16 @@ export class DashboardModalComponent implements OnInit {
 
   @Input() showWindow = false;
 
-  constructor() {
+  @Output() public modalClose = new EventEmitter();
 
+  constructor() {
   }
 
   ngOnInit() {
+  }
 
+  public closeMe() {
+    this.modalClose.emit();
   }
 
 }
