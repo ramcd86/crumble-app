@@ -15,10 +15,10 @@ function getUserDetails(req, res) {
 }
 function getExistingUserDetails(req, res) {
   const originalUserDetails = {
-    listId: req.params.listId
+    userDetailsListId: req.params.userDetailsListId
   };
   const searchedObject = UserDetailsModel.findOne({
-    listId: originalUserDetails.listId
+    userDetailsListId: originalUserDetails.userDetailsListId
   });
   searchedObject
     .exec()
@@ -31,7 +31,7 @@ function getExistingUserDetails(req, res) {
 }
 function putUserDetails(req, res) {
   const originalUserDetails = {
-    listId: req.params.listId,
+    userDetailsListId: req.params.userDetailsListId,
     email: req.body.email,
     // firstName: req.body.firstName,
     // lastName: req.body.lastName,
@@ -42,7 +42,7 @@ function putUserDetails(req, res) {
     height: req.body.height,
     age: req.body.age
   };
-  UserDetailsModel.findOne({listId: originalUserDetails.listId}, (error, details) => {
+  UserDetailsModel.findOne({userDetailsListId: originalUserDetails.userDetailsListId}, (error, details) => {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, details)) return;
     details.email = originalUserDetails.email;
@@ -62,8 +62,8 @@ function putUserDetails(req, res) {
   });
 }
 function deleteUserDetails(req, res) {
-  const id = req.params.listId;
-  UserDetailsModel.findOneAndRemove({listId: id})
+  const id = req.params.userDetailsListId;
+  UserDetailsModel.findOneAndRemove({userDetailsListId: id})
     .then(user => {
       if (!checkFound(res, user)) return;
       res.status(200).json(user);
@@ -75,7 +75,7 @@ function deleteUserDetails(req, res) {
 }
 function postUserDetails(req, res) {
   const originalUserDetails = {
-    listId: req.body.listId,
+    userDetailsListId: req.body.userDetailsListId,
     email: req.body.email,
     // firstName: req.body.firstName,
     // lastName: req.body.lastName,

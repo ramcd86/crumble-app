@@ -5,7 +5,7 @@ module.exports.register = function(req, res) {
   const user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
-  user.dataId = req.body.dataId;
+  user.registerListId = req.body.registerListId;
   user.setPassword(req.body.password);
   user.save(function(err) {
     let token;

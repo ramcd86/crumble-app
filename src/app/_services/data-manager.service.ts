@@ -17,7 +17,7 @@ export class DataManagerService implements OnInit, OnDestroy {
 
   public userDietData = <IUserDietData>{};
   public userDetails = <IUserDetails>{};
-  public listId: number;
+  public listId: string;
   public userPresent: boolean;
 
   constructor(
@@ -31,16 +31,15 @@ export class DataManagerService implements OnInit, OnDestroy {
           this.listId = this.user.getListId();
           this.userDetails = this.user.getUserDetails();
           this.userDietData = this.user.getUserDietData();
-          // this.session.setUserPresent(this.userPresent);
-          // this.session.setListId(this.listId);
-          // this.session.setUserDetails(this.userDetails);
-          // this.session.setUserDietData(this.userDietData);
-          //
+
           this.session.inputUserPresent(this.userPresent);
           this.session.inputListId(this.listId);
           this.session.inputUserDetails(this.userDetails);
           this.session.inputUserDietData(this.userDietData);
-          console.log(this.session);
+          console.log('user details:', this.session.getUserDetails());
+          console.log('user diet data:', this.session.getDietData());
+          console.log('user list id:', this.session.getListId());
+          console.log('user present:', this.session.getUserPresentStatus());
         }
       }, (err) => {
         console.log(err);

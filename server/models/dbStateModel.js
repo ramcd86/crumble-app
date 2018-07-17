@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const dbStateSchema = new Schema(
   {
-    listId: {type: Number, required: true, unique: true},
-    dbState: {type: Number, required: true, unique: true}
+    listId: Number,
+    dbState: Number,
   }, {
-    collection: 'databaseState',
+    collection: 'dbCollection',
     read: 'nearest'
   },
   {versionKey: false}

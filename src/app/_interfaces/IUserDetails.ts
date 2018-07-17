@@ -1,5 +1,5 @@
 export interface IUserDetails {
-  listId: number;
+  userDetailsListId: string;
 
   email: string;
   // firstName: string;

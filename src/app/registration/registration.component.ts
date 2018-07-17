@@ -110,7 +110,7 @@ export class RegistrationComponent implements OnInit {
     this.newUserRegistration.email = this.userEmail.value;
     this.newUserRegistration.password = this.password1.value;
     this.newUserRegistration.name = this.userName.value;
-    this.newUserRegistration.dataId = iterationCount;
+    this.newUserRegistration.registerListId = 'registerListId_' + iterationCount.toString();
     console.log(this.newUserRegistration);
     this.http.register(this.newUserRegistration).subscribe(
       (res) => {
@@ -128,7 +128,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   public createNewUserDetails(iterationCount: number) {
-    this.newUserDetails.listId = iterationCount;
+    this.newUserDetails.userDetailsListId = 'userDetailsListId_' + iterationCount.toString();
     this.newUserDetails.userName = this.userName.value;
     this.newUserDetails.startingWeight = this.startingWeight.value;
     this.newUserDetails.weightHistory = this.weightHistory;
@@ -151,7 +151,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   public createNewUserDietData(iterationCount: number) {
-    this.newUserDietData.listId = iterationCount;
+    this.newUserDietData.userDietDataListId = 'userDietDataListId_' + iterationCount.toString();
     this.newUserDietData.bigCrumbCustom = this.bigCrumbCustom;
     this.newUserDietData.bigCrumbDefault = this.bigCrumbDefault;
     this.newUserDietData.bigCrumbCustomType = this.bigCrumbCustomType.value;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userDietDataSchema = new Schema(
   {
-    listId: {type: Number, required: true, unique: true},
+    userDietDataListId: String,
     bigCrumbCustom: Boolean,
     bigCrumbCustomType: String,
     bigCrumbCustomMaxValue: Number,
@@ -34,7 +34,7 @@ const userDietDataSchema = new Schema(
     littleCrumb5UserSetValue: Number,
     littleCrumb5History: Array
   }, {
-    collection: 'userDietDataDocuments',
+    collection: 'dbCollection',
     read: 'nearest'
   },
   {versionKey: false}

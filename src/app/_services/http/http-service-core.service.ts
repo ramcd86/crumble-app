@@ -126,14 +126,14 @@ export class HttpServiceCore {
     );
   }
 
-  public getUserPersonalDetails(listId: number): Observable<any> {
+  public getUserPersonalDetails(listId: string): Observable<any> {
     const endPoint = `userDetails/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: IUserDetails) => res
     );
   }
 
-  public getUserDietData(listId: number): Observable<any> {
+  public getUserDietData(listId: string): Observable<any> {
     const endPoint = `userDietData/${listId}`;
     return this.http.get(this.httpBase + endPoint).map(
       (res: IUserDietData) => res
@@ -186,14 +186,14 @@ export class HttpServiceCore {
   }
 
   public putUserDetails(userDetails: IUserDetails): Observable<any> {
-    const endPoint = `userDetails/${userDetails.listId}`;
+    const endPoint = `userDetails/${userDetails.userDetailsListId}`;
     return this.http.put(this.httpBase + endPoint, userDetails).map(
       (res: IUserDetails) => res
     );
   }
 
   public putUserDietData(userDietData: IUserDietData): Observable<any> {
-    const endPoint = `userDietData/${userDietData.listId}`;
+    const endPoint = `userDietData/${userDietData.userDietDataListId}`;
     return this.http.put(this.httpBase + endPoint, userDietData).map(
       (res: IUserDietData) => res
     );

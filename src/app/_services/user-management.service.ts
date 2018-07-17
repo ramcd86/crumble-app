@@ -13,7 +13,7 @@ export class UserManagementService {
 
   public userDetails = <IUserDetails>{};
   public userDeitData = <IUserDietData>{};
-  public listId: number;
+  public listId: string;
   public userPresent: boolean;
   public completeStatus: Subject<boolean> = new Subject<boolean>();
 
@@ -35,15 +35,19 @@ export class UserManagementService {
   public construct() {
     this.http.profile().subscribe(
       (res: IUserAuth) => {
-        this.generateAuthenticationObject(res.dataId);
-        this.listId = res.dataId;
+        const responseEntry = res.registerListId;
+        this.listId = responseEntry.split('_')[1];
+        this.generateAuthenticationObject(this.listId);
+        // this.listId = res.registerListId;
         this.userPresent = true;
       }, (err) => {
         console.error(err);
       });
   }
-  public generateAuthenticationObject(listId: number) {
-    this.http.getUserPersonalDetails(listId).subscribe(
+  public generateAuthenticationObject(listId: string) {
+    const userDetailsListId = 'userDetailsListId_' + listId;
+    const userDietDataListId = 'userDietDataListId_' + listId;
+    this.http.getUserPersonalDetails(userDetailsListId).subscribe(
       (res: IUserDetails) => {
         this.userDetails = res;
       },
@@ -51,7 +55,7 @@ export class UserManagementService {
         console.log(err);
       }
     );
-    this.http.getUserDietData(listId).subscribe(
+    this.http.getUserDietData(userDietDataListId).subscribe(
       (res: IUserDietData) => {
         this.userDeitData = res;
       },

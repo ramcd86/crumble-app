@@ -4,7 +4,7 @@ export interface IUserAuth {
   name: string;
   exp: number;
   iat: number;
-  dataId?: number;
+  registerListId?: string;
 }
 
 export interface ITokenResponse {
@@ -15,5 +15,5 @@ export interface ITokenPayload {
   email: string;
   password: string;
   name?: string;
-  dataId?: number;
+  registerListId?: string;
 }

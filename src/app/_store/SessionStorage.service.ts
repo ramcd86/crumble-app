@@ -3,6 +3,7 @@ import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
+import {Subscription} from 'rxjs/Subscription';
 
 @Injectable()
 export class SessionStorageService {
@@ -12,42 +13,78 @@ export class SessionStorageService {
   public userDietData = <IUserDietData>{};
   public userPresent = false;
   public newRegister = false;
-  public listId: number;
+  public listId: string;
 
   public exposeUserDetails: Subject<IUserDetails> = new Subject<IUserDetails>();
   public exposeUserDietData: Subject<IUserDietData> = new Subject<IUserDietData>();
-  public exposeListId: Subject<number> = new Subject<number>();
+  public exposeListId: Subject<string> = new Subject<string>();
   public exposeUserPresent: Subject<boolean> = new Subject<boolean>();
+
+  public subUserDetails: Subscription;
+  public subUserDietData: Subscription;
+  public subUserListId: Subscription;
+  public subUserPresent: Subscription;
+
   // public completeStatus: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     // public userManagement: UserManagementService
   ) {
-
+    this.subUserDetails = this.pipeUserDetails().subscribe(
+      (res) => {
+        // this.userDetails = res;
+        this.setUserDetails(res);
+      }
+    );
+    this.subUserDietData = this.pipeUserDietData().subscribe(
+      (res) => {
+        // this.userDietData = res;
+        this.setUserDietData(res);
+      }
+    );
+    this.subUserListId = this.pipeListId().subscribe(
+      (res) => {
+        // this.listId = res;
+        this.setListId(res);
+      }
+    );
+    this.subUserPresent = this.pipeUserPresent().subscribe(
+      (res) => {
+        // this.userPresent = res;
+        this.setUserPresent(res);
+      }
+    );
   }
 
   public inputUserDetails(value: IUserDetails) {
     this.exposeUserDetails.next(value);
   }
-  public pipeUserDetails(): Observable <IUserDetails> {
+
+  public pipeUserDetails(): Observable<IUserDetails> {
     return this.exposeUserDetails.asObservable();
   }
+
   public inputUserDietData(value: IUserDietData) {
     this.exposeUserDietData.next(value);
   }
-  public pipeUserDietData(): Observable <IUserDietData> {
+
+  public pipeUserDietData(): Observable<IUserDietData> {
     return this.exposeUserDietData.asObservable();
   }
+
   public inputUserPresent(value: boolean) {
     this.exposeUserPresent.next(value);
   }
-  public pipeUserPresent(): Observable <boolean> {
+
+  public pipeUserPresent(): Observable<boolean> {
     return this.exposeUserPresent.asObservable();
   }
-  public inputListId(value: number) {
+
+  public inputListId(value: string) {
     this.exposeListId.next(value);
   }
-  public pipeListId(): Observable <number> {
+
+  public pipeListId(): Observable<string> {
     return this.exposeListId.asObservable();
   }
 
@@ -72,14 +109,13 @@ export class SessionStorageService {
     return this.listId;
   }
 
-  public setNewRegister(value) {
-    this.newRegister = value;
-  }
-
-  public getNewRegister() {
-    return this.newRegister;
-  }
-
+  // public setNewRegister(value) {
+  //   this.newRegister = value;
+  // }
+  //
+  // public getNewRegister() {
+  //   return this.newRegister;
+  // }
 
 
   // Expose User Details properties.
@@ -88,7 +124,7 @@ export class SessionStorageService {
   }
 
   public getDetailsId() {
-    return this.userDetails.listId;
+    return this.userDetails.userDetailsListId;
   }
 
   public getDetailsEmail() {
@@ -125,7 +161,7 @@ export class SessionStorageService {
 
 // Expose diet data.
   public getDietDataId() {
-    return this.userDietData.listId;
+    return this.userDietData.userDietDataListId;
   }
 
   public getDietDataBigCrumbCustom() {

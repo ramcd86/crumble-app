@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userDetailsSchema = new Schema(
   {
-    listId: {type: Number, required: true, unique: true},
+    userDetailsListId: String,
     email: String,
     // firstName: String,
     // lastName: String,
@@ -13,7 +13,7 @@ const userDetailsSchema = new Schema(
     height: String,
     age: Number
   }, {
-    collection: 'userDetailsDocuments',
+    collection: 'dbCollection',
     read: 'nearest'
   },
   {versionKey: false}

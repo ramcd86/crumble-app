@@ -18,9 +18,9 @@ const ctrlAuth = require('../passport-engine/authentication');
 router.get('/dbState', (req, res) => {
   dbState.getDbState(req, res);
 });
-router.get('/userLogin', (req, res) => {
-  userLoginService.getUserLogin(req, res);
-});
+// router.get('/userLogin', (req, res) => {
+//   userLoginService.getUserLogin(req, res);
+// });
 router.get('/userDetails', (req, res) => {
   userDetailsService.getUserDetails(req, res);
 });
@@ -33,10 +33,10 @@ router.get('/dbState/:listId', (req, res) => {
   dbState.getExistingDbState(req, res);
 });
 router.get('/profile', auth, ctrlProfile.profileRead);
-router.get('/userDetails/:listId', (req, res) => {
+router.get('/userDetails/:userDetailsListId', (req, res) => {
   userDetailsService.getExistingUserDetails(req, res);
 });
-router.get('/userDietData/:listId', (req, res) => {
+router.get('/userDietData/:userDietDataListId', (req, res) => {
   userDietDataService.getExistingUserDietData(req, res);
 });
 
@@ -60,10 +60,10 @@ router.put('/dbState/:listId', (req, res) => {
 // router.put('/userLogin/:listId', (req, res) => {
 //   userLoginService.putUserLogin(req, res);
 // });
-router.put('/userDetails/:listId', (req, res) => {
+router.put('/userDetails/:userDetailsListId', (req, res) => {
   userDetailsService.putUserDetails(req, res);
 });
-router.put('/userDietData/:listId', (req, res) => {
+router.put('/userDietData/:userDietDataListId', (req, res) => {
   userDietDataService.putUserDietData(req, res);
 });
 
@@ -74,10 +74,10 @@ router.delete('/dbState/:listId', (req, res) => {
 // router.delete('/userLogin/:listId', (req, res) => {
 //   userLoginService.deleteUser(req, res);
 // });
-router.delete('/userDetails/:listId', (req, res) => {
+router.delete('/userDetails/:userDetailsListId', (req, res) => {
   userDetailsService.deleteUserDetails(req, res);
 });
-router.delete('/userDietData/:listId', (req, res) => {
+router.delete('/userDietData/:userDietDataListId', (req, res) => {
   userDietDataService.deleteUserDietData(req, res);
 });
 

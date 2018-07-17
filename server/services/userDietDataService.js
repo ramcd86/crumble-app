@@ -15,10 +15,10 @@ function getUserDietData(req, res) {
 }
 function getExistingUserDietData(req, res) {
   const originalUserDietData = {
-    listId: req.params.listId
+    userDietDataListId: req.params.userDietDataListId
   };
   const searchedObject = UserDietDataModel.findOne({
-    listId: originalUserDietData.listId
+    userDietDataListId: originalUserDietData.userDietDataListId
   });
   searchedObject
     .exec()
@@ -31,7 +31,7 @@ function getExistingUserDietData(req, res) {
 }
 function putUserDietData(req, res) {
   const originalUserDietData = {
-    listId: req.params.listId,
+    userDietDataListId: req.params.userDietDataListId,
     bigCrumbCustom: req.body.bigCrumbCustom,
     bigCrumbCustomType: req.body.bigCrumbCustomType,
     bigCrumbCustomMaxValue: req.body.bigCrumbCustomMaxValue,
@@ -63,7 +63,7 @@ function putUserDietData(req, res) {
     littleCrumb5UserSetValue: req.body.littleCrumb5UserSetValue,
     littleCrumb5History: req.body.littleCrumb5History
   };
-  UserDietDataModel.findOne({listId: originalUserDietData.listId}, (error, DietData) => {
+  UserDietDataModel.findOne({userDietDataListId: originalUserDietData.userDietDataListId}, (error, DietData) => {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, DietData)) return;
     DietData.bigCrumbCustom = originalUserDietData.bigCrumbCustom;
@@ -104,8 +104,8 @@ function putUserDietData(req, res) {
   });
 }
 function deleteUserDietData(req, res) {
-  const id = req.params.listId;
-  UserDietDataModel.findOneAndRemove({listId: id})
+  const id = req.params.userDietDataListId;
+  UserDietDataModel.findOneAndRemove({userDietDataListId: id})
     .then(user => {
       if (!checkFound(res, user)) return;
       res.status(200).json(user);
@@ -117,7 +117,7 @@ function deleteUserDietData(req, res) {
 }
 function postUserDietData(req, res) {
   const originalUserDietData = {
-    listId: req.body.listId,
+    userDietDataListId: req.body.userDietDataListId,
     bigCrumbCustom: req.body.bigCrumbCustom,
     bigCrumbCustomType: req.body.bigCrumbCustomType,
     bigCrumbCustomMaxValue: req.body.bigCrumbCustomMaxValue,
