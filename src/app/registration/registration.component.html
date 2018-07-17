@@ -39,20 +39,20 @@
         <div class="row">
           <div
             class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <label for="password1" class="c-label" [class.has-error]="password1.invalid && password1.dirty">*
+            <label for="password1" class="c-label" [class.has-error]="pwMatcher()">*
               Password</label>
             <input id="password1" [type]="passwordInputType" [formControl]="password1"
-                   [class.has-error]="password1.invalid && password1.dirty">
+                   [class.has-error]="pwMatcher()" (ngModelChange)="pwMatcher()">
           </div>
         </div>
 
         <div class="row">
           <div
             class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <label for="password2" class="c-label" [class.has-error]="password2.invalid && password2.dirty">* Re-type
+            <label for="password2" class="c-label" [class.has-error]="pwMatcher()">* Re-type
               Password</label>
             <input id="password2" [type]="passwordInputType" [formControl]="password2"
-                   [class.has-error]="password2.invalid && password2.dirty">
+                   [class.has-error]="pwMatcher()" (ngModelChange)="pwMatcher()">
 
           </div>
         </div>
@@ -290,7 +290,7 @@
           </button>
         </div>
         <div class="row">
-          <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="register()">
+          <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="register()" [disabled]="!validator()">
             <span class="glyphicon glyphicon-check"></span> Complete Registration
           </button>
       </div>

@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   public validLogin = true;
   public credentials = <ITokenPayload>{};
   public inputTypeReturn = 'text';
+  // public loginFailure = false;
 
   constructor(
     private titleService: Title,
@@ -56,8 +57,10 @@ export class LoginComponent implements OnInit {
       }, (err) => {
         console.error(err);
         console.log('It\'s fucked');
+        this.validLogin = false;
       }, () => {
         this.router.navigateByUrl('/home');
+        this.validLogin = true;
       }
     );
   }

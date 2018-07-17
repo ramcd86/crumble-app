@@ -84,6 +84,37 @@ export class RegistrationComponent implements OnInit {
     this.titleService.setTitle('Crumbs - Registration');
   }
 
+  public pwMatcher() {
+    if (this.password1.value === this.password2.value) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  public validator() {
+    if ((this.userEmail.valid &&
+      this.password1.valid &&
+      this.password2.valid &&
+      this.userName.valid &&
+      this.startingWeight.valid &&
+      this.height.valid &&
+      this.age.valid &&
+      this.bigCrumbCustomType.valid &&
+      this.bigCrumbCustomMaxValue.valid &&
+      this.littleCrumb1CustomType.valid &&
+      this.littleCrumb1CustomMaxValue.valid &&
+      this.littleCrumb2CustomType.valid)
+      && (
+        this.password1.value === this.password2.value
+      )
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public register() {
     let iterationCount = 0;
     this.http.getDatabaseState().subscribe(
