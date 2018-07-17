@@ -65,10 +65,20 @@ export class DashboardComponent implements OnInit {
 
   public toggle() {
     this.hideDash = !this.hideDash;
+    if (this.showModalWindow === true) {
+      this.showModalWindow = false;
+    }
   }
 
   public modalToggle() {
     this.showModalWindow = !this.showModalWindow;
+    if (this.hideDash === false) {
+      this.hideDash = true;
+    }
+    if (this.hideDash === true && this.showModalWindow === false) {
+      this.hideDash = false;
+    }
+    console.log(this.hideDash, this.showModalWindow);
   }
 
   // public simpleSetter() {

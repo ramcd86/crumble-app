@@ -1,7 +1,4 @@
-<app-dashboard-modal
-  [showWindow]="showModalWindow"
-  (modalClose)="modalToggle()"
-></app-dashboard-modal>
+
 <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
      [hidden]="hideDash === false"
 >
@@ -238,4 +235,7 @@
   </div>
 
 </div>
-
+<app-dashboard-modal
+  [showWindow]="showModalWindow"
+  (modalClose)="modalToggle()"
+></app-dashboard-modal>

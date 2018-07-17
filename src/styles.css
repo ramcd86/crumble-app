@@ -218,7 +218,7 @@ a:hover, a:active {
 .big-cell {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   margin-top: 0px;
   padding: 10px;
   display: block;
@@ -255,6 +255,11 @@ a:hover, a:active {
 .btn-custom {
   padding: 5px;
   outline: none;
+}
+
+.b-modal-wrap {
+  position: absolute;
+  z-index: 999;
 }
 
 .c-modal-wrap {
