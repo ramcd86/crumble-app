@@ -258,7 +258,7 @@ a:hover, a:active {
 }
 
 .b-modal-wrap {
-  position: absolute;
+  position: fixed;
   z-index: 999;
 }
 

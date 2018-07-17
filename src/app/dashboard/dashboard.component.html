@@ -1,4 +1,8 @@
+<app-dashboard-modal
 
+  [showWindow]="showModalWindow"
+  (modalClose)="modalToggle()"
+></app-dashboard-modal>
 <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad"
      [hidden]="hideDash === false"
 >
@@ -99,31 +103,10 @@
         ></circle-progress>
       </div>
     </div>
-    <div class="row no-gutters">
-      <div class="col-md-1 col-sm-0"></div>
-      <div class="col-md-3 col-sm-12 text-center" style="padding-left: 15px; padding-right: 15px;">
-        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
-          Add
-          {{dietDeficitType}}
-        </button>
-        <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
-          Take
-          {{dietDeficitType}}
-        </button>
-      </div>
-      <div class="col-md-4 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
 
-        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
-          Add
-          {{dietDeficitType}}
-        </button>
-        <button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span>
-          Take
-          {{dietDeficitType}}
-        </button>
-      </div>
-      <div class="col-md-3 col-sm-12 text-center white-text" style="padding-left: 15px; padding-right: 15px;">
-        <button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span>
+    <div class="row no-gutters">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <button class="btn btn-state-green btn-block btn-custom"  (click)="modalToggle()"><span class="glyphicon glyphicon-plus-sign"></span>
           Add
           {{dietDeficitType}}
         </button>
@@ -235,7 +218,4 @@
   </div>
 
 </div>
-<app-dashboard-modal
-  [showWindow]="showModalWindow"
-  (modalClose)="modalToggle()"
-></app-dashboard-modal>
+
