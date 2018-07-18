@@ -34,12 +34,14 @@ export class SessionStorageService {
       (res) => {
         // this.userDetails = res;
         this.setUserDetails(res);
+        console.log(this.userDetails);
       }
     );
     this.subUserDietData = this.pipeUserDietData().subscribe(
       (res) => {
         // this.userDietData = res;
         this.setUserDietData(res);
+        console.log(this.userDietData);
       }
     );
     this.subUserListId = this.pipeListId().subscribe(
@@ -164,157 +166,168 @@ export class SessionStorageService {
     return this.userDietData.userDietDataListId;
   }
 
+  // #########
+  // BIG CRUMB //
+  // #########
+
   public getDietDataBigCrumbCustom() {
     return this.userDietData.bigCrumbCustom;
   }
-
   public getDietDataBigCrumbDefault() {
     return this.userDietData.bigCrumbDefault;
   }
-
   public getDietDataBigCrumbCustomType() {
     return this.userDietData.bigCrumbCustomType;
   }
-
   public getDietDataBigCrumbCustomMaxValue() {
     return this.userDietData.bigCrumbCustomMaxValue;
   }
-
   public setDietDataBigCrumbCustomMaxValue(value) {
     this.userDietData.bigCrumbCustomMaxValue = value;
   }
-
   public getDietDataBigCrumbUserSetValue() {
     return this.userDietData.bigCrumbUserSetValue;
   }
-
   public setDietDataBigCrumbUserSetValue(value) {
     this.userDietData.bigCrumbUserSetValue = value;
   }
-
   public getDietDataBigCrumbHistory() {
     return this.userDietData.bigCrumbHistory;
   }
 
+  // #########
+  // LITTLE CRUMB 1 //
+  // #########
+
   public getDietDataLittleCrumb1Custom() {
     return this.userDietData.littleCrumb1Custom;
   }
-
   public getDietDataLittleCrumb1Default() {
     return this.userDietData.littleCrumb1Default;
   }
-
   public getDietDataLittleCrumb1CustomType() {
     return this.userDietData.littleCrumb1CustomType;
   }
-
   public getDietDataLittleCrumb1CustomMaxValue() {
     return this.userDietData.littleCrumb1CustomMaxValue;
   }
-
   public getDietDataLittleCrumb1UserSetValue() {
     return this.userDietData.littleCrumb1UserSetValue;
   }
-
+  public setDietDataLittleCrumb1UserSetValue(value) {
+    this.userDietData.littleCrumb1UserSetValue = value;
+  }
   public getDietDataLittleCrumb1History() {
     return this.userDietData.littleCrumb1History;
   }
 
+  // #########
+  // LITTLE CRUMB 2 //
+  // #########
+
   public getDietDataLittleCrumb2Custom() {
     return this.userDietData.littleCrumb2Custom;
   }
-
   public getDietDataLittleCrumb2Default() {
     return this.userDietData.littleCrumb2Default;
   }
-
   public getDietDataLittleCrumb2CustomType() {
     return this.userDietData.littleCrumb2CustomType;
   }
-
   public getDietDataLittleCrumb2CustomMaxValue() {
     return this.userDietData.littleCrumb2CustomMaxValue;
   }
-
   public getDietDataLittleCrumb2UserSetValue() {
     return this.userDietData.littleCrumb2UserSetValue;
   }
-
+  public setDietDataLittleCrumb2UserSetValue(value) {
+    this.userDietData.littleCrumb2UserSetValue = value;
+  }
   public getDietDataLittleCrumb2History() {
     return this.userDietData.littleCrumb2History;
   }
 
+  // #########
+  // LITTLE CRUMB 3 //
+  // #########
+
   public getDietDataLittleCrumb3Custom() {
     return this.userDietData.littleCrumb3Custom;
   }
-
   public getDietDataLittleCrumb3Default() {
     return this.userDietData.littleCrumb3Default;
   }
-
   public getDietDataLittleCrumb3CustomType() {
     return this.userDietData.littleCrumb3CustomType;
   }
-
   public getDietDataLittleCrumb3CustomMaxValue() {
     return this.userDietData.littleCrumb3CustomMaxValue;
   }
-
   public getDietDataLittleCrumb3UserSetValue() {
     return this.userDietData.littleCrumb3UserSetValue;
   }
-
+  public setDietDataLittleCrumb3UserSetValue(value) {
+    this.userDietData.littleCrumb3UserSetValue = value;
+  }
   public getDietDataLittleCrumb3History() {
     return this.userDietData.littleCrumb3History;
   }
 
+  // #########
+  // LITTLE CRUMB 4 //
+  // #########
+
   public getDietDataLittleCrumb4Custom() {
     return this.userDietData.littleCrumb4Custom;
   }
-
   public getDietDataLittleCrumb4Default() {
     return this.userDietData.littleCrumb4Default;
   }
-
   public getDietDataLittleCrumb4CustomType() {
     return this.userDietData.littleCrumb4CustomType;
   }
-
   public getDietDataLittleCrumb4CustomMaxValue() {
     return this.userDietData.littleCrumb4CustomMaxValue;
   }
-
   public getDietDataLittleCrumb4UserSetValue() {
     return this.userDietData.littleCrumb4UserSetValue;
   }
-
+  public setDietDataLittleCrumb4UserSetValue(value) {
+    this.userDietData.littleCrumb4UserSetValue = value;
+  }
   public getDietDataLittleCrumb4History() {
     return this.userDietData.littleCrumb4History;
   }
 
+  // #########
+  // LITTLE CRUMB 5 //
+  // #########
+
   public getDietDataLittleCrumb5Custom() {
     return this.userDietData.littleCrumb5Custom;
   }
-
   public getDietDataLittleCrumb5Default() {
     return this.userDietData.littleCrumb5Default;
   }
-
   public getDietDataLittleCrumb5CustomType() {
     return this.userDietData.littleCrumb5CustomType;
   }
-
   public getDietDataLittleCrumb5CustomMaxValue() {
     return this.userDietData.littleCrumb5CustomMaxValue;
   }
-
   public getDietDataLittleCrumb5UserSetValue() {
     return this.userDietData.littleCrumb5UserSetValue;
   }
-
+  public setDietDataLittleCrumb5UserSetValue(value) {
+    this.userDietData.littleCrumb5UserSetValue = value;
+  }
   public getDietDataLittleCrumb5History() {
     return this.userDietData.littleCrumb5History;
   }
+
+
+
+
 
   public getDietData() {
     return this.userDietData;

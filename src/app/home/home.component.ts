@@ -7,6 +7,8 @@ import {IUserAuth} from '../_interfaces/IUserAuth';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {DataManagerService} from '../_services/data-manager.service';
+import {Subscription} from 'rxjs/Subscription';
+import {Session} from 'selenium-webdriver';
 
 // import {IUserStore} from '../_store/IUserStore.store';
 
@@ -19,12 +21,16 @@ export class HomeComponent implements OnInit {
 
 
   public dataId: number;
+  public subUserDetails: Subscription;
+  public subUserDietData: Subscription;
+  public userDetails = <IUserDetails>{};
+  public userDietData = <IUserDietData>{};
 
 
-  @HostListener('window:resize', ['$event']) onResize(event) {
-    console.log(event.target.innerWidth);
-    console.log(event.target.innerHeight);
-  }
+  // @HostListener('window:resize', ['$event']) onResize(event) {
+  //   console.log(event.target.innerWidth);
+  //   console.log(event.target.innerHeight);
+  // }
 
 
   constructor(
@@ -34,44 +40,21 @@ export class HomeComponent implements OnInit {
     private http: HttpServiceCore,
     private dataManager: DataManagerService
   ) {
+    this.subUserDetails = this.session.pipeUserDetails().subscribe(
+      (res) => {
+        this.userDetails = res;
+        this.titleService.setTitle(`Crumbs - ${res.userName}.`);
+      }
+    );
+    this.subUserDietData = this.session.pipeUserDietData().subscribe(
+      (res) => {
+        this.userDietData = res;
+      }
+    );
   }
 
   ngOnInit() {
-    this.titleService.setTitle(`Crumbs - ${this.session.getDetailsUserName()}.`);
-    // this.userSetter();
-    // console.log(this.onResize());
     this.dataManager.setUp();
   }
-  //
-  // public userSetter() {
-  //   this.http.profile().subscribe(
-  //     (res: IUserAuth) => {
-  //       this.generateAuthenticationObject(res.dataId);
-  //     }, (err) => {
-  //       console.error(err);
-  //     });
-  // }
-  //
-  // public generateAuthenticationObject(listId: number) {
-  //   this.session.setUserPresent(true);
-  //   this.http.getUserPersonalDetails(listId).subscribe(
-  //     (res: IUserDetails) => {
-  //       this.session.setUserDetails(res);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  //   this.http.getUserDietData(listId).subscribe(
-  //     (res: IUserDietData) => {
-  //       this.session.setUserDietData(res);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  //   console.log(this.session);
-  // }
-
 
 }

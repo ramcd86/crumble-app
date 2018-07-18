@@ -108,8 +108,8 @@ input[type=password]:focus {
   margin-right: 10%;
   height: 1px;
   background-color: #f86f06;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .white-text {
@@ -219,7 +219,7 @@ a:hover, a:active {
   background: linear-gradient(to bottom right, #ece9e6, #ffffff);
   border-radius: 5px;
   margin-bottom: 10px;
-  margin-top: 0px;
+  margin-top: 10px;
   padding: 10px;
   display: block;
 }

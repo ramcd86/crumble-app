@@ -54,7 +54,9 @@ export class DataManagerService implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subListId.unsubscribe();
+    this.subUserDietData.unsubscribe();
+    this.subUserDetails.unsubscribe();
   }
 
   public switchInternalSubscription() {
@@ -63,7 +65,16 @@ export class DataManagerService implements OnInit, OnDestroy {
         this.listId = res;
       }
     );
-
+    this.subUserDietData = this.session.pipeUserDietData().subscribe(
+      (res) => {
+        this.userDietData = res;
+      }
+    );
+    this.subUserDetails = this.session.pipeUserDetails().subscribe(
+      (res) => {
+        this.userDetails = res;
+      }
+    );
   }
 
   // Update user details by calling the Storage Service Object and replacing the Data Management Object with called -
