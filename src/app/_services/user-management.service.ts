@@ -38,7 +38,6 @@ export class UserManagementService {
         const responseEntry = res.registerListId;
         this.listId = responseEntry.split('_')[1];
         this.generateAuthenticationObject(this.listId);
-        // this.listId = res.registerListId;
         this.userPresent = true;
       }, (err) => {
         console.error(err);
@@ -66,6 +65,10 @@ export class UserManagementService {
         this.sendStatus(true);
       }
     );
+  }
+
+  public update() {
+
   }
 
   public getUserDietData() {

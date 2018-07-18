@@ -11,7 +11,7 @@ export class DataManagerService implements OnInit, OnDestroy {
 
   public subscription: Subscription;
   public subListId: Subscription;
-  public subUserPresent: Subscription;
+  // public subUserPresent: Subscription;
   public subUserDietData: Subscription;
   public subUserDetails: Subscription;
 
@@ -27,19 +27,7 @@ export class DataManagerService implements OnInit, OnDestroy {
     this.subscription = this.user.getStatus().subscribe(
       (status) => {
         if (status === true) {
-          this.userPresent = this.user.getUserPresent();
-          this.listId = this.user.getListId();
-          this.userDetails = this.user.getUserDetails();
-          this.userDietData = this.user.getUserDietData();
-
-          this.session.inputUserPresent(this.userPresent);
-          this.session.inputListId(this.listId);
-          this.session.inputUserDetails(this.userDetails);
-          this.session.inputUserDietData(this.userDietData);
-          console.log('user details:', this.session.getUserDetails());
-          console.log('user diet data:', this.session.getDietData());
-          console.log('user list id:', this.session.getListId());
-          console.log('user present:', this.session.getUserPresentStatus());
+this.assembler();
         }
       }, (err) => {
         console.log(err);
@@ -57,6 +45,21 @@ export class DataManagerService implements OnInit, OnDestroy {
     this.subListId.unsubscribe();
     this.subUserDietData.unsubscribe();
     this.subUserDetails.unsubscribe();
+  }
+
+  public assembler() {
+    this.userPresent = this.user.getUserPresent();
+    this.listId = this.user.getListId();
+    this.userDetails = this.user.getUserDetails();
+    this.userDietData = this.user.getUserDietData();
+    this.session.inputUserPresent(this.userPresent);
+    this.session.inputListId(this.listId);
+    this.session.inputUserDetails(this.userDetails);
+    this.session.inputUserDietData(this.userDietData);
+    console.log('user details:', this.session.getUserDetails());
+    console.log('user diet data:', this.session.getDietData());
+    console.log('user list id:', this.session.getListId());
+    console.log('user present:', this.session.getUserPresentStatus());
   }
 
   public switchInternalSubscription() {
@@ -79,9 +82,16 @@ export class DataManagerService implements OnInit, OnDestroy {
 
   // Update user details by calling the Storage Service Object and replacing the Data Management Object with called -
   //  - Storage Service Object, then pass the newly updated Data Management Object into the User Management Service for processing.
-  public updateUserDetails() {
-    this.userDetails = this.session.getUserDetails();
+  // public updateUserDetails() {
+  //   this.userDetails = this.session.getUserDetails();
+  //   this.user.putUserDetails(this.userDetails);
+  // }
+
+  public update() {
+    this.user.sendStatus(false);
+    this.user.putUserDietData(this.userDietData);
     this.user.putUserDetails(this.userDetails);
+    this.user.construct();
   }
 
   public setUp() {
