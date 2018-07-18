@@ -15,12 +15,13 @@ export class DashboardComponent implements OnInit {
   @Input() public dataId: number;
 
   public showModalWindow = false;
-  public totalSyns = 25;
-  public userSyns: number;
+  public modalWindowtype: string;
+  // public totalSyns = 25;
+  // public userSyns: number;
   public dietDeficitType = 'Syns';
-  public windowDesktop = true;
+  // public windowDesktop = true;
   public hideDash = false;
-  public pointHolder: FormControl = new FormControl(0, [Validators.required]);
+  // public pointHolder: FormControl = new FormControl(0, [Validators.required]);
 
   // public windowMeasure: number;
   // @HostListener('window:resize', ['$event']) onResize(event) {
@@ -70,7 +71,8 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  public modalToggle() {
+  public modalToggle(value) {
+    this.modalWindowtype = value;
     this.showModalWindow = !this.showModalWindow;
     if (this.hideDash === false) {
       this.hideDash = true;
@@ -78,8 +80,8 @@ export class DashboardComponent implements OnInit {
     if (this.hideDash === true && this.showModalWindow === false) {
       this.hideDash = false;
     }
-
   }
+
 
   // public simpleSetter() {
   //   console.log(this.pointHolder.value);

@@ -3,7 +3,7 @@ import {IUserDetails} from '../../_interfaces/IUserDetails';
 import {IUserDietData} from '../../_interfaces/IUserDietData';
 import {Subscription} from 'rxjs/Subscription';
 import {SessionStorageService} from '../../_store/SessionStorage.service';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {DataManagerService} from '../../_services/data-manager.service';
 
 
@@ -14,6 +14,7 @@ import {DataManagerService} from '../../_services/data-manager.service';
 export class DashboardModalComponent implements OnInit {
 
   @Input() public showWindow = false;
+  @Input() public modalWindowType: string;
   @Output() public modalClose = new EventEmitter();
 
   public subUserDetails: Subscription;
@@ -50,12 +51,22 @@ export class DashboardModalComponent implements OnInit {
 
   public addPoints() {
     this.session.setDietDataBigCrumbUserSetValue(this.userDietData.bigCrumbUserSetValue + this.bigCrumb.value);
-    console.log(this.session.getDietDataBigCrumbUserSetValue());
     this.session.setDietDataLittleCrumb1UserSetValue(this.userDietData.littleCrumb1UserSetValue + this.littleCrumb1.value);
     this.session.setDietDataLittleCrumb2UserSetValue(this.userDietData.littleCrumb2UserSetValue + this.littleCrumb2.value);
     this.session.setDietDataLittleCrumb3UserSetValue(this.userDietData.littleCrumb3UserSetValue + this.littleCrumb3.value);
     this.session.setDietDataLittleCrumb4UserSetValue(this.userDietData.littleCrumb4UserSetValue + this.littleCrumb4.value);
     this.session.setDietDataLittleCrumb5UserSetValue(this.userDietData.littleCrumb5UserSetValue + this.littleCrumb5.value);
+    this.dataManager.update();
+    this.modalClose.emit();
+  }
+
+  public takePoints() {
+    this.session.setDietDataBigCrumbUserSetValue(this.userDietData.bigCrumbUserSetValue - this.bigCrumb.value);
+    this.session.setDietDataLittleCrumb1UserSetValue(this.userDietData.littleCrumb1UserSetValue - this.littleCrumb1.value);
+    this.session.setDietDataLittleCrumb2UserSetValue(this.userDietData.littleCrumb2UserSetValue - this.littleCrumb2.value);
+    this.session.setDietDataLittleCrumb3UserSetValue(this.userDietData.littleCrumb3UserSetValue - this.littleCrumb3.value);
+    this.session.setDietDataLittleCrumb4UserSetValue(this.userDietData.littleCrumb4UserSetValue - this.littleCrumb4.value);
+    this.session.setDietDataLittleCrumb5UserSetValue(this.userDietData.littleCrumb5UserSetValue - this.littleCrumb5.value);
     this.dataManager.update();
     this.modalClose.emit();
   }

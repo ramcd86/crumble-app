@@ -1,7 +1,6 @@
 <div *ngIf="showWindow">
 
-  <div id="ADD_POINTS">
-
+  <div id="ADD_POINTS"  *ngIf="modalWindowType === 'add'">
     <div
       class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
       <div class="row no-gutters">
@@ -83,11 +82,91 @@
         </div>
       </div>
     </div>
-
   </div>
 
-  <div id="REMOVE_POINTS">
+  <div id="REMOVE_POINTS" *ngIf="modalWindowType === 'subtract'">
 
+    <div
+      class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
+      <div class="row no-gutters">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center"
+              style="padding: 20px;">
+              <h3 class="header-style-font-black text-center">Lets take some points!</h3>
+            </div>
+          </div>
+
+          <div class="hbar"></div>
+
+          <div class="row" *ngIf="userDietData.bigCrumbCustom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="bigCrumbCustom" class="c-label">Add {{userDietData.bigCrumbCustomType}}</label>
+              <input id="bigCrumbCustom" type="number" [formControl]="bigCrumb">
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userDietData.littleCrumb1Custom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="littleCrumb1Custom" class="c-label">Add {{userDietData.littleCrumb1CustomType}}</label>
+              <input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1">
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userDietData.littleCrumb2Custom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="littleCrumb2Custom" class="c-label">Add {{userDietData.littleCrumb2CustomType}}</label>
+              <input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2">
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userDietData.littleCrumb3Custom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="littleCrumb3Custom" class="c-label">Add {{userDietData.littleCrumb3CustomType}}</label>
+              <input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3">
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userDietData.littleCrumb4Custom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="littleCrumb4Custom" class="c-label">Add {{userDietData.littleCrumb4CustomType}}</label>
+              <input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4">
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userDietData.littleCrumb5Custom === true">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <label for="littleCrumb5Custom" class="c-label">Add {{userDietData.littleCrumb5CustomType}}</label>
+              <input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5">
+            </div>
+          </div>
+          <div class="hbar"></div>
+          <div class="row">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="takePoints()">
+                <span class="glyphicon glyphicon-ok-circle"></span> Save & Close
+              </button>
+            </div>
+          </div>
+          <div class="row" style="padding-bottom: 15px;">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <button class="btn btn-state-green btn-block" style="margin: 5px; padding: 5px;" (click)="closeMe()">
+                <span class="glyphicon glyphicon-remove-circle"></span> Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
