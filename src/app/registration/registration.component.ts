@@ -119,13 +119,9 @@ export class RegistrationComponent implements OnInit {
     let iterationCount = 0;
     this.http.getDatabaseState().subscribe(
       (res: IDataBaseIteration) => {
-        console.log(res[0]);
         this.dbState = res[0];
-        console.log(this.dbState);
         iterationCount = res[0].dbState + 1;
-        console.log(iterationCount);
         this.httpError = false;
-        console.log(this.httpError);
       },
       (err) => {
         console.log(err);
@@ -143,7 +139,6 @@ export class RegistrationComponent implements OnInit {
     this.newUserRegistration.password = this.password1.value;
     this.newUserRegistration.name = this.userName.value;
     this.newUserRegistration.registerListId = 'registerListId_' + iterationCount.toString();
-    console.log(this.newUserRegistration);
     this.http.register(this.newUserRegistration).subscribe(
       (res) => {
         console.log(res);
@@ -166,7 +161,6 @@ export class RegistrationComponent implements OnInit {
     this.newUserDetails.weightHistory = this.weightHistory;
     this.newUserDetails.height = this.height.value;
     this.newUserDetails.age = this.age.value;
-    console.log(this.newUserDetails);
     this.http.postNewUserDetails(this.newUserDetails).subscribe(
       (res) => {
         console.log(res);
@@ -220,7 +214,6 @@ export class RegistrationComponent implements OnInit {
     this.newUserDietData.littleCrumb5CustomMaxValue = this.littleCrumb5CustomMaxValue.value;
     this.newUserDietData.littleCrumb5UserSetValue = this.littleCrumb5UserSetValue;
     this.newUserDietData.littleCrumb5History = this.littleCrumb5History;
-    console.log(this.newUserDietData);
     this.http.postNewUserDietData(this.newUserDietData).subscribe(
       (res) => {
         console.log(res);

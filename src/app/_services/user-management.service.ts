@@ -49,6 +49,7 @@ export class UserManagementService {
     this.http.getUserPersonalDetails(userDetailsListId).subscribe(
       (res: IUserDetails) => {
         this.userDetails = res;
+
       },
       (err) => {
         console.log(err);
@@ -57,6 +58,7 @@ export class UserManagementService {
     this.http.getUserDietData(userDietDataListId).subscribe(
       (res: IUserDietData) => {
         this.userDeitData = res;
+        console.log(this.userDeitData);
       },
       (err) => {
         console.log(err);
@@ -88,6 +90,7 @@ export class UserManagementService {
   }
 
   public putUserDietData(data: IUserDietData) {
+    console.log('USER PUT: ', data);
     this.http.putUserDietData(data);
   }
 

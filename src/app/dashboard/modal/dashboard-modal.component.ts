@@ -4,6 +4,7 @@ import {IUserDietData} from '../../_interfaces/IUserDietData';
 import {Subscription} from 'rxjs/Subscription';
 import {SessionStorageService} from '../../_store/SessionStorage.service';
 import {FormControl, Validators} from '@angular/forms';
+import {DataManagerService} from '../../_services/data-manager.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class DashboardModalComponent implements OnInit {
   public littleCrumb5: FormControl = new FormControl(0);
 
   constructor(
-    private session: SessionStorageService
+    private session: SessionStorageService,
+    private dataManager: DataManagerService
   ) {
     this.subUserDetails = this.session.pipeUserDetails().subscribe(
       (res) => {
@@ -46,9 +48,16 @@ export class DashboardModalComponent implements OnInit {
 
   }
 
-  addPoints() {
-    let currentBigCrumbValue = this.userDietData.bigCrumbUserSetValue;
-    this.session.setDietDataBigCrumbUserSetValue();
+  public addPoints() {
+    this.session.setDietDataBigCrumbUserSetValue(this.userDietData.bigCrumbUserSetValue + this.bigCrumb.value);
+    console.log(this.session.getDietDataBigCrumbUserSetValue());
+    this.session.setDietDataLittleCrumb1UserSetValue(this.userDietData.littleCrumb1UserSetValue + this.littleCrumb1.value);
+    this.session.setDietDataLittleCrumb2UserSetValue(this.userDietData.littleCrumb2UserSetValue + this.littleCrumb2.value);
+    this.session.setDietDataLittleCrumb3UserSetValue(this.userDietData.littleCrumb3UserSetValue + this.littleCrumb3.value);
+    this.session.setDietDataLittleCrumb4UserSetValue(this.userDietData.littleCrumb4UserSetValue + this.littleCrumb4.value);
+    this.session.setDietDataLittleCrumb5UserSetValue(this.userDietData.littleCrumb5UserSetValue + this.littleCrumb5.value);
+    this.dataManager.update();
+    this.modalClose.emit();
   }
 
   public closeMe() {

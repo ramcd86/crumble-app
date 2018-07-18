@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
         this.userManagement.construct();
       }, (err) => {
         console.error(err);
-        console.log('It\'s fucked');
         this.validLogin = false;
       }, () => {
         this.router.navigateByUrl('/home');

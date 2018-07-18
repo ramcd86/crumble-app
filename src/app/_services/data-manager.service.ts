@@ -56,10 +56,6 @@ this.assembler();
     this.session.inputListId(this.listId);
     this.session.inputUserDetails(this.userDetails);
     this.session.inputUserDietData(this.userDietData);
-    console.log('user details:', this.session.getUserDetails());
-    console.log('user diet data:', this.session.getDietData());
-    console.log('user list id:', this.session.getListId());
-    console.log('user present:', this.session.getUserPresentStatus());
   }
 
   public switchInternalSubscription() {
@@ -88,6 +84,7 @@ this.assembler();
   // }
 
   public update() {
+    console.log(this.userDietData);
     this.user.sendStatus(false);
     this.user.putUserDietData(this.userDietData);
     this.user.putUserDetails(this.userDetails);

@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
     if (this.hideDash === true && this.showModalWindow === false) {
       this.hideDash = false;
     }
-    console.log(this.hideDash, this.showModalWindow);
+
   }
 
   // public simpleSetter() {

@@ -34,14 +34,12 @@ export class SessionStorageService {
       (res) => {
         // this.userDetails = res;
         this.setUserDetails(res);
-        console.log(this.userDetails);
       }
     );
     this.subUserDietData = this.pipeUserDietData().subscribe(
       (res) => {
         // this.userDietData = res;
         this.setUserDietData(res);
-        console.log(this.userDietData);
       }
     );
     this.subUserListId = this.pipeListId().subscribe(

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {EnvironmentEndpoints} from '../../_constants/environments';
 import 'rxjs/add/operator/map';
@@ -21,8 +21,12 @@ export class HttpServiceCore {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private session: SessionStorageService
+    private session: SessionStorageService,
+    // private headers = new HttpHeaders()
   ) {
+    // this.headers = new HttpHeaders();
+    // this.headers.append('Content-Type', 'application/json');
+    // this.headers.append('Method', 'PUT');
   }
 
   // #############################
@@ -117,14 +121,14 @@ export class HttpServiceCore {
     );
   }
 
-  public getLoginAuthentication(email: string, password: string): Observable<any> {
-    const endPoint = `userLogin/${email}/${password}`;
-    return this.http.get(this.httpBase + endPoint).map(
-      (res: IUserLogin) => res
-      //   console.log('Object: ', res, 'Element');
-      // }
-    );
-  }
+  // public getLoginAuthentication(email: string, password: string): Observable<any> {
+  //   const endPoint = `userLogin/${email}/${password}`;
+  //   return this.http.get(this.httpBase + endPoint).map(
+  //     (res: IUserLogin) => res
+  //     //   console.log('Object: ', res, 'Element');
+  //     // }
+  //   );
+  // }
 
   public getUserPersonalDetails(listId: string): Observable<any> {
     const endPoint = `userDetails/${listId}`;
@@ -145,12 +149,12 @@ export class HttpServiceCore {
   // POST NEW DATA TO THE USER DATABASE
   // #############################
 
-  public postNewUserLogin(userDetails: IUserLogin): Observable<any> {
-    const endPoint = 'userLogin/';
-    return this.http.post(this.httpBase + endPoint, userDetails).map(
-      (res: IUserLogin) => res
-    );
-  }
+  // public postNewUserLogin(userDetails: IUserLogin): Observable<any> {
+  //   const endPoint = 'userLogin/';
+  //   return this.http.post(this.httpBase + endPoint, userDetails).map(
+  //     (res: IUserLogin) => res
+  //   );
+  // }
 
   public postNewUserDetails(userDetails: IUserDetails): Observable<any> {
     const endPoint = 'userDetails/';
@@ -178,25 +182,30 @@ export class HttpServiceCore {
     );
   }
 
-  public putUserLogin(userLogin: IUserLogin): Observable<any> {
-    const endPoint = `userLogin/${userLogin.listId}`;
-    return this.http.put(this.httpBase + endPoint, userLogin).map(
-      (res: IUserLogin) => res
-    );
-  }
+  // public putUserLogin(userLogin: IUserLogin): Observable<any> {
+  //   const endPoint = `userLogin/${userLogin.listId}`;
+  //   return this.http.put(this.httpBase + endPoint, userLogin).map(
+  //     (res: IUserLogin) => res
+  //   );
+  // }
 
-  public putUserDetails(userDetails: IUserDetails): Observable<any> {
+  public putUserDetails(userDetails: IUserDetails) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const endPoint = `userDetails/${userDetails.userDetailsListId}`;
-    return this.http.put(this.httpBase + endPoint, userDetails).map(
-      (res: IUserDetails) => res
+    return this.http.put(this.httpBase + endPoint, userDetails, {headers}).subscribe(
+      (res) => {
+        console.log(res);
+      }
     );
   }
 
-  public putUserDietData(userDietData: IUserDietData): Observable<any> {
+  public putUserDietData(userDietData: IUserDietData) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const endPoint = `userDietData/${userDietData.userDietDataListId}`;
-    return this.http.put(this.httpBase + endPoint, userDietData).map(
-      (res: IUserDietData) => res
-    );
+    this.http.put(this.httpBase + endPoint, userDietData, {headers}).subscribe(
+      (res) => {
+        console.log(res);
+      }
+      );
   }
-
 }

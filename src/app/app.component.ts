@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     } else if (this.token === localStorage.getItem('mean-token')) {
       this.router.navigateByUrl('/home');
     }
-console.log(this.session.getUserPresentStatus());
+
     console.log(`
     ##################################################
     #################### WARNING #####################
