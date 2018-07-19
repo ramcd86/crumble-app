@@ -23,12 +23,12 @@ export class DashboardModalComponent implements OnInit {
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
 
-  public bigCrumb: FormControl = new FormControl(0);
-  public littleCrumb1: FormControl = new FormControl(0);
-  public littleCrumb2: FormControl = new FormControl(0);
-  public littleCrumb3: FormControl = new FormControl(0);
-  public littleCrumb4: FormControl = new FormControl(0);
-  public littleCrumb5: FormControl = new FormControl(0);
+  public bigCrumb: FormControl = new FormControl(null);
+  public littleCrumb1: FormControl = new FormControl(null);
+  public littleCrumb2: FormControl = new FormControl(null);
+  public littleCrumb3: FormControl = new FormControl(null);
+  public littleCrumb4: FormControl = new FormControl(null);
+  public littleCrumb5: FormControl = new FormControl(null);
 
   constructor(
     private session: SessionStorageService,
@@ -121,12 +121,12 @@ export class DashboardModalComponent implements OnInit {
   }
 
   public resetFormData() {
-    this.bigCrumb.setValue(0);
-    this.littleCrumb1.setValue(0);
-    this.littleCrumb2.setValue(0);
-    this.littleCrumb3.setValue(0);
-    this.littleCrumb4.setValue(0);
-    this.littleCrumb5.setValue(0);
+    this.bigCrumb.setValue(null);
+    this.littleCrumb1.setValue(null);
+    this.littleCrumb2.setValue(null);
+    this.littleCrumb3.setValue(null);
+    this.littleCrumb4.setValue(null);
+    this.littleCrumb5.setValue(null);
   }
 
 }
