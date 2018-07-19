@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
 import {SessionStorageService} from '../_store/SessionStorage.service';
-import {FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -16,20 +15,7 @@ export class DashboardComponent implements OnInit {
 
   public showModalWindow = false;
   public modalWindowtype: string;
-  // public totalSyns = 25;
-  // public userSyns: number;
-  public dietDeficitType = 'Syns';
-  // public windowDesktop = true;
   public hideDash = false;
-  // public pointHolder: FormControl = new FormControl(0, [Validators.required]);
-
-  // public windowMeasure: number;
-  // @HostListener('window:resize', ['$event']) onResize(event) {
-  //   this.windowMeasure = event.target.innerWidth;
-  //   // console.log(event.target.innerWidth);
-  //   // console.log(event.target.innerHeight);
-  // }
-
 
   constructor(
     public session: SessionStorageService
@@ -37,9 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.session.set
   }
-
 
 
   public bigCrumbCalculatorFunc() {
@@ -49,22 +33,37 @@ export class DashboardComponent implements OnInit {
   }
 
   public littleCrumb1CalculatorFunc() {
-    // const calCap = this.session.getDietDataBigCrumbCustomMaxValue() - this.session.getDietDataBigCrumbUserSetValue();
-    // const Totes = (calCap * 100) / this.session.getDietDataBigCrumbCustomMaxValue();
     const calCap = this.session.getDietDataLittleCrumb1CustomMaxValue() - this.session.getDietDataLittleCrumb1UserSetValue();
     const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb1CustomMaxValue();
     return Totes - 100;
   }
 
   public littleCrumb2CalculatorFunc() {
-    // const calCap = this.session.getDietDataBigCrumbCustomMaxValue() - this.session.getDietDataBigCrumbUserSetValue();
-    // const Totes = (calCap * 100) / this.session.getDietDataBigCrumbCustomMaxValue();
     const calCap = this.session.getDietDataLittleCrumb2CustomMaxValue() - this.session.getDietDataLittleCrumb2UserSetValue();
     const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb2CustomMaxValue();
     return Totes - 100;
   }
 
+  public littleCrumb3CalculatorFunc() {
+    const calCap = this.session.getDietDataLittleCrumb3CustomMaxValue() - this.session.getDietDataLittleCrumb3UserSetValue();
+    const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb3CustomMaxValue();
+    return Totes - 100;
+  }
+
+  public littleCrumb4CalculatorFunc() {
+    const calCap = this.session.getDietDataLittleCrumb4CustomMaxValue() - this.session.getDietDataLittleCrumb4UserSetValue();
+    const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb4CustomMaxValue();
+    return Totes - 100;
+  }
+
+  public littleCrumb5CalculatorFunc() {
+    const calCap = this.session.getDietDataLittleCrumb5CustomMaxValue() - this.session.getDietDataLittleCrumb5UserSetValue();
+    const Totes = (calCap * 100) / this.session.getDietDataLittleCrumb5CustomMaxValue();
+    return Totes - 100;
+  }
+
   public toggle() {
+    window.scrollTo(0, 0);
     this.hideDash = !this.hideDash;
     if (this.showModalWindow === true) {
       this.showModalWindow = false;
@@ -72,6 +71,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public modalToggle(value) {
+    window.scrollTo(0, 0);
     this.modalWindowtype = value;
     this.showModalWindow = !this.showModalWindow;
     if (this.hideDash === false) {
@@ -82,13 +82,5 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-
-  // public simpleSetter() {
-  //   console.log(this.pointHolder.value);
-  //   this.session.setDietDataBigCrumbUserSetValue(this.pointHolder.value);
-  //   console.log(this.session.getDietDataBigCrumbUserSetValue());
-  //   this.calculatorFunc();
-  //   console.log(this.calculatorFunc());
-  // }
 
 }

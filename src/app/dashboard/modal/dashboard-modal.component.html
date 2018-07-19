@@ -84,6 +84,14 @@
     </div>
   </div>
 
+
+
+
+
+
+
+
+
   <div id="REMOVE_POINTS" *ngIf="modalWindowType === 'subtract'">
 
     <div
@@ -99,11 +107,18 @@
           </div>
 
           <div class="hbar"></div>
+          <div class="row" *ngIf="warningShow">
+            <div
+              class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <h4 class="warning-cell">Point value cannot be lower than 0.</h4>
+            </div>
+          </div>
+          <div class="hbar" *ngIf="warningShow"></div>
 
           <div class="row" *ngIf="userDietData.bigCrumbCustom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="bigCrumbCustom" class="c-label">Add {{userDietData.bigCrumbCustomType}}</label>
+              <label for="bigCrumbCustom" class="c-label">Remove {{userDietData.bigCrumbCustomType}}</label>
               <input id="bigCrumbCustom" type="number" [formControl]="bigCrumb">
             </div>
           </div>
@@ -111,7 +126,7 @@
           <div class="row" *ngIf="userDietData.littleCrumb1Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="littleCrumb1Custom" class="c-label">Add {{userDietData.littleCrumb1CustomType}}</label>
+              <label for="littleCrumb1Custom" class="c-label">Remove {{userDietData.littleCrumb1CustomType}}</label>
               <input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1">
             </div>
           </div>
@@ -119,7 +134,7 @@
           <div class="row" *ngIf="userDietData.littleCrumb2Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="littleCrumb2Custom" class="c-label">Add {{userDietData.littleCrumb2CustomType}}</label>
+              <label for="littleCrumb2Custom" class="c-label">Remove {{userDietData.littleCrumb2CustomType}}</label>
               <input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2">
             </div>
           </div>
@@ -127,7 +142,7 @@
           <div class="row" *ngIf="userDietData.littleCrumb3Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="littleCrumb3Custom" class="c-label">Add {{userDietData.littleCrumb3CustomType}}</label>
+              <label for="littleCrumb3Custom" class="c-label">Remove {{userDietData.littleCrumb3CustomType}}</label>
               <input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3">
             </div>
           </div>
@@ -135,7 +150,7 @@
           <div class="row" *ngIf="userDietData.littleCrumb4Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="littleCrumb4Custom" class="c-label">Add {{userDietData.littleCrumb4CustomType}}</label>
+              <label for="littleCrumb4Custom" class="c-label">Remove {{userDietData.littleCrumb4CustomType}}</label>
               <input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4">
             </div>
           </div>
@@ -143,7 +158,7 @@
           <div class="row" *ngIf="userDietData.littleCrumb5Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-              <label for="littleCrumb5Custom" class="c-label">Add {{userDietData.littleCrumb5CustomType}}</label>
+              <label for="littleCrumb5Custom" class="c-label">Remove {{userDietData.littleCrumb5CustomType}}</label>
               <input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5">
             </div>
           </div>
