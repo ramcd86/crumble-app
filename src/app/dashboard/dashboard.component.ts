@@ -33,32 +33,32 @@ export class DashboardComponent implements OnInit {
 
   public ringSetter() {
     if (this.session.getDietDataBigCrumbCustomMaxValue() < this.session.getDietDataBigCrumbUserSetValue()) {
-      this.bigCrumbRingColor = '#FF0006';
+      this.bigCrumbRingColor = '#f86f06';
     } else {
       this.bigCrumbRingColor = '#549500';
     }
     if (this.session.getDietDataLittleCrumb1CustomMaxValue() < this.session.getDietDataLittleCrumb1UserSetValue()) {
-      this.littleCrumb1RingColor = '#FF0006';
+      this.littleCrumb1RingColor = '#f86f06';
     } else {
       this.littleCrumb1RingColor = '#549500';
     }
     if (this.session.getDietDataLittleCrumb2CustomMaxValue() < this.session.getDietDataLittleCrumb2UserSetValue()) {
-      this.littleCrumb2RingColor = '#FF0006';
+      this.littleCrumb2RingColor = '#f86f06';
     } else {
       this.littleCrumb2RingColor = '#549500';
     }
     if (this.session.getDietDataLittleCrumb3CustomMaxValue() < this.session.getDietDataLittleCrumb3UserSetValue()) {
-      this.littleCrumb3RingColor = '#FF0006';
+      this.littleCrumb3RingColor = '#f86f06';
     } else {
       this.littleCrumb3RingColor = '#549500';
     }
     if (this.session.getDietDataLittleCrumb4CustomMaxValue() < this.session.getDietDataLittleCrumb4UserSetValue()) {
-      this.littleCrumb4RingColor = '#FF0006';
+      this.littleCrumb4RingColor = '#f86f06';
     } else {
       this.littleCrumb4RingColor = '#549500';
     }
     if (this.session.getDietDataLittleCrumb5CustomMaxValue() < this.session.getDietDataLittleCrumb5UserSetValue()) {
-      this.littleCrumb5RingColor = '#FF0006';
+      this.littleCrumb5RingColor = '#f86f06';
     } else {
       this.littleCrumb5RingColor = '#549500';
     }
