@@ -32,7 +32,7 @@ function getExistingUserDietData(req, res) {
 function putUserDietData(req, res) {
   const originalUserDietData = {
     userDietDataListId: req.params.userDietDataListId,
-    today: req.params.today,
+    today: req.body.today,
     bigCrumbCustom: req.body.bigCrumbCustom,
     bigCrumbCustomType: req.body.bigCrumbCustomType,
     bigCrumbCustomMaxValue: req.body.bigCrumbCustomMaxValue,
