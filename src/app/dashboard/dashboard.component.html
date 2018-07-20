@@ -43,6 +43,7 @@
           [showBackground]="true"
           [backgroundStroke]="'#000'"
           [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
           [outerStrokeColor]="littleCrumb1RingColor"
           [animation]="true"
           [units]="session.getDietDataLittleCrumb1CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb1UserSetValue()"
@@ -64,6 +65,7 @@
           [percent]="bigCrumbCalculatorFunc()"
           [radius]="100"
           [outerStrokeWidth]="10"
+          [showSubtitle]="false"
           [showBackground]="true"
           [backgroundStroke]="'#000'"
           [backgroundColor]="'#fff'"
@@ -86,6 +88,7 @@
           [percent]="littleCrumb2CalculatorFunc()"
           [radius]="100"
           [outerStrokeWidth]="10"
+          [showSubtitle]="false"
           [showBackground]="true"
           [backgroundStroke]="'#000'"
           [backgroundColor]="'#fff'"
@@ -106,10 +109,12 @@
 
     <div class="row no-gutters">
       <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-        <button class="btn btn-state-green btn-block btn-custom"  (click)="modalToggle('add')"><span class="glyphicon glyphicon-plus-sign"></span>
+        <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span
+          class="glyphicon glyphicon-plus-sign"></span>
           Add
         </button>
-        <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span class="glyphicon glyphicon-minus-sign"></span>
+        <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span
+          class="glyphicon glyphicon-minus-sign"></span>
           Subtract
         </button>
       </div>
@@ -128,38 +133,15 @@
         </div>
       </div>
 
-      <div class="col-sm-12 text-center" style="padding-left: 15px; padding-right: 15px; height: 40vh;">
-        <circle-progress
-          [percent]="bigCrumbCalculatorFunc()"
-          [radius]="100"
-          [outerStrokeWidth]="10"
-          [showBackground]="true"
-          [backgroundStroke]="'#000'"
-          [backgroundColor]="'#fff'"
-          [outerStrokeColor]="bigCrumbRingColor"
-          [animation]="true"
-          [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
-          [showUnits]="true"
-          [animationDuration]="500"
-          [responsive]="true"
-          [toFixed]="0"
-          [title]="session.getDietDataBigCrumbCustomType()"
-          [unitsColor]="'#000'"
-          [titleColor]="'#000'"
-          [animateTitle]="true"
-        ></circle-progress>
-        <!--<button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span> Add-->
-        <!--{{dietDeficitType}}-->
-        <!--</button>-->
-        <!--<button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span> Take-->
-        <!--{{dietDeficitType}}-->
-        <!--</button>-->
-      </div>
-      <div class="col-xs-6 text-center" style="padding-left: 5px; padding-right: 5px; height: 25vh;">
+
+    </div>
+    <div class="row no-gutters col-xs-12 col-xs nopadding">
+      <div class="col-xs-4" style="max-height: 25vh;">
         <circle-progress
           [percent]="littleCrumb1CalculatorFunc()"
-          [radius]="100"
-          [outerStrokeWidth]="10"
+          [showSubtitle]="false"
+          [radius]="70"
+          [outerStrokeWidth]="5"
           [showBackground]="true"
           [backgroundStroke]="'#000'"
           [backgroundColor]="'#fff'"
@@ -175,44 +157,62 @@
           [titleColor]="'#000'"
           [animateTitle]="true"
         ></circle-progress>
-        <!--<button class="btn btn-state-green btn-block btn-custom"><span class="glyphicon glyphicon-plus-sign"></span> Add-->
-        <!--{{dietDeficitType}}-->
-        <!--</button>-->
-        <!--<button class="btn btn-state-rust btn-block btn-custom"><span class="glyphicon glyphicon-minus-sign"></span> Take-->
-        <!--{{dietDeficitType}}-->
-        <!--</button>-->
       </div>
+      <div class="col-xs-4" style="max-height: 25vh;">
+          <circle-progress
+            [percent]="bigCrumbCalculatorFunc()"
+            [showSubtitle]="false"
+            [radius]="70"
+            [outerStrokeWidth]="5"
+            [showBackground]="true"
+            [backgroundStroke]="'#000'"
+            [backgroundColor]="'#fff'"
+            [outerStrokeColor]="bigCrumbRingColor"
+            [animation]="true"
+            [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
+            [showUnits]="true"
+            [animationDuration]="500"
+            [responsive]="true"
+            [toFixed]="0"
+            [title]="session.getDietDataBigCrumbCustomType()"
+            [unitsColor]="'#111'"
+            [titleColor]="'#111'"
+            [animateTitle]="true"
+          ></circle-progress>
+        </div>
+      <div class="col-xs-4" style="max-height: 25vh;">
+          <circle-progress
+            [percent]="littleCrumb2CalculatorFunc()"
+            [showSubtitle]="false"
+            [radius]="70"
+            [outerStrokeWidth]="5"
+            [showBackground]="true"
+            [backgroundStroke]="'#000'"
+            [backgroundColor]="'#fff'"
+            [outerStrokeColor]="littleCrumb2RingColor"
+            [animation]="true"
+            [units]="session.getDietDataLittleCrumb2CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb2UserSetValue()"
+            [showUnits]="true"
+            [animationDuration]="500"
+            [responsive]="true"
+            [toFixed]="0"
+            [title]="session.getDietDataLittleCrumb2CustomType()"
+            [unitsColor]="'#000'"
+            [titleColor]="'#000'"
+            [animateTitle]="true"
+          ></circle-progress>
 
-      <div class="col-xs-6 text-center" style="padding-left: 5px; padding-right: 5px; height: 25vh;">
-        <circle-progress
-          [percent]="littleCrumb2CalculatorFunc()"
-          [radius]="100"
-          [outerStrokeWidth]="10"
-          [showBackground]="true"
-          [backgroundStroke]="'#000'"
-          [backgroundColor]="'#fff'"
-          [outerStrokeColor]="littleCrumb2RingColor"
-          [animation]="true"
-          [units]="session.getDietDataLittleCrumb2CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb2UserSetValue()"
-          [showUnits]="true"
-          [animationDuration]="500"
-          [responsive]="true"
-          [toFixed]="0"
-          [title]="session.getDietDataLittleCrumb2CustomType()"
-          [unitsColor]="'#000'"
-          [titleColor]="'#000'"
-          [animateTitle]="true"
-        ></circle-progress>
-
+        </div>
       </div>
-      <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span class="glyphicon glyphicon-plus-sign"></span> Add
+      <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span
+        class="glyphicon glyphicon-plus-sign"></span> Add
 
       </button>
-      <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span class="glyphicon glyphicon-minus-sign"></span>
+      <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span
+        class="glyphicon glyphicon-minus-sign"></span>
         Subtract
       </button>
     </div>
   </div>
 
-</div>
 

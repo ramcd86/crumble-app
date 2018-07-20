@@ -181,6 +181,10 @@ a:hover, a:active {
   padding-right: 0;
   padding-left: 0;
 }
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 .c-label {
   color: #f86f06;
