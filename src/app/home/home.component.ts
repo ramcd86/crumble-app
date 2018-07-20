@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   public subUserDietData: Subscription;
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
+  public averageState = 'about where you should be.';
+  public average: number;
 
 
   // @HostListener('window:resize', ['$event']) onResize(event) {
@@ -40,7 +42,7 @@ export class HomeComponent implements OnInit {
     private session: SessionStorageService,
     private http: HttpServiceCore,
     private dataManager: DataManagerService,
-  private user: UserManagementService
+    private user: UserManagementService
   ) {
     // if (this.user.archiveProcess()) {
     //
@@ -54,12 +56,24 @@ export class HomeComponent implements OnInit {
     this.subUserDietData = this.session.pipeUserDietData().subscribe(
       (res) => {
         this.userDietData = res;
+        this.calcAverageBigCrumb(res.bigCrumbHistory);
+        console.log('history: ', this.userDietData.bigCrumbHistory);
       }
     );
   }
 
   ngOnInit() {
     this.dataManager.setUp();
+  }
+
+  public calcAverageBigCrumb(array) {
+    const average = (this.userDietData.bigCrumbUserSetValue + array[0] + array[1] + array[2] + array[3] + array[4] + array[5]) / 7;
+    if (average > this.userDietData.bigCrumbCustomMaxValue) {
+      this.averageState = 'a bit above where you should be.';
+    } else if (average < this.userDietData.bigCrumbCustomMaxValue) {
+      this.averageState = 'a bit below where you should be.';
+    }
+    this.average = Math.round(average);
   }
 
 }

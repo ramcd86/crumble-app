@@ -65,12 +65,12 @@ export class UserManagementService {
       () => {
         const today = moment().format('L');
         if (this.userDeitData.today !== today) {
-          this.userDeitData.bigCrumbHistory.push(this.userDeitData.bigCrumbUserSetValue);
-          this.userDeitData.littleCrumb1History.push(this.userDeitData.littleCrumb1UserSetValue);
-          this.userDeitData.littleCrumb2History.push(this.userDeitData.littleCrumb2UserSetValue);
-          this.userDeitData.littleCrumb3History.push(this.userDeitData.littleCrumb3UserSetValue);
-          this.userDeitData.littleCrumb4History.push(this.userDeitData.littleCrumb4UserSetValue);
-          this.userDeitData.littleCrumb5History.push(this.userDeitData.littleCrumb5UserSetValue);
+          this.userDeitData.bigCrumbHistory.unshift(this.userDeitData.bigCrumbUserSetValue);
+          this.userDeitData.littleCrumb1History.unshift(this.userDeitData.littleCrumb1UserSetValue);
+          this.userDeitData.littleCrumb2History.unshift(this.userDeitData.littleCrumb2UserSetValue);
+          this.userDeitData.littleCrumb3History.unshift(this.userDeitData.littleCrumb3UserSetValue);
+          this.userDeitData.littleCrumb4History.unshift(this.userDeitData.littleCrumb4UserSetValue);
+          this.userDeitData.littleCrumb5History.unshift(this.userDeitData.littleCrumb5UserSetValue);
           this.userDeitData.bigCrumbUserSetValue = 0;
           this.userDeitData.littleCrumb1UserSetValue = 0;
           this.userDeitData.littleCrumb2UserSetValue = 0;

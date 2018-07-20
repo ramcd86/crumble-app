@@ -8,8 +8,54 @@
     class="big-cell col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
     <div class="row no-gutters">
       <div class="col-md-12 col-sm-12 col-xs-12">
-home
+        <span class=""> Hey <b>{{userDetails.userName}}</b>! Here's what the last 7 recorded days worth of <b>{{userDietData.bigCrumbCustomType}}</b> looks like:</span>
       </div>
     </div>
+
+    <div class="hbar-tight"></div>
+
+    <div class="row no-gutters">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbUserSetValue > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbUserSetValue}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[0] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[0]}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[1] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[1]}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[2] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[2]}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[3] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[3]}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[4] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[4]}}
+        </div>
+        <div class="dataBlock"
+             [class.orange-text]="userDietData.bigCrumbHistory[5] > userDietData.bigCrumbCustomMaxValue">
+          {{userDietData.bigCrumbHistory[5]}}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hbar-tight"></div>
+
+    <div class="row no-gutters">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <span class="">Your average <b>{{userDietData.bigCrumbCustomType}}</b> value over the last 7 recordings is <b>{{average}}</b> which is {{averageState}}</span>
+      </div>
+    </div>
+
+
   </div>
 </div>
