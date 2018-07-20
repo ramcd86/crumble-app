@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 
+
 @Injectable()
 
 export class DataManagerService implements OnInit, OnDestroy {
