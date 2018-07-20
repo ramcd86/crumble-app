@@ -7,6 +7,7 @@ import {IDataBaseIteration} from '../_interfaces/IDataBaseIteration';
 import {ITokenPayload} from '../_interfaces/IUserAuth';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
+import * as moment from 'moment/';
 
 
 @Component({
@@ -178,6 +179,7 @@ export class RegistrationComponent implements OnInit {
 
   public createNewUserDietData(iterationCount: number) {
     this.newUserDietData.userDietDataListId = 'userDietDataListId_' + iterationCount.toString();
+    this.newUserDietData.today = moment().format('L');
     this.newUserDietData.bigCrumbCustom = this.bigCrumbCustom;
     this.newUserDietData.bigCrumbDefault = this.bigCrumbDefault;
     this.newUserDietData.bigCrumbCustomType = this.bigCrumbCustomType.value;

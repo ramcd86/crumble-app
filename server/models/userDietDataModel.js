@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const userDietDataSchema = new Schema(
   {
     userDietDataListId: String,
+    today: String,
     bigCrumbCustom: Boolean,
     bigCrumbCustomType: String,
     bigCrumbCustomMaxValue: Number,

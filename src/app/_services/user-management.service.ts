@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpServiceCore} from './http/http-service-core.service';
-import {SessionStorageService} from '../_store/SessionStorage.service';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserAuth} from '../_interfaces/IUserAuth';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
+import * as moment from 'moment/';
 
 
 @Injectable()
@@ -18,8 +18,7 @@ export class UserManagementService {
   public completeStatus: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    private http: HttpServiceCore,
-    // private session: SessionStorageService
+    private http: HttpServiceCore
   ) {
 
   }
@@ -28,7 +27,7 @@ export class UserManagementService {
     this.completeStatus.next(value);
   }
 
-  public getStatus(): Observable <boolean> {
+  public getStatus(): Observable<boolean> {
     return this.completeStatus.asObservable();
   }
 
@@ -43,13 +42,13 @@ export class UserManagementService {
         console.error(err);
       });
   }
+
   public generateAuthenticationObject(listId: string) {
     const userDetailsListId = 'userDetailsListId_' + listId;
     const userDietDataListId = 'userDietDataListId_' + listId;
     this.http.getUserPersonalDetails(userDetailsListId).subscribe(
       (res: IUserDetails) => {
         this.userDetails = res;
-
       },
       (err) => {
         console.log(err);
@@ -69,8 +68,13 @@ export class UserManagementService {
     );
   }
 
-  public update() {
+  // public archiveProcess(): boolean {
+  //   if (this.userDeitData.today !== moment().format('L')) {
+  //
+  //   }
+  // }
 
+  public update() {
   }
 
   public getUserDietData() {
@@ -96,6 +100,6 @@ export class UserManagementService {
 
   public putUserDetails(data: IUserDetails) {
     this.http.putUserDetails(data);
-}
+  }
 
 }

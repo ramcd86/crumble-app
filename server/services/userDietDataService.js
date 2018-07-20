@@ -32,6 +32,7 @@ function getExistingUserDietData(req, res) {
 function putUserDietData(req, res) {
   const originalUserDietData = {
     userDietDataListId: req.params.userDietDataListId,
+    today: req.params.today,
     bigCrumbCustom: req.body.bigCrumbCustom,
     bigCrumbCustomType: req.body.bigCrumbCustomType,
     bigCrumbCustomMaxValue: req.body.bigCrumbCustomMaxValue,
@@ -66,6 +67,7 @@ function putUserDietData(req, res) {
   UserDietDataModel.findOne({userDietDataListId: originalUserDietData.userDietDataListId}, (error, DietData) => {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, DietData)) return;
+    DietData.today = originalUserDietData.today;
     DietData.bigCrumbCustom = originalUserDietData.bigCrumbCustom;
     DietData.bigCrumbCustomType = originalUserDietData.bigCrumbCustomType;
     DietData.bigCrumbCustomMaxValue = originalUserDietData.bigCrumbCustomMaxValue;
@@ -118,6 +120,7 @@ function deleteUserDietData(req, res) {
 function postUserDietData(req, res) {
   const originalUserDietData = {
     userDietDataListId: req.body.userDietDataListId,
+    today: req.body.today,
     bigCrumbCustom: req.body.bigCrumbCustom,
     bigCrumbCustomType: req.body.bigCrumbCustomType,
     bigCrumbCustomMaxValue: req.body.bigCrumbCustomMaxValue,

@@ -1,5 +1,8 @@
 export interface IUserDietData {
+
   userDietDataListId: string;
+  today: string;
+
   bigCrumbCustom: boolean;
   bigCrumbDefault: number;
   bigCrumbCustomType: string;

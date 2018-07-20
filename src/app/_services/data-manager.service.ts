@@ -5,6 +5,8 @@ import {Subscription} from 'rxjs/Subscription';
 import {IUserDietData} from '../_interfaces/IUserDietData';
 import {IUserDetails} from '../_interfaces/IUserDetails';
 
+// import moment as moment;
+
 
 @Injectable()
 
@@ -28,7 +30,7 @@ export class DataManagerService implements OnInit, OnDestroy {
     this.subscription = this.user.getStatus().subscribe(
       (status) => {
         if (status === true) {
-this.assembler();
+          this.assembler();
         }
       }, (err) => {
         console.log(err);
@@ -40,6 +42,7 @@ this.assembler();
   }
 
   ngOnInit() {
+
   }
 
   ngOnDestroy() {

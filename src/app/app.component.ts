@@ -3,6 +3,7 @@ import {HttpServiceCore} from './_services/http/http-service-core.service';
 import {SessionStorageService} from './_store/SessionStorage.service';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
+import * as moment from 'moment/';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('Moment:', moment().format('L'));
     this.titleService.setTitle('Crumbs');
     if (this.token === null) {
       this.session.setUserPresent(false);
