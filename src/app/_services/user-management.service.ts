@@ -63,16 +63,53 @@ export class UserManagementService {
         console.log(err);
       },
       () => {
-        this.sendStatus(true);
+        const today = moment().format('L');
+        if (this.userDeitData.today !== today) {
+          this.userDeitData.bigCrumbHistory.push(this.userDeitData.bigCrumbUserSetValue);
+          this.userDeitData.littleCrumb1History.push(this.userDeitData.littleCrumb1UserSetValue);
+          this.userDeitData.littleCrumb2History.push(this.userDeitData.littleCrumb2UserSetValue);
+          this.userDeitData.littleCrumb3History.push(this.userDeitData.littleCrumb3UserSetValue);
+          this.userDeitData.littleCrumb4History.push(this.userDeitData.littleCrumb4UserSetValue);
+          this.userDeitData.littleCrumb5History.push(this.userDeitData.littleCrumb5UserSetValue);
+          this.userDeitData.bigCrumbUserSetValue = 0;
+          this.userDeitData.littleCrumb1UserSetValue = 0;
+          this.userDeitData.littleCrumb2UserSetValue = 0;
+          this.userDeitData.littleCrumb3UserSetValue = 0;
+          this.userDeitData.littleCrumb4UserSetValue = 0;
+          this.userDeitData.littleCrumb5UserSetValue = 0;
+          this.userDeitData.today = today;
+          this.putUserDietData(this.userDeitData);
+          this.construct();
+          this.sendStatus(true);
+        } else {
+          this.sendStatus(true);
+        }
       }
     );
   }
 
-  // public archiveProcess(): boolean {
-  //   if (this.userDeitData.today !== moment().format('L')) {
-  //
-  //   }
-  // }
+  public archiveProcess(): boolean {
+    if (this.userDeitData.today !== moment().format('L')) {
+      this.userDeitData.bigCrumbHistory.push(this.userDeitData.bigCrumbUserSetValue);
+      this.userDeitData.littleCrumb1History.push(this.userDeitData.littleCrumb1UserSetValue);
+      this.userDeitData.littleCrumb2History.push(this.userDeitData.littleCrumb2UserSetValue);
+      this.userDeitData.littleCrumb3History.push(this.userDeitData.littleCrumb3UserSetValue);
+      this.userDeitData.littleCrumb4History.push(this.userDeitData.littleCrumb4UserSetValue);
+      this.userDeitData.littleCrumb5History.push(this.userDeitData.littleCrumb5UserSetValue);
+      this.userDeitData.bigCrumbUserSetValue = 0;
+      this.userDeitData.littleCrumb1UserSetValue = 0;
+      this.userDeitData.littleCrumb2UserSetValue = 0;
+      this.userDeitData.littleCrumb3UserSetValue = 0;
+      this.userDeitData.littleCrumb4UserSetValue = 0;
+      this.userDeitData.littleCrumb5UserSetValue = 0;
+      this.putUserDietData(this.userDeitData);
+      this.construct();
+      return true;
+    } else {
+      return false;
+    }
+
+  }
 
   public update() {
   }

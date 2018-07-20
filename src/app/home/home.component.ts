@@ -9,6 +9,7 @@ import {IUserDetails} from '../_interfaces/IUserDetails';
 import {DataManagerService} from '../_services/data-manager.service';
 import {Subscription} from 'rxjs/Subscription';
 import {Session} from 'selenium-webdriver';
+import {UserManagementService} from '../_services/user-management.service';
 
 // import {IUserStore} from '../_store/IUserStore.store';
 
@@ -38,8 +39,12 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private session: SessionStorageService,
     private http: HttpServiceCore,
-    private dataManager: DataManagerService
+    private dataManager: DataManagerService,
+  private user: UserManagementService
   ) {
+    // if (this.user.archiveProcess()) {
+    //
+    // }
     this.subUserDetails = this.session.pipeUserDetails().subscribe(
       (res) => {
         this.userDetails = res;
