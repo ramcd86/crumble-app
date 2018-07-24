@@ -19,7 +19,11 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="bigCrumbCustom" class="c-label">Add {{userDietData.bigCrumbCustomType}}</label>
-              <input id="bigCrumbCustom" type="number" [formControl]="bigCrumb" placeholder="0">
+              <div style="display: block;">
+              <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+              <div class="col-xs-4" style="float: left; clear: none;"><input id="bigCrumbCustom" type="number" [formControl]="bigCrumb" placeholder="0" class="text-center"></div>
+              <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.bigCrumbUserSetValue + bigCrumb.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
