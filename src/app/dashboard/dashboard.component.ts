@@ -8,8 +8,8 @@ import {SessionStorageService} from '../_store/SessionStorage.service';
 })
 export class DashboardComponent implements OnInit {
 
-  @ViewChild('littleCrumb') public littleCrumb: ElementRef;
-  @ViewChild('bigCrumb') public bigCrumb: ElementRef;
+  // @ViewChild('littleCrumb') public littleCrumb: ElementRef;
+  // @ViewChild('bigCrumb') public bigCrumb: ElementRef;
 
   @Input() public dataId: number;
 
@@ -29,6 +29,18 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public extendedDashOptions(): boolean {
+    if (
+      this.session.getDietDataLittleCrumb3Custom() ||
+      this.session.getDietDataLittleCrumb4Custom() ||
+      this.session.getDietDataLittleCrumb5Custom()
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public ringSetter() {

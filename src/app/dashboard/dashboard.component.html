@@ -25,20 +25,14 @@
       <!--<button class="btn" (click)="simpleSetter()"></button>-->
 
     </div>
-    <div class="row no-gutters">
-      <div class="col-md-1 col-sm-0"></div>
-      <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb1" #littleCrumb
-           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+    <div class="row no-gutters center-block text-center">
+      <div class="col-md-1" style="float: left; clear: none;"></div>
+      <div class="col-md-3" id="littleCrumb1" #littleCrumb
+           style="height: 30vh; float: left; clear: none;">
 
-        <!--public getDietDataBigCrumbCustomMaxValue() {-->
-        <!--return this.userDietData.bigCrumbCustomMaxValue;-->
-        <!--}-->
-        <!--public getDietDataBigCrumbUserSetValue() {-->
-        <!--return this.userDietData.bigCrumbUserSetValue;-->
-        <!--}-->
         <circle-progress
           [percent]="littleCrumb1CalculatorFunc()"
-          [radius]="100"
+          [radius]="70"
           [outerStrokeWidth]="10"
           [showBackground]="true"
           [backgroundStroke]="'#000'"
@@ -57,13 +51,13 @@
           [animateTitle]="true"
         ></circle-progress>
       </div>
-      <div class="col-md-4 col-md-offset-1 col-sm-12 center-block text-center" id="outerDashContainer"
-           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+      <div class="col-md-4" id="outerDashContainer"
+           style="height: 30vh; float: left; clear: none;">
 
 
         <circle-progress
           [percent]="bigCrumbCalculatorFunc()"
-          [radius]="100"
+          [radius]="70"
           [outerStrokeWidth]="10"
           [showSubtitle]="false"
           [showBackground]="true"
@@ -82,11 +76,11 @@
           [animateTitle]="true"
         ></circle-progress>
       </div>
-      <div class="col-md-3 col-sm-12 center-block text-center" id="littleCrumb2"
-           style="height: 50vh; padding-top: 20px; padding-bottom: 20px;">
+      <div class="col-md-3" id="littleCrumb2"
+           style="height: 30vh; float: left; clear: none;">
         <circle-progress
           [percent]="littleCrumb2CalculatorFunc()"
-          [radius]="100"
+          [radius]="70"
           [outerStrokeWidth]="10"
           [showSubtitle]="false"
           [showBackground]="true"
@@ -107,6 +101,80 @@
       </div>
     </div>
 
+
+    <div *ngIf="extendedDashOptions()" class="row no-gutters" style="padding-bottom: 20px;">
+      <div class="col-md-1"></div>
+      <div *ngIf="session.getDietDataLittleCrumb3Custom()" class="col-md-3" id="littleCrumb3" #littleCrumb
+           style="height: 30vh; float: left; clear: none;">
+        <circle-progress
+          [percent]="littleCrumb3CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb3CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb3UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb3CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
+      <div *ngIf="session.getDietDataLittleCrumb4Custom()" class="col-md-4" id="littleCrumb4"
+           style="height: 30vh; float: left; clear: none;">
+        <circle-progress
+          [percent]="littleCrumb4CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb4CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb4UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb4CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
+      <div *ngIf="session.getDietDataLittleCrumb5Custom()" class="col-md-3" id="littleCrumb5"
+           style="height: 30vh; float: left; clear: none;">
+        <circle-progress
+          [percent]="littleCrumb5CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="10"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb5CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb5UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb5CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
+    </div>
+
     <div class="row no-gutters">
       <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
         <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span
@@ -120,20 +188,15 @@
       </div>
     </div>
   </div>
-  <!--<input type="text" [(ngModel)]="userSyns" (ngModelChange)="calculatorFunc()">-->
 
 
   <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ringroad mobdash">
-
-
     <div class="row no-gutters">
       <div class="row no-gutters">
         <div class="col-md-12 text-right white-text" role="button" (click)="toggle()"><span
           class="glyphicon glyphicon-upload"></span> Hide Dashboard
         </div>
       </div>
-
-
     </div>
     <div class="row no-gutters col-xs-12 col-xs nopadding">
       <div class="col-xs-4" style="max-height: 25vh;">
@@ -159,60 +222,130 @@
         ></circle-progress>
       </div>
       <div class="col-xs-4" style="max-height: 25vh;">
-          <circle-progress
-            [percent]="bigCrumbCalculatorFunc()"
-            [showSubtitle]="false"
-            [radius]="70"
-            [outerStrokeWidth]="5"
-            [showBackground]="true"
-            [backgroundStroke]="'#000'"
-            [backgroundColor]="'#fff'"
-            [outerStrokeColor]="bigCrumbRingColor"
-            [animation]="true"
-            [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
-            [showUnits]="true"
-            [animationDuration]="500"
-            [responsive]="true"
-            [toFixed]="0"
-            [title]="session.getDietDataBigCrumbCustomType()"
-            [unitsColor]="'#111'"
-            [titleColor]="'#111'"
-            [animateTitle]="true"
-          ></circle-progress>
-        </div>
-      <div class="col-xs-4" style="max-height: 25vh;">
-          <circle-progress
-            [percent]="littleCrumb2CalculatorFunc()"
-            [showSubtitle]="false"
-            [radius]="70"
-            [outerStrokeWidth]="5"
-            [showBackground]="true"
-            [backgroundStroke]="'#000'"
-            [backgroundColor]="'#fff'"
-            [outerStrokeColor]="littleCrumb2RingColor"
-            [animation]="true"
-            [units]="session.getDietDataLittleCrumb2CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb2UserSetValue()"
-            [showUnits]="true"
-            [animationDuration]="500"
-            [responsive]="true"
-            [toFixed]="0"
-            [title]="session.getDietDataLittleCrumb2CustomType()"
-            [unitsColor]="'#000'"
-            [titleColor]="'#000'"
-            [animateTitle]="true"
-          ></circle-progress>
-
-        </div>
+        <circle-progress
+          [percent]="bigCrumbCalculatorFunc()"
+          [showSubtitle]="false"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [outerStrokeColor]="bigCrumbRingColor"
+          [animation]="true"
+          [units]="session.getDietDataBigCrumbCustomMaxValue() + ' / ' + session.getDietDataBigCrumbUserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataBigCrumbCustomType()"
+          [unitsColor]="'#111'"
+          [titleColor]="'#111'"
+          [animateTitle]="true"
+        ></circle-progress>
       </div>
-      <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span
-        class="glyphicon glyphicon-plus-sign"></span> Add
-
-      </button>
-      <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span
-        class="glyphicon glyphicon-minus-sign"></span>
-        Subtract
-      </button>
+      <div class="col-xs-4" style="max-height: 25vh;">
+        <circle-progress
+          [percent]="littleCrumb2CalculatorFunc()"
+          [showSubtitle]="false"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [outerStrokeColor]="littleCrumb2RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb2CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb2UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb2CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
     </div>
+    <div *ngIf="extendedDashOptions()" class="row no-gutters col-xs-12 col-xs nopadding">
+      <div *ngIf="session.getDietDataLittleCrumb3Custom()" class="col-xs-4" style="max-height: 25vh;">
+        <circle-progress
+          [percent]="littleCrumb3CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb3CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb3UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb3CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
+      <div *ngIf="session.getDietDataLittleCrumb4Custom()" class="col-xs-4" style="max-height: 25vh;">
+        <circle-progress
+          [percent]="littleCrumb4CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb4CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb4UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb4CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+      </div>
+      <div *ngIf="session.getDietDataLittleCrumb5Custom()" class="col-xs-4" style="max-height: 25vh;">
+        <circle-progress
+          [percent]="littleCrumb5CalculatorFunc()"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [showBackground]="true"
+          [backgroundStroke]="'#000'"
+          [backgroundColor]="'#fff'"
+          [showSubtitle]="false"
+          [outerStrokeColor]="littleCrumb1RingColor"
+          [animation]="true"
+          [units]="session.getDietDataLittleCrumb5CustomMaxValue() + ' / ' + session.getDietDataLittleCrumb5UserSetValue()"
+          [showUnits]="true"
+          [animationDuration]="500"
+          [responsive]="true"
+          [toFixed]="0"
+          [title]="session.getDietDataLittleCrumb5CustomType()"
+          [unitsColor]="'#000'"
+          [titleColor]="'#000'"
+          [animateTitle]="true"
+        ></circle-progress>
+
+      </div>
+    </div>
+
+
+    <button class="btn btn-state-green btn-block btn-custom" (click)="modalToggle('add')"><span
+      class="glyphicon glyphicon-plus-sign"></span> Add
+
+    </button>
+    <button class="btn btn-state-rust btn-block btn-custom" (click)="modalToggle('subtract')"><span
+      class="glyphicon glyphicon-minus-sign"></span>
+      Subtract
+    </button>
   </div>
+</div>
 
 

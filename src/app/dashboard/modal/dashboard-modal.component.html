@@ -31,7 +31,14 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb1Custom" class="c-label">Add {{userDietData.littleCrumb1CustomType}}</label>
-              <input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0">
+              <!--<input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0">-->
+
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb1UserSetValue + littleCrumb1.value" class="text-center"></div>
+              </div>
+
             </div>
           </div>
 
@@ -39,7 +46,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb2Custom" class="c-label">Add {{userDietData.littleCrumb2CustomType}}</label>
-              <input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0">
+              <!--<input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb2UserSetValue + littleCrumb2.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -47,7 +59,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb3Custom" class="c-label">Add {{userDietData.littleCrumb3CustomType}}</label>
-              <input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0">
+              <!--<input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb3UserSetValue + littleCrumb3.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -55,15 +72,26 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb4Custom" class="c-label">Add {{userDietData.littleCrumb4CustomType}}</label>
-              <input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4" placeholder="0">
+              <!--<input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb4Custom" type="number" [formControl]="littleCrumb4" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb4UserSetValue + littleCrumb4.value" class="text-center"></div>
+              </div>
             </div>
+
           </div>
 
           <div class="row" *ngIf="userDietData.littleCrumb5Custom === true">
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb5Custom" class="c-label">Add {{userDietData.littleCrumb5CustomType}}</label>
-              <input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5" placeholder="0">
+              <!--<input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" + " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb5Custom" type="number" [formControl]="littleCrumb5" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb5UserSetValue + littleCrumb5.value" class="text-center"></div>
+              </div>
             </div>
           </div>
           <div class="hbar"></div>
@@ -123,7 +151,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="bigCrumbCustom" class="c-label">Remove {{userDietData.bigCrumbCustomType}}</label>
-              <input id="bigCrumbCustom" type="number" [formControl]="bigCrumb" placeholder="0">
+              <!--<input id="bigCrumbCustom" type="number" [formControl]="bigCrumb" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="bigCrumbCustom" type="number" [formControl]="bigCrumb" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.bigCrumbUserSetValue - bigCrumb.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -131,7 +164,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb1Custom" class="c-label">Remove {{userDietData.littleCrumb1CustomType}}</label>
-              <input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0">
+              <!--<input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb1Custom" type="number" [formControl]="littleCrumb1" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb1UserSetValue - littleCrumb1.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -139,7 +177,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb2Custom" class="c-label">Remove {{userDietData.littleCrumb2CustomType}}</label>
-              <input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0">
+              <!--<input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb2Custom" type="number" [formControl]="littleCrumb2" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb2UserSetValue - littleCrumb2.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -147,7 +190,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb3Custom" class="c-label">Remove {{userDietData.littleCrumb3CustomType}}</label>
-              <input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0">
+              <!--<input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb3Custom" type="number" [formControl]="littleCrumb3" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb3UserSetValue - littleCrumb3.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -155,7 +203,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb4Custom" class="c-label">Remove {{userDietData.littleCrumb4CustomType}}</label>
-              <input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4" placeholder="0">
+              <!--<input id="littleCrumb4Custom" type="number"  [formControl]="littleCrumb4" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb4Custom" type="number" [formControl]="littleCrumb4" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb4UserSetValue - littleCrumb4.value" class="text-center"></div>
+              </div>
             </div>
           </div>
 
@@ -163,7 +216,12 @@
             <div
               class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <label for="littleCrumb5Custom" class="c-label">Remove {{userDietData.littleCrumb5CustomType}}</label>
-              <input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5" placeholder="0">
+              <!--<input id="littleCrumb5Custom" type="number"  [formControl]="littleCrumb5" placeholder="0">-->
+              <div style="display: block;">
+                <div class="col-xs-4"><input type="text" disabled readonly value=" - " class="text-center" style="color: #f86f06; font-weight: 900;"></div>
+                <div class="col-xs-4" style="float: left; clear: none;"><input id="littleCrumb5Custom" type="number" [formControl]="littleCrumb5" placeholder="0" class="text-center"></div>
+                <div class="col-xs-4"><input type="text"  disabled readonly [value]="userDietData.littleCrumb5UserSetValue - littleCrumb5.value" class="text-center"></div>
+              </div>
             </div>
           </div>
           <div class="hbar"></div>
