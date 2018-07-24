@@ -129,6 +129,8 @@ input[type=password]:focus {
    background-color: #FFFFFF;
    margin-left: 1%;
    margin-right: 1%;
+  margin-bottom: 5px;
+  margin-top: 5px;
    box-sizing: border-box;
    padding: 5px;
    text-align: center;
@@ -137,13 +139,15 @@ input[type=password]:focus {
    display: inline;
    float: left;
    clear: none;
+  border-bottom: #CCCCCC 2px solid;
  }
 
 .miniBlock {
-
   background-color: #FFFFFF;
   margin-left: 1%;
   margin-right: 1%;
+  margin-bottom: 5px;
+  margin-top: 5px;
   box-sizing: border-box;
   padding: 5px;
   text-align: center;
@@ -152,6 +156,7 @@ input[type=password]:focus {
   display: inline;
   float: left;
   clear: none;
+  border-bottom: #CCCCCC 2px solid;
 }
 
 .white-text {
