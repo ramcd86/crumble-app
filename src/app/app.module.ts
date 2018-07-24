@@ -27,6 +27,7 @@ import {UserManagementService} from './_services/user-management.service';
 // import {UserManagementService} from './_services/user-management.service';
 import {DashboardModalComponent} from './dashboard/modal/dashboard-modal.component';
 import {DataManagerService} from './_services/data-manager.service';
+import {FooterComponent} from './footer/footer.component';
 
 
 
@@ -39,7 +40,8 @@ import {DataManagerService} from './_services/data-manager.service';
     DietLogComponent,
     DietStatisticsComponent,
     LoginComponent,
-    DashboardModalComponent
+    DashboardModalComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,
