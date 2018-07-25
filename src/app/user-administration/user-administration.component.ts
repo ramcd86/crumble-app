@@ -13,38 +13,21 @@ import {IUserDietData} from '../_interfaces/IUserDietData';
 })
 export class UserAdministrationComponent implements OnInit, OnDestroy {
 
-  public subUserDetails: Subscription;
-  public subUserDietData: Subscription;
   public userDetails = <IUserDetails>{};
   public userDietData = <IUserDietData>{};
 
   constructor(
     private session: SessionStorageService,
-    // private dataManager: DataManagerService,
-    // private user: UserManagementService,
-    private titleService: Title
   ) {
-    this.subUserDetails = this.session.pipeUserDetails().subscribe(
-      (res) => {
-        this.userDetails = res;
-        this.titleService.setTitle(`Crumbs - ${res.userName}.`);
-        console.log(this.userDetails.userName);
-      }
-    );
-    this.subUserDietData = this.session.pipeUserDietData().subscribe(
-      (res) => {
-        this.userDietData = res;
-      }
-    );
+
   }
 
   ngOnInit() {
-
+    this.userDetails = this.session.getUserDetails();
+    this.userDietData = this.session.getDietData();
   }
 
   ngOnDestroy() {
-    this.subUserDetails.unsubscribe();
-    this.subUserDetails.unsubscribe();
   }
 
 }
