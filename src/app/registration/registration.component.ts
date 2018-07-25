@@ -36,6 +36,7 @@ export class RegistrationComponent implements OnInit {
   public height: FormControl = new FormControl(null, [Validators.required, Validators.max(999)]);
   public age: FormControl = new FormControl(null, [Validators.required, Validators.max(120)]);
   public weightHistory = [];
+  public blog = [moment().format('L') + '_@_You joined crumbs today! What a day!'];
   public bigCrumbCustom = true;
   public bigCrumbCustomType: FormControl = new FormControl(null, [Validators.required]);
   public bigCrumbCustomMaxValue: FormControl = new FormControl(null, [Validators.required, Validators.max(99999)]);
@@ -158,10 +159,13 @@ export class RegistrationComponent implements OnInit {
   public createNewUserDetails(iterationCount: number) {
     this.newUserDetails.userDetailsListId = 'userDetailsListId_' + iterationCount.toString();
     this.newUserDetails.userName = this.userName.value;
+    this.newUserDetails.email = this.userEmail.value;
     this.newUserDetails.startingWeight = this.startingWeight.value;
     this.newUserDetails.weightHistory = this.weightHistory;
+    this.newUserDetails.currentWeight = this.startingWeight.value;
     this.newUserDetails.height = this.height.value;
     this.newUserDetails.age = this.age.value;
+    this.newUserDetails.blog = this.blog;
     this.http.postNewUserDetails(this.newUserDetails).subscribe(
       (res) => {
         console.log(res);

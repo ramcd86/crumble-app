@@ -40,7 +40,8 @@ function putUserDetails(req, res) {
     currentWeight: req.body.currentWeight,
     weightHistory: req.body.weightHistory,
     height: req.body.height,
-    age: req.body.age
+    age: req.body.age,
+    blog: req.body.blog
   };
   UserDetailsModel.findOne({userDetailsListId: originalUserDetails.userDetailsListId}, (error, details) => {
     if (checkServerError(res, error)) return;
@@ -54,6 +55,7 @@ function putUserDetails(req, res) {
     details.weightHistory = originalUserDetails.weightHistory;
     details.height = originalUserDetails.height;
     details.age = originalUserDetails.age;
+    details.blog = originalUserDetails.blog;
     details.save(error => {
       if (checkServerError(res, error)) return;
       res.status(200).json(UserDetailsModel);
@@ -77,14 +79,13 @@ function postUserDetails(req, res) {
   const originalUserDetails = {
     userDetailsListId: req.body.userDetailsListId,
     email: req.body.email,
-    // firstName: req.body.firstName,
-    // lastName: req.body.lastName,
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,
     weightHistory: req.body.weightHistory,
     height: req.body.height,
-    age: req.body.age
+    age: req.body.age,
+    blog: req.body.blog
   };
   const newDetails = new UserDetailsModel(originalUserDetails);
   newDetails.save(error => {

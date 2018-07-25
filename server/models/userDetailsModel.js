@@ -4,14 +4,13 @@ const userDetailsSchema = new Schema(
   {
     userDetailsListId: String,
     email: String,
-    // firstName: String,
-    // lastName: String,
     userName: String,
     startingWeight: Number,
     currentWeight: Number,
     weightHistory: Array,
     height: String,
-    age: Number
+    age: Number,
+    blog: Array
   }, {
     collection: 'dbCollection',
     read: 'nearest'

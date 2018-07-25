@@ -155,9 +155,15 @@ export class SessionStorageService {
     return this.userDetails.age;
   }
 
+  public getBlog() {
+    return this.userDetails.blog;
+  }
+
   public getUserDetails() {
     return this.userDetails;
   }
+
+
 
 // Expose diet data.
   public getDietDataId() {

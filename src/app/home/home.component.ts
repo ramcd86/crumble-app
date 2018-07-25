@@ -48,13 +48,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       (res) => {
         this.userDetails = res;
         this.titleService.setTitle(`Crumbs - ${res.userName}.`);
+        console.log('userDetails: ', this.userDetails);
       }
     );
     this.subUserDietData = this.session.pipeUserDietData().subscribe(
       (res) => {
         this.userDietData = res;
         this.calcAverageBigCrumb(res.bigCrumbHistory);
-        console.log('history: ', this.userDietData.bigCrumbHistory);
+        console.log('userDietData: ', this.userDietData);
       }
     );
   }
