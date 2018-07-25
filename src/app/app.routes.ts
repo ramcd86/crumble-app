@@ -13,6 +13,7 @@ import {RegistrationComponent} from './registration/registration.component';
 export const crumbsRoutes: Routes = [
   {path: '', component: AppComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'profile', component: UserAdministrationComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'home', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent},

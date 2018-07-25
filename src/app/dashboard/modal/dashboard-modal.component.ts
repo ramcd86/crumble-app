@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {IUserDetails} from '../../_interfaces/IUserDetails';
 import {IUserDietData} from '../../_interfaces/IUserDietData';
 import {Subscription} from 'rxjs/Subscription';
@@ -11,7 +11,7 @@ import {DataManagerService} from '../../_services/data-manager.service';
   selector: 'app-dashboard-modal',
   templateUrl: './dashboard-modal.component.html'
 })
-export class DashboardModalComponent implements OnInit {
+export class DashboardModalComponent implements OnInit, OnDestroy {
 
   @Input() public showWindow = false;
   @Input() public modalWindowType: string;
@@ -47,7 +47,11 @@ export class DashboardModalComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
 
+  ngOnDestroy() {
+    this.subUserDetails.unsubscribe();
+    this.subUserDetails.unsubscribe();
   }
 
   public addPoints() {

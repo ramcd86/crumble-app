@@ -11,7 +11,6 @@ import {HttpServiceCore} from './_services/http/http-service-core.service';
 
 // Core Modules
 import {SystemAdministrationModule} from './system-administration/system-administration.module';
-import {UserAdministrationModule} from './user-administration/user-administration.module';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 
 // Routes
@@ -24,11 +23,10 @@ import {SessionStorageService} from './_store/SessionStorage.service';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {UserManagementService} from './_services/user-management.service';
-// import {UserManagementService} from './_services/user-management.service';
 import {DashboardModalComponent} from './dashboard/modal/dashboard-modal.component';
 import {DataManagerService} from './_services/data-manager.service';
 import {FooterComponent} from './footer/footer.component';
-
+import {UserAdministrationComponent} from './user-administration/user-administration.component';
 
 
 @NgModule({
@@ -41,7 +39,8 @@ import {FooterComponent} from './footer/footer.component';
     DietStatisticsComponent,
     LoginComponent,
     DashboardModalComponent,
-    FooterComponent
+    FooterComponent,
+    UserAdministrationComponent
   ],
   imports: [
     HttpClientModule,
@@ -49,7 +48,6 @@ import {FooterComponent} from './footer/footer.component';
     BrowserModule,
     ReactiveFormsModule,
     SystemAdministrationModule,
-    UserAdministrationModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
       outerStrokeWidth: 16,

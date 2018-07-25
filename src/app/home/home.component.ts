@@ -1,4 +1,4 @@
-import {Component, OnInit, HostListener} from '@angular/core';
+import {Component, OnInit, HostListener, OnDestroy} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {SessionStorageService} from '../_store/SessionStorage.service';
@@ -18,7 +18,7 @@ import {UserManagementService} from '../_services/user-management.service';
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
 
   public dataId: number;
@@ -44,9 +44,6 @@ export class HomeComponent implements OnInit {
     private dataManager: DataManagerService,
     private user: UserManagementService
   ) {
-    // if (this.user.archiveProcess()) {
-    //
-    // }
     this.subUserDetails = this.session.pipeUserDetails().subscribe(
       (res) => {
         this.userDetails = res;
@@ -64,6 +61,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.dataManager.setUp();
+  }
+
+  ngOnDestroy() {
+    this.subUserDetails.unsubscribe();
+    this.subUserDetails.unsubscribe();
   }
 
   public calcAverageBigCrumb(array) {
