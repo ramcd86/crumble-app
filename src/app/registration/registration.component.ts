@@ -165,6 +165,8 @@ export class RegistrationComponent implements OnInit {
     this.newUserDetails.currentWeight = this.startingWeight.value;
     this.newUserDetails.height = this.height.value;
     this.newUserDetails.age = this.age.value;
+    this.newUserDetails.today = moment().format('L');
+    this.newUserDetails.blogToday = '';
     this.newUserDetails.blog = this.blog;
     this.http.postNewUserDetails(this.newUserDetails).subscribe(
       (res) => {

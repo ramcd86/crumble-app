@@ -10,6 +10,8 @@ const userDetailsSchema = new Schema(
     weightHistory: Array,
     height: String,
     age: Number,
+    today: String,
+    blogToday: String,
     blog: Array
   }, {
     collection: 'dbCollection',

@@ -33,28 +33,28 @@ function putUserDetails(req, res) {
   const originalUserDetails = {
     userDetailsListId: req.params.userDetailsListId,
     email: req.body.email,
-    // firstName: req.body.firstName,
-    // lastName: req.body.lastName,
     userName: req.body.userName,
     startingWeight: req.body.startingWeight,
     currentWeight: req.body.currentWeight,
     weightHistory: req.body.weightHistory,
     height: req.body.height,
     age: req.body.age,
+    today: req.body.today,
+    blogToday: req.body.blogToday,
     blog: req.body.blog
   };
   UserDetailsModel.findOne({userDetailsListId: originalUserDetails.userDetailsListId}, (error, details) => {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, details)) return;
     details.email = originalUserDetails.email;
-    // details.firstName = originalUserDetails.firstName;
-    // details.lastName = originalUserDetails.lastName;
     details.userName = originalUserDetails.userName;
     details.startingWeight = originalUserDetails.startingWeight;
     details.currentWeight = originalUserDetails.currentWeight;
     details.weightHistory = originalUserDetails.weightHistory;
     details.height = originalUserDetails.height;
     details.age = originalUserDetails.age;
+    details.today = originalUserDetails.today;
+    details.blogToday = originalUserDetails.blogToday;
     details.blog = originalUserDetails.blog;
     details.save(error => {
       if (checkServerError(res, error)) return;
@@ -85,6 +85,8 @@ function postUserDetails(req, res) {
     weightHistory: req.body.weightHistory,
     height: req.body.height,
     age: req.body.age,
+    today: req.body.today,
+    blogToday: req.body.blogToday,
     blog: req.body.blog
   };
   const newDetails = new UserDetailsModel(originalUserDetails);

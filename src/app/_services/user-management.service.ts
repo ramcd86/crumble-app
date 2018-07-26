@@ -52,6 +52,18 @@ export class UserManagementService {
       },
       (err) => {
         console.log(err);
+      },
+      () => {
+        const today = moment().format('L');
+        if (this.userDetails.today !== today) {
+          this.userDetails.blog.unshift(this.userDetails.blog);
+          this.userDetails.blogToday = '';
+          this.putUserDetails(this.userDetails);
+          this.construct();
+          this.sendStatus(true);
+        } else {
+          this.sendStatus(true);
+        }
       }
     );
     this.http.getUserDietData(userDietDataListId).subscribe(

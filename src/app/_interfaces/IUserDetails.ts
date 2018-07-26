@@ -7,5 +7,7 @@ export interface IUserDetails {
   weightHistory: Array<any>;
   height: string;
   age: number;
+  today: string;
+  blogToday: string;
   blog: Array<any>;
 }
