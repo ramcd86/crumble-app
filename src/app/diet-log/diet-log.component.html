@@ -8,7 +8,13 @@
         </div>
       </div>
       <div class="hbar"></div>
-    <span>Diet Log</span>
+
+      <div class="row no-gutters" *ngFor="let blog of userDetails.blog">
+        <div class="col-md-12 col-sm-12 col-xs-12 center-block text-center">
+          <input type="textarea" value="{{blog}}" readonly>
+        </div>
+      </div>
+
   </div>
 </div>
 <app-footer></app-footer>
