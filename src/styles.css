@@ -158,6 +158,21 @@ input[type=password]:focus {
   clear: none;
   border-bottom: #CCCCCC 2px solid;
 }
+.contentBlock {
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  color: #111;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  clear: none;
+}
 
 .white-text {
   color: #FFF;

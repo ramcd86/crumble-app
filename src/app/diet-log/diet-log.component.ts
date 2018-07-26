@@ -27,7 +27,7 @@ export class DietLogComponent implements OnInit {
   }
 
   public splitBlog() {
-    let holderArray = this.array;
+    const holderArray = this.array;
     for (let i = 0; i < holderArray.length; i ++) {
     let splitArray = [];
     splitArray = holderArray[i].split('_@_');
