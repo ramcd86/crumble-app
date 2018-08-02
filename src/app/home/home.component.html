@@ -24,31 +24,31 @@
 
       <div class="row no-gutters" style="padding-top: 10px; padding-bottom: 10px;">
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="dataBlock" style="background-color: #f8d1af"
+          <div class="dataBlock" style="background-color: #f8d1af" *ngIf="userDietData.bigCrumbUserSetValue"
                [class.orange-text]="userDietData.bigCrumbUserSetValue > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbUserSetValue}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[0]"
                [class.orange-text]="userDietData.bigCrumbHistory[0] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[0]}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[1]"
                [class.orange-text]="userDietData.bigCrumbHistory[1] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[1]}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[2]"
                [class.orange-text]="userDietData.bigCrumbHistory[2] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[2]}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[3]"
                [class.orange-text]="userDietData.bigCrumbHistory[3] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[3]}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[4]"
                [class.orange-text]="userDietData.bigCrumbHistory[4] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[4]}}
           </div>
-          <div class="dataBlock"
+          <div class="dataBlock" *ngIf="userDietData.bigCrumbHistory[5]"
                [class.orange-text]="userDietData.bigCrumbHistory[5] > userDietData.bigCrumbCustomMaxValue">
             {{userDietData.bigCrumbHistory[5]}}
           </div>
@@ -57,11 +57,11 @@
       </div>
 
 
-      <div class="row no-gutters">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <span class="">Your average <b>{{userDietData.bigCrumbCustomType}}</b> value over the last 7 recordings is <b>{{average}}</b> which is {{averageState}}</span>
-        </div>
-      </div>
+      <!--<div class="row no-gutters">-->
+        <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
+          <!--<span class="">Your average <b>{{userDietData.bigCrumbCustomType}}</b> value over the last 7 recordings is <b>{{average}}</b> which is {{averageState}}</span>-->
+        <!--</div>-->
+      <!--</div>-->
       <div class="hbar"></div>
     </div>
   </div>

@@ -10,6 +10,7 @@ import {DataManagerService} from '../_services/data-manager.service';
 import {Subscription} from 'rxjs/Subscription';
 import {Session} from 'selenium-webdriver';
 import {UserManagementService} from '../_services/user-management.service';
+import {isNullOrUndefined} from 'util';
 
 // import {IUserStore} from '../_store/IUserStore.store';
 
@@ -70,6 +71,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public calcAverageBigCrumb(array) {
+    if (isNullOrUndefined(array)) {
+      array = [0, 0, 0, 0, 0, 0];
+    }
     const average = (this.userDietData.bigCrumbUserSetValue + array[0] + array[1] + array[2] + array[3] + array[4] + array[5]) / 7;
     if (average > this.userDietData.bigCrumbCustomMaxValue) {
       this.averageState = 'a bit above where you should be.';
